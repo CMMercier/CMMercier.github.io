@@ -203,7 +203,8 @@ to google and did a quick search for its location.</p>
 <h5 id="bonus-payload">Bonus Payload</h5>
 <p>Category: XSS</p>
 <p>This challenge is as simple as adding the provided payload to the search function.</p>
-<p>You successfully solved a challenge: Bonus Payload (Use the bonus payload <code>&lt;iframe width=&quot;100%&quot; height=&quot;166&quot; scrolling=&quot;no&quot; frameborder=&quot;no&quot; allow=&quot;autoplay&quot; src=&quot;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/771984076&amp;color=%23ff5500&amp;auto_play=true&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&quot;&gt;&lt;/iframe&gt;</code> in the DOM XSS challenge.)</p>
+<p>You successfully solved a challenge: Bonus Payload (Use the bonus payload
+<code>&lt;iframe width=&quot;100%&quot; height=&quot;166&quot; scrolling=&quot;no&quot; frameborder=&quot;no&quot; allow=&quot;autoplay&quot;  src=&quot;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/771984076&amp;color=%23ff5500&amp;auto_play=true&amp;hide_related=false&amp;show _comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&quot;&gt;&lt;/iframe&gt;</code> in the DOM XSS challenge.)</p>
 <p>Link to learning about preventing DOM based XSS:
 <a href="https://cheatsheetseries.owasp.org/cheatsheets/DOM_based_XSS_Prevention_Cheat_Sheet.html">https://cheatsheetseries.owasp.org/cheatsheets/DOM_based_XSS_Prevention_Cheat_Sheet.html</a></p>
 <h5 id="bully-chatbot">Bully Chatbot</h5>
@@ -230,10 +231,10 @@ window to gete a legal.md document. I opened up burp suite and intercepted this 
 <h5 id="dom-xss">DOM XSS</h5>
 <p>Category: XSS</p>
 <blockquote>
-<p>Perform a DOM XSS attack with <code>&lt;iframe src=&quot;javascript:alert(`xss`)&quot;&gt;</code>.</p>
+<p>Perform a DOM XSS attack with <code>&lt;iframe src=&quot;javascript:alert(</code>xss<code>)&quot;&gt;</code>.</p>
 </blockquote>
 <p>This is another task where I was able to simply just copy the script provided and paste it into the search function to complete this challenge.</p>
-<p>You successfully solved a challenge: DOM XSS (Perform a DOM XSS attack with <code>&lt;iframe src=&quot;javascript:alert(`xss`)&quot;&gt;</code>.)</p>
+<p>You successfully solved a challenge: DOM XSS (Perform a DOM XSS attack with <code>&lt;iframe src=&quot;javascript:alert(</code>xss<code>)&quot;&gt;</code>.)</p>
 <p>To learn how to provent this attack please visit <a href="https://cheatsheetseries.owasp.org/cheatsheets/DOM_based_XSS_Prevention_Cheat_Sheet.html">https://cheatsheetseries.owasp.org/cheatsheets/DOM_based_XSS_Prevention_Cheat_Sheet.html</a>.</p>
 <h5 id="error-handling">Error Handling</h5>
 <p>Category:  Security Misconfiguration</p>
@@ -309,6 +310,28 @@ as simple as intercepting the request in burp and changing the rating to 0.</p>
 <p><img src="/images/posts/owasp/feedback.png" alt="burp request"></p>
 <p>You successfully solved a challenge: Zero Stars (Give a devastating zero-star feedback to the store.)</p>
 <h3 id="2--challenges">2 * Challenges</h3>
+<h5 id="admin-section">Admin Section</h5>
+<p>Category:  Broken Access Control</p>
+<blockquote>
+<p>Access the administration section of the store.</p>
+</blockquote>
+<p>The quick and easy first check was to try to guess the admin page location. I tried <a href="https://exampleapp.herokuapp.com/#/admin">https://exampleapp.herokuapp.com/#/admin</a> but no luck there so I
+tried administration instead and got a 403 You are not allowed to access this page!. Also turns out you can find this path from the main.js as well
+if guessing failed.</p>
+<p>I have found the page but I still need to login as the administrator to complete this challege. Going to the login page I see that we need the
+administrators email not username to login. So I go back and look through the shop looking for the complete email address somewhere or at least an
+@email to just have to guess the name.</p>
+<p>On the review for the product Apple Juice contains a review from the admin themselves!</p>
+<p><code>admin@juice-sh.op</code></p>
+<p>The category for this challenge is injection but theres another challenge to log in without using injection so its time to brute force the login
+page instead and complete both challenges in one go. I first attempted this with hydra but soon discovered that hydra is does not work because this
+is a client-side AngularJS route. So its time to try with burp! I captured the request and sent it over to intruder. I set the position to the
+password and on payload options I loaded a smaller file from seclist called best1050.txt as I only have the free version of burp and it doesnt load
+rockyou. Running this attack on the free version is a bit slow but it works and I get the password.</p>
+<p><img src="/images/posts/owasp/adminburp.png" alt="burp request"></p>
+<p>This completes two challeges:</p>
+<p>You successfully solved a challenge: Login Admin (Log in with the administrator&rsquo;s user account.)</p>
+<p>You successfully solved a challenge: Password Strength (Log in with the administrator&rsquo;s user credentials without previously changing them or applying SQL Injection.)</p>
 
         </div>
 
@@ -388,7 +411,15 @@ as simple as intercepting the request in burp and changing the rating to 0.</p>
             </li>
           </ul>
         </li>
-        <li><a href="#2--challenges">2 * Challenges</a></li>
+        <li><a href="#2--challenges">2 * Challenges</a>
+          <ul>
+            <li>
+              <ul>
+                <li><a href="#admin-section">Admin Section</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
       </ul>
     </li>
   </ul>
