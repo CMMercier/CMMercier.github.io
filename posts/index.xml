@@ -6,7 +6,7 @@
     <description>Recent content in Posts on Crystal Mercier</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 19 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 21 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Resultados de Búsqueda</title>
       <link>/search/</link>
@@ -177,6 +177,15 @@ Initial setup Search depends on additional output content type of JSON in config
     </item>
     
     <item>
+      <title>OWASP Mutillidae II Walkthrough</title>
+      <link>/posts/owasp-mutillidae-ii/</link>
+      <pubDate>Tue, 21 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/owasp-mutillidae-ii/</guid>
+      <description>~Coming Soon~ </description>
+    </item>
+    
+    <item>
       <title>OWASP Juice Shop Walkthrough</title>
       <link>/posts/owasp-juice-shop-walkthrough/</link>
       <pubDate>Sun, 19 Sep 2021 00:00:00 +0000</pubDate>
@@ -185,6 +194,15 @@ Initial setup Search depends on additional output content type of JSON in config
       <description>Setup For this I visted https://elements.heroku.com/buttons/bkimminich/juice-shop and looked through the many options to get my own personal instance of Juice Shop setup. The first option, Deploy on Heroku for free, caught my eye. For this I simply had to:
  Sign up to Heroku and log in. Click the provided deploy button.  This really is the fastest and simplist way to get setup, and its free!
 After I clicked deploy I had to give the app a name and wait for it to build.</description>
+    </item>
+    
+    <item>
+      <title>How to build your own Hugo Website and host it for free on Github Pages</title>
+      <link>/posts/website-guide/</link>
+      <pubDate>Sun, 12 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/website-guide/</guid>
+      <description>~Coming Soon~ </description>
     </item>
     
   </channel>
