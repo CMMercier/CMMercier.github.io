@@ -202,7 +202,8 @@ After I clicked deploy I had to give the app a name and wait for it to build.</d
       <pubDate>Sun, 12 Sep 2021 00:00:00 +0000</pubDate>
       
       <guid>/posts/website-guide/</guid>
-      <description>~Coming Soon~ </description>
+      <description>Create a Repository Firstly you&amp;rsquo;ll want to create a repository for this on Github to make changes easier to update with git commit and push rather than uploading files manually every time you make changes. As this will be a Github Page you will want to name the repo as &amp;lsquo;.github.io&amp;rsquo;. Yes the .io here is important so make sure you add that.
+Clone this repository to your local machine and cd to it, I added mine under the users documents folder.</description>
     </item>
     
   </channel>
