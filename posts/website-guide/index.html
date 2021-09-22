@@ -202,7 +202,7 @@ if (!doNotTrack) {
         <div class="post-content" id="post-content">
           <h3 id="create-a-repository">Create a Repository</h3>
 <p>Firstly you&rsquo;ll want to create a repository for this on Github to make changes easier to update with git commit and push rather than uploading files manually every time you make changes. As this will be a Github Page you will want to name the repo as &lsquo;<your Github name>.github.io&rsquo;. Yes the .io here is important so make sure you add that.</p>
-<p>Clone this repository to your local machine and cd to it, I added mine under the users documents folder. Make sure you initialize this as the git repository by using the command &lsquo;git init&rsquo;.</p>
+<p>Clone this repository to your local machine and cd to it, I added mine under the users documents folder.</p>
 <h3 id="create-the-hugo-site">Create the Hugo Site</h3>
 <p>You&rsquo;ll want to get the basic Hugo site next by using the command:</p>
 <pre><code>hugo new site ./ -f=yaml --force
@@ -597,6 +597,38 @@ achievements:
   summary: Wined best paper award at IEE Conference 2020.
 </code></pre><p>Set enable to true and change the information if you wish to use this section.</p>
 <h3 id="deploy-site">Deploy site</h3>
+<p>In the root directory run the command <code>hugo</code>, this builds the site and adds the contents to the folder <code>public</code>. Move into this folder and use the following commands:</p>
+<pre><code>git init
+git add .
+git remote add origin https://github.com/username/username.github.io.git
+git commit -m &quot;first commit&quot;
+git push origin master
+</code></pre><p>The <code>git push</code> step will ask for your username and password. Note that Github passwords do not seem to work for this anymore and the password is really asking for your Github personal access token. If you do not have a Github personal access token set you must do that now. When this successfully completes your new site will be up and running at <code>https://&lt;your username&gt;.github.io.</code></p>
+<h5 id="personal-access-token">Personal Access Token</h5>
+<p>Open Github and go to <code>settings</code> on the menu that appears when you click your icon. From there click on <code>Developer settings</code> and the <code>Personal access token</code> section. Click <code>Generate new token</code> and give it a descriptive name and expiration date then give it the permissions you require and click <code>Generate token</code>.</p>
+<p>Use this token as the password and your push request will complete.</p>
+<h3 id="add-posts">Add Posts</h3>
+<p>To start adding new posts to your site you have to go to <code>themes/toha/content</code> and <code>posts</code>, if <code>posts</code> directory does not exist already you must create it then <code>cd posts</code>. Now create a file named <code>_index.md</code> within <code>themes/toha/content/posts</code> and add the following:</p>
+<pre><code>---
+title: Posts
+---
+</code></pre><p>Next create a directory for your first post and <code>cd</code> into this new directory. Now create a file named <code>index.md</code>, this is a Markdown file and follows the Markdown syntax. Here is a quick cheat sheet for reference <a href="https://www.markdownguide.org/cheat-sheet/">https://www.markdownguide.org/cheat-sheet/</a>. Enter the following to the <code>index.md</code> file to get started:</p>
+<pre><code>---
+title: &quot;How to build your own Hugo Website and host it for free on Github Pages&quot;
+date: 2021-09-12
+description: &quot;I walk through the steps required to get a website up and running fast and easy using Hugo and Github Pages&quot;
+menu:
+  sidebar:
+    name: Build your own Hugo website
+    identifier: Build your own Hugo website
+    weight: 1
+---
+</code></pre><p>Change the information to match your own post and begin writing your post below those <code>---</code> lines. Happy posting!</p>
+<h3 id="notes">Notes</h3>
+<p>To configure sections: <code>data/en/</code></p>
+<p>Image file location: <code>themes/toha/static/images</code></p>
+<p>Theme images location: <code>themes/toha/assets/images</code></p>
+<p>Posts location: <code>themes/toha/content/posts</code></p>
 
         </div>
 
@@ -695,7 +727,17 @@ achievements:
             </li>
           </ul>
         </li>
-        <li><a href="#deploy-site">Deploy site</a></li>
+        <li><a href="#deploy-site">Deploy site</a>
+          <ul>
+            <li>
+              <ul>
+                <li><a href="#personal-access-token">Personal Access Token</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#add-posts">Add Posts</a></li>
+        <li><a href="#notes">Notes</a></li>
       </ul>
     </li>
   </ul>
@@ -795,7 +837,6 @@ achievements:
                 </li>
               
               
-              
                 
                 
                   
@@ -803,6 +844,7 @@ achievements:
                 <li class="nav-item">
                   <a class="smooth-scroll" href="/#projects">Projects</a>
                 </li>
+              
               
               
                 
