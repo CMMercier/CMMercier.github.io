@@ -44,3 +44,8 @@
 /* iPhone 5 or before */
 @media only screen and (max-width: 320px) {
 }
+
+.background{
+    filter: none!important;
+    opacity: 0.85;
+}
