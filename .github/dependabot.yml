@@ -3,12 +3,14 @@
 # Please see the documentation for all configuration options:
 # https://help.github.com/github/administering-a-repository/configuration-options-for-dependency-updates
 
+# Update dependencies
 version: 2
 updates:
-  - package-ecosystem: "gitsubmodule" # See documentation for possible values
-    directory: "/" # Location of package manifests
-    schedule:
-      interval: "daily"
+# Update the git submodules
+- package-ecosystem: "gitsubmodule"
+  directory: "/"
+  schedule:
+    interval: "daily"
   labels:
   - "dependencies"
   - "automerge"
