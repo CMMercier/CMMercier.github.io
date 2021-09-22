@@ -177,11 +177,11 @@ Initial setup Search depends on additional output content type of JSON in config
     </item>
     
     <item>
-      <title>OWASP Mutillidae II Walkthrough</title>
-      <link>/posts/owasp-mutillidae-ii/</link>
+      <title>OWASP WebGoat Challenge</title>
+      <link>/posts/owasp-webgoat/</link>
       <pubDate>Tue, 21 Sep 2021 00:00:00 +0000</pubDate>
       
-      <guid>/posts/owasp-mutillidae-ii/</guid>
+      <guid>/posts/owasp-webgoat/</guid>
       <description>~Coming Soon~ </description>
     </item>
     
