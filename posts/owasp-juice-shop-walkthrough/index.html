@@ -523,6 +523,57 @@ back-end DBMS: SQLite
 <blockquote>
 <p>Post a product review as another user or edit any user&rsquo;s existing review.</p>
 </blockquote>
+<p>For this one I selected an item and created a review that simply said test. As I was not logged in the user for this review was logged as Anonymous. Inspecting the page and checking the Network tab I found the POST request that was sent. I right clicked this request and selected to edit and resent and changed the <code>request body</code> to <code>{&quot;message&quot;:&quot;test&quot;,&quot;author&quot;:&quot;admin@juice-sh.op&quot;}</code> and hit send.</p>
+<p>This actually didn&rsquo;t work so I created an account and logged in then repeated the process and successfully completed it this time.</p>
+<p>You successfully solved a challenge: Forged Review (Post a product review as another user or edit any user&rsquo;s existing review.)</p>
+<h5 id="gdpr-data-erasure">GDPR Data Erasure</h5>
+<p>Category: Broken Authentication</p>
+<blockquote>
+<p>Log in with Chris' erased user account.</p>
+</blockquote>
+<p>For this challenge I tried using <code>\' or deletedAt IS NOT NULL--</code> as the username with any password knowing that this small application built specifically for testing was likely to have Chris' account as the only deleted account and sure enough this worked and completed the challenge.</p>
+<p>As this was not the way they likely wanted me to complete this challenge I went back to the SQL injection method to find the proper email address for Chris. By using <code>qwert')) UNION SELECT id, email, password, '4', '5', '6', '7', '8', '9' FROM Users--</code> at <code>/rest/products/search</code> I successfully get the email <code>chris.pike@juice-sh.op</code>.</p>
+<p>Full address: <code>https://exampleapp.herokuapp.com/rest/products/search?q=qwert%27))%20UNION%20SELECT%20id,%20email,%20password,%20%274%27,%20%275%27,%20%276%27,%20%277%27,%20%278%27,%20%279%27%20FROM%20Users--</code></p>
+<p>With that I just need to login with the email as <code>chris.pike@juice-sh.op'--</code> and any password.</p>
+<p>You successfully solved a challenge: GDPR Data Erasure (Log in with Chris' erased user account.)</p>
+<h5 id="login-amy">Login Amy</h5>
+<p>Category: Sensitive Data Exposure</p>
+<blockquote>
+<p>Log in with Amy&rsquo;s original user credentials. (This could take 93.83 billion trillion trillion centuries to brute force, but luckily she did not read the &ldquo;One Important Final Note&rdquo;)</p>
+</blockquote>
+<p>Googling either hints: &ldquo;This could take 93.83 billion trillion trillion centuries&rdquo; or &ldquo;One Important Final Note&rdquo; comes up with a link related to password haystacks, <a href="https://www.grc.com/haystack.htm?id">https://www.grc.com/haystack.htm?id</a>.</p>
+<p>This site gives two password examples and asks which we think is the more difficult to crack. The answer being <code>D0g.....................</code>. As the more hints section tells us this Amy is meant to be the Futurama Amy whose husband is named Kif, simply attempting <code>amy@juice-sh.op</code> and replacing the strong password with her husbands name <code>K1f.....................</code> succeeds in logging in and completing this challenge.</p>
+<p>You successfully solved a challenge: Login Amy (Log in with Amy&rsquo;s original user credentials. (This could take 93.83 billion trillion trillion centuries to brute force, but luckily she did not read the &ldquo;One Important Final Note&rdquo;))</p>
+<h5 id="login-bender">Login Bender</h5>
+<p>Category: Injection</p>
+<blockquote>
+<p>Log in with Bender&rsquo;s user account.</p>
+</blockquote>
+<p>As the category for this is injection I attempted to login as <code>bender@juice-sh.op'--</code> with any password and it worked. Or alternatively decode the MD5 passwords we found from the SQL Injection vulnerability found at <code>/rest/products/search</code></p>
+<p>You successfully solved a challenge: Login Bender (Log in with Bender&rsquo;s user account.)</p>
+<h5 id="login-jim">Login Jim</h5>
+<p>Category: injection</p>
+<blockquote>
+<p>Log in with Jim&rsquo;s user account.</p>
+</blockquote>
+<p>The same injection method used on Bender&rsquo;s account works on Jim. Simply change the login email to <code>jim@juice-sh.op'--</code> and again use anything for the password. Or alternatively decode the MD5 passwords we found from the SQL Injection vulnerability found at <code>/rest/products/search</code></p>
+<p>You successfully solved a challenge: Login Jim (Log in with Jim&rsquo;s user account.)</p>
+<h5 id="manipulate-basket">Manipulate Basket</h5>
+<p>Category: Broken Access Control</p>
+<blockquote>
+<p>Put an additional product into another user&rsquo;s shopping basket.</p>
+</blockquote>
+<p>For this one I had to be logged in as any user and inspect the network traffic while adding an item to the cart.
+I selected to edit and resend the POST request to <code>/api/BasketItems</code>. Attempting to edit the BasketId and send got me an unauthorized 401 response.</p>
+<p>Adding another BasketId to also add the item to another users account however did succeed. <code>{&quot;ProductId&quot;:24,&quot;BasketId&quot;:&quot;2&quot;,&quot;quantity&quot;:1,&quot;BasketId&quot;:&quot;3&quot;}</code></p>
+<p>You successfully solved a challenge: Manipulate Basket (Put an additional product into another user&rsquo;s shopping basket.)</p>
+<h5 id="payback-time">Payback Time</h5>
+<p>Category: Improper Input Validation</p>
+<blockquote>
+<p>Place an order that makes you rich.</p>
+</blockquote>
+<p>To complete this one I simply had Burp Suite on while I accessed the basket and noticed when I changed the quantity Burp made a PUT request to /api/BasketItems/13 with <code>&quot;quantity&quot;:2</code>. I simply changed this to a negative number on Burp before forwarding the request to get &ldquo;rich&rdquo;.</p>
+<p>You successfully solved a challenge: Payback Time (Place an order that makes you rich.)</p>
 <h5 id="privacy-policy-inspection">Privacy Policy Inspection</h5>
 <p>Category:  Security through Obscurity</p>
 <blockquote>
@@ -533,7 +584,52 @@ back-end DBMS: SQLite
 <p>Going to this greets us with a <code>404 Error: ENOENT: no such file or directory, stat '/app/frontend/dist/frontend/assets/private/thank-you.jpg'</code></p>
 <p>And going back to the scoreboard I see the challenge has indeed completed.</p>
 <p>You successfully solved a challenge: Privacy Policy Inspection (Prove that you actually read our privacy policy.)</p>
-<h5 id="heading"></h5>
+<h5 id="product-tampering">Product Tampering</h5>
+<p>Category: Broken Access Control</p>
+<blockquote>
+<p>Change the href of the link within the OWASP SSL Advanced Forensic Tool (O-Saft) product description into <a href="https://owasp.slack.com">https://owasp.slack.com</a>.</p>
+</blockquote>
+<p><a href="https://exampleapp.herokuapp.com/rest/products/search?q=o-saft">https://exampleapp.herokuapp.com/rest/products/search?q=o-saft</a> we find the id is 9. I intercepted a request to <code>/api/Products/9</code> in Burp and changed the request from <code>GET</code> to <code>PUT</code>, adding <code>Content-Type: application/json</code>, and finally <code>{&quot;description&quot;: &quot;&lt;a href=\&quot;https://owasp.slack.com\&quot; target=\&quot;_blank\&quot;&gt;More...&lt;/a&gt;&quot;}</code> to the body.</p>
+<pre><code>PUT /api/products/9 HTTP/1.1
+Host: owasp-juice-shop-pentesting.herokuapp.com
+Cookie: language=en; welcomebanner_status=dismiss; cookieconsent_status=dismiss; continueCode=wkhOtpIEsZUyHRumhYTZFyfySqtBi4fvSPHoMuaDtqni46fokSnxH5VuRYc7vS9KUZesDVig3S6ohOvtvvIx2TMnCPEs9RumbfoK; token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJzdGF0dXMiOiJzdWNjZXNzIiwiZGF0YSI6eyJpZCI6MjEsInVzZXJuYW1lIjoiIiwiZW1haWwiOiJ0ZXN0QHRlc3QuY29tIiwicGFzc3dvcmQiOiIwNWE2NzFjNjZhZWZlYTEyNGNjMDhiNzZlYTZkMzBiYiIsInJvbGUiOiJjdXN0b21lciIsImRlbHV4ZVRva2VuIjoiIiwibGFzdExvZ2luSXAiOiJ1bmRlZmluZWQiLCJwcm9maWxlSW1hZ2UiOiIvYXNzZXRzL3B1YmxpYy9pbWFnZXMvdXBsb2Fkcy9kZWZhdWx0LnN2ZyIsInRvdHBTZWNyZXQiOiIiLCJpc0FjdGl2ZSI6dHJ1ZSwiY3JlYXRlZEF0IjoiMjAyMS0wOS0yOSAyMjo1ODoyNC4xODEgKzAwOjAwIiwidXBkYXRlZEF0IjoiMjAyMS0wOS0yOSAyMzowNDo1NC4yNDcgKzAwOjAwIiwiZGVsZXRlZEF0IjpudWxsfSwiaWF0IjoxNjMyOTYxNTcyLCJleHAiOjE2MzI5Nzk1NzJ9.UEhLYcuCkaSYF0JvRXS64GYNMIxQqE98Wi46VTSXResmOH8w5Bg0pxXmCW0mGmNJPTGKBptbTPG_v-t5GfO4E36TeqiLCbOol_MHN1ZnyPQoqSfPLALIA37iNw6BQZsSa7TyG8ixA6hFNjmcno44lq_qM9p_V2cbUdffHbfwt4A
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101 Firefox/78.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Upgrade-Insecure-Requests: 1
+If-None-Match: W/&quot;1f7-edRq59DDoY0qO1LQdUtOO3s+ErQ&quot;
+Cache-Control: max-age=0
+Te: trailers
+Connection: close
+Content-Type: application/json
+Content-Length: 84
+
+{&quot;description&quot;: &quot;&lt;a href=\&quot;https://owasp.slack.com\&quot; target=\&quot;_blank\&quot;&gt;More...&lt;/a&gt;&quot;}
+</code></pre><h5 id="reset-jims-password">Reset Jim&rsquo;s Password</h5>
+<p>Category: Broken Authentication</p>
+<blockquote>
+<p>Reset Jim&rsquo;s password via the Forgot Password mechanism with the original answer to his security question.</p>
+</blockquote>
+<p>So the first step is obviously to go over to the login page and select <code>Forgot Password</code>. Inputting the email as <code>jim@juice-sh.op</code> tells us that his secret question is &ldquo;Your eldest siblings middle name?&rdquo;. So I must find out who Jim is, looking around reviews I see one by Jim for the product <code>OWASP Juice Shop-CTF Velcro Patch</code> stating <code>&quot;Looks so much better on my uniform than the boring Starfleet symbol.&quot;</code></p>
+<p>If you are like me and Starfleet isn&rsquo;t a quick give away a simple Google search tells me this is related to Star Trek and that this account belongs to <code>James T. Kirk</code>. <a href="https://memory-alpha.fandom.com/wiki/James_T._Kirk">https://memory-alpha.fandom.com/wiki/James_T._Kirk</a> reveals his only sibling as <code>George Samuel Kirk</code>.</p>
+<p>Use <code>Samuel</code> as the answer to the security question and change the password.</p>
+<p>You successfully solved a challenge: Reset Jim&rsquo;s Password (Reset Jim&rsquo;s password via the Forgot Password mechanism with the original answer to his security question.)</p>
+<h5 id="upload-size">Upload Size</h5>
+<p>Category: Improper Input Validation</p>
+<blockquote>
+<p>Upload a file larger than 100 kB.</p>
+</blockquote>
+<p>For this I headed over to Complaint where we already know there&rsquo;s an option to upload. This accepts only .pdf and .zip files so I zip a file that is below 100kB and capture a legit request via Burp.</p>
+<p>I change the extension back to <code>.pdf</code> and also change <code>application/pdf</code> from zip to pdf as well and delete the contents. Then I right click and choose <code>paste from file</code> and select a pdf file that is over the 100kB limit but still below 200kB and send the request.</p>
+<h5 id="upload-type">Upload Type</h5>
+<p>Category: Improper Input Validation</p>
+<blockquote>
+<p>Upload a file that has no .pdf or .zip extension.</p>
+</blockquote>
+<p>Simply capture the request in Burp and remove the extension from the <code>filename=</code>.</p>
+<h5 id="xxe-data-access">XXE Data Access</h5>
+<p>Unavailable on the Heroku environment.</p>
 
         </div>
 
@@ -671,8 +767,18 @@ back-end DBMS: SQLite
                 <li><a href="#deluxe-fraud">Deluxe Fraud</a></li>
                 <li><a href="#forged-feedback">Forged Feedback</a></li>
                 <li><a href="#forged-review">Forged Review</a></li>
+                <li><a href="#gdpr-data-erasure">GDPR Data Erasure</a></li>
+                <li><a href="#login-amy">Login Amy</a></li>
+                <li><a href="#login-bender">Login Bender</a></li>
+                <li><a href="#login-jim">Login Jim</a></li>
+                <li><a href="#manipulate-basket">Manipulate Basket</a></li>
+                <li><a href="#payback-time">Payback Time</a></li>
                 <li><a href="#privacy-policy-inspection">Privacy Policy Inspection</a></li>
-                <li><a href="#heading"></a></li>
+                <li><a href="#product-tampering">Product Tampering</a></li>
+                <li><a href="#reset-jims-password">Reset Jim&rsquo;s Password</a></li>
+                <li><a href="#upload-size">Upload Size</a></li>
+                <li><a href="#upload-type">Upload Type</a></li>
+                <li><a href="#xxe-data-access">XXE Data Access</a></li>
               </ul>
             </li>
           </ul>
@@ -776,7 +882,6 @@ back-end DBMS: SQLite
                 </li>
               
               
-              
                 
                 
                   
@@ -784,6 +889,7 @@ back-end DBMS: SQLite
                 <li class="nav-item">
                   <a class="smooth-scroll" href="/#projects">Projects</a>
                 </li>
+              
               
               
                 
