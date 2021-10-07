@@ -221,13 +221,11 @@ to google and did a quick search for its location.</p>
 <h5 id="bonus-payload">Bonus Payload</h5>
 <p>Category: XSS</p>
 <p>This challenge is as simple as adding the provided payload to the search function.</p>
-<p>You successfully solved a challenge: Bonus Payload (Use the bonus payload
-<code>&lt;iframe width=&quot;100%&quot; height=&quot;166&quot; scrolling=&quot;no&quot; frameborder=&quot;no&quot; allow=&quot;autoplay&quot; src=&quot;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/771984076&amp;color=%23ff5500&amp;auto_play=true&amp;hide_related=false&amp;show _comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&quot;&gt;&lt;/iframe&gt;</code> in the DOM XSS challenge.)</p>
+<p><code>&lt;iframe width=&quot;100%&quot; height=&quot;166&quot; scrolling=&quot;no&quot; frameborder=&quot;no&quot; allow=&quot;autoplay&quot; src=&quot;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/771984076&amp;color=%23ff5500&amp;auto_play=true&amp;hide_related=false&amp;show _comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&quot;&gt;&lt;/iframe&gt;</code></p>
 <h5 id="bully-chatbot">Bully Chatbot</h5>
 <p>Category: Miscellaneous</p>
 <p>To access the Chatbot I created a new account on the site then opened up the menu and selected the support chat. I really just had to send any
 message containing the words &ldquo;coupon code&rdquo; enough times for it to give up and hand over a code.</p>
-<p>You successfully solved a challenge: Bully Chatbot (Receive a coupon code from the support chatbot.)</p>
 <h5 id="confidential-document">Confidential Document</h5>
 <p>Category:  Sensitive Data Exposure</p>
 <p>The hints:</p>
@@ -250,7 +248,7 @@ window to get a legal.md document. I opened up burp suite and intercepted this r
 <p>Perform a DOM XSS attack with <code>&lt;iframe src=&quot;javascript:alert(</code>xss<code>)&quot;&gt;</code>.</p>
 </blockquote>
 <p>This is another task where I was able to simply just copy the script provided and paste it into the search function to complete this challenge.</p>
-<p>You successfully solved a challenge: DOM XSS (Perform a DOM XSS attack with <code>&lt;iframe src=&quot;javascript:alert(</code>xss<code>)&quot;&gt;</code>.)</p>
+<p><code>&lt;iframe src=&quot;javascript:alert(</code>xss<code>)&quot;&gt;</code></p>
 <h5 id="error-handling">Error Handling</h5>
 <p>Category:  Security Misconfiguration</p>
 <blockquote>
@@ -267,7 +265,6 @@ was /metrics/.</p>
 <blockquote>
 <p>Guessing the path is probably just as quick as taking the RTFM route via <a href="https://prometheus.io/docs/introduction/first_steps">https://prometheus.io/docs/introduction/first_steps</a></p>
 </blockquote>
-<p>You successfully solved a challenge: Exposed Metrics (Find the endpoint that serves usage data to be scraped by a popular monitoring system.)</p>
 <h5 id="missing-encoding">Missing Encoding</h5>
 <p>Category:  Improper Input Validation</p>
 <blockquote>
@@ -276,7 +273,6 @@ was /metrics/.</p>
 <p>Luckily this was as easy as url encoding the #&rsquo;s to %23 because that emoji really had me scratching my head for a bit there.</p>
 <p><a href="https://www.eso.org/~ndelmott/url_encode.html">https://www.eso.org/~ndelmott/url_encode.html</a></p>
 <p><img src="/images/posts/owasp/Encoding.png" alt="encoding"></p>
-<p>You successfully solved a challenge: Missing Encoding (Retrieve the photo of Bjoern&rsquo;s cat in &ldquo;melee combat-mode&rdquo;.)</p>
 <h5 id="outdated-allowlist">Outdated Allowlist</h5>
 <p>Category:  Unvalidated Redirects</p>
 <p>For the reading: <a href="https://cheatsheetseries.owasp.org/cheatsheets/Unvalidated_Redirects_and_Forwards_Cheat_Sheet.html">https://cheatsheetseries.owasp.org/cheatsheets/Unvalidated_Redirects_and_Forwards_Cheat_Sheet.html</a></p>
@@ -288,14 +284,12 @@ currency address. The first place I checked was main-es2018.js and I simply did 
 the answer was there and I simply had to paste this blockchain.info link to the app address.</p>
 <p><a href="https://exampleapp.herokuapp.com/redirect?to=https://blockchain.info/address/1AbKfgvw9psQ41NbLi8kufDQTezwG8DRZm">https://exampleapp.herokuapp.com/redirect?to=https://blockchain.info/address/1AbKfgvw9psQ41NbLi8kufDQTezwG8DRZm</a></p>
 <p><img src="/images/posts/owasp/outdatedallowlist.png" alt="Javascript"></p>
-<p>You successfully solved a challenge: Outdated Allowlist (Let us redirect you to one of our crypto currency addresses which are not promoted any longer.)</p>
 <h5 id="privacy-policy">Privacy Policy</h5>
 <p>Category: Miscellaneous</p>
 <blockquote>
 <p>Read our privacy policy.</p>
 </blockquote>
 <p>This simply required me to be logged in and go to Account &gt; Privacy &amp; Security &gt; Privacy Policy.</p>
-<p>You successfully solved a challenge: Privacy Policy (Read our privacy policy.)</p>
 <h5 id="repetitive-registration">Repetitive Registration</h5>
 <p>Category:  Improper Input Validation</p>
 <blockquote>
@@ -312,7 +306,6 @@ the answer was there and I simply had to paste this blockchain.info link to the 
 <p>This challenge required me to turn on burp and foxyproxy to catch a legit registration attempt and change the value of passwordRepeat then forward
 the request.</p>
 <p><img src="/images/posts/owasp/repeatregburp.png" alt="burp request"></p>
-<p>You successfully solved a challenge: Repetitive Registration (Follow the DRY principle while registering a user.)</p>
 <h5 id="zero-stars">Zero Stars</h5>
 <p>Category:  Improper Input Validation</p>
 <blockquote>
@@ -322,7 +315,6 @@ the request.</p>
 <p>I found the customer feedback option as the first option on the menu. This page allows us to give a feedback of 1 to 5. Getting around this is
 as simple as intercepting the request in burp and changing the rating to 0.</p>
 <p><img src="/images/posts/owasp/feedback.png" alt="burp request"></p>
-<p>You successfully solved a challenge: Zero Stars (Give a devastating zero-star feedback to the store.)</p>
 <h3 id="2--challenges">2 * Challenges</h3>
 <h5 id="admin-section">Admin Section</h5>
 <p>Category:  Broken Access Control</p>
@@ -343,11 +335,7 @@ is a client-side AngularJS route. So its time to try with burp! I captured the r
 password and on payload options I loaded a smaller file from seclist called best1050.txt as I only have the free version of burp and it doesn&rsquo;t load
 rockyou. Running this attack on the free version is a bit slow but it works and I get the password.</p>
 <p><img src="/images/posts/owasp/adminburp.png" alt="burp request"></p>
-<p>This completes two challenges:</p>
-<p>You successfully solved a challenge: Login Admin (Log in with the administrator&rsquo;s user account.)</p>
-<p>You successfully solved a challenge: Password Strength (Log in with the administrator&rsquo;s user credentials without previously changing them or applying SQL Injection.)</p>
 <p>Now to just login with the credentials <a href="mailto:admin@juice-sh.op">admin@juice-sh.op</a>:admin123 and head over to the previously found /#/administration page to complete this challenge.</p>
-<p>You successfully solved a challenge: Admin Section (Access the administration section of the store.)</p>
 <h5 id="deprecated-interface">Deprecated Interface</h5>
 <p>Category:  Security Misconfiguration</p>
 <blockquote>
@@ -356,14 +344,12 @@ rockyou. Running this attack on the free version is a bit slow but it works and 
 <p>For this I had to do some googling to understand what B2B integration was about and came across this explanation &ldquo;It allows them to work and trade more effectively with their customers, suppliers and business partners by automating key business processes.&rdquo; from <a href="http://www.ibm.com">www.ibm.com</a>. So I headed over to the complaint page on the menu and took a look at what file types were accepted which turned out to be .pdf and .zip files. Inspecting this and heading back to debugger to take a look at the main-es2018.js and doing a search for zip revealed that .xml was also accepted.</p>
 <p><img src="/images/posts/owasp/filetypes.png" alt="main.js"></p>
 <p>I didn&rsquo;t have any random .xml files around so I used <code>touch test.xml</code> to create one and then selected browse on the site and chose all file types so that I could select this file and upload it.</p>
-<p>You successfully solved a challenge: Deprecated Interface (Use a deprecated B2B interface that was not properly shut down.)</p>
 <h5 id="five-star-feedback">Five-Star Feedback</h5>
 <p>Category:  Broken Access Control</p>
 <blockquote>
 <p>Get rid of all 5-star customer feedback.</p>
 </blockquote>
 <p>Sounds like an admin task, so I headed back to the administration page to take a look and sure enough the customer feedback section was there with only one 5-star feedback. All I had to do was hit delete on this one and the challenge completed.</p>
-<p>You successfully solved a challenge: Five-Star Feedback (Get rid of all 5-star customer feedback.)</p>
 <h5 id="login-admin">Login Admin</h5>
 <p>Category: Injection</p>
 <blockquote>
@@ -378,7 +364,6 @@ rockyou. Running this attack on the free version is a bit slow but it works and 
 </blockquote>
 <p>The hints for this supply a link to a video by MC SafeSearch at <a href="https://www.youtube.com/watch?v=v59CX2DiX0Y">https://www.youtube.com/watch?v=v59CX2DiX0Y</a> called &ldquo;Protect Ya' Passwordz&rdquo;. Watch this video to learn that MC used the name of his dog &ldquo;Mr. Noodles&rdquo; as a password but changed &ldquo;some vowels into zeroes&rdquo;.</p>
 <p>All I had to do was log in with email <code>mc.safesearch@juice-sh.op</code>, as we already know what email addresses look like for this site and could easily guess the name, and password <code>Mr. N00dles</code> to solve this challenge.</p>
-<p>You successfully solved a challenge: Login MC SafeSearch (Log in with MC SafeSearch&rsquo;s original user credentials without applying SQL Injection or any other bypass.)</p>
 <h5 id="meta-geo-stalking">Meta Geo Stalking</h5>
 <p>Category:  Sensitive Data Exposure</p>
 <blockquote>
@@ -389,7 +374,6 @@ rockyou. Running this attack on the free version is a bit slow but it works and 
 <p>And then did a google search of these coordinates to find a name that could be the security question.</p>
 <p><img src="/images/posts/owasp/coords.png" alt="map"></p>
 <p>It took quite a few attempts but I eventually found it to be <code>Daniel Boone National Forest</code> and was able to login by going to &ldquo;forgot your password?&rdquo; and using <a href="mailto:john@juice-sh.op">john@juice-sh.op</a> for the email, Daniel Boone National Forest for the security question, and resetting the password.</p>
-<p>You successfully solved a challenge: Meta Geo Stalking (Determine the answer to John&rsquo;s security question by looking at an upload of him to the Photo Wall and use it to reset his password via the Forgot Password mechanism.)</p>
 <h5 id="password-strength">Password Strength</h5>
 <p>Category:  Broken Authentication</p>
 <blockquote>
@@ -402,14 +386,12 @@ rockyou. Running this attack on the free version is a bit slow but it works and 
 <p>Behave like any &ldquo;white-hat&rdquo; should before getting into the action.</p>
 </blockquote>
 <p>For this I attempted to run gobuster and dirbuster against the site to no success. So I loaded up OWASP&rsquo;s very own ZAP and was able to find a file at <code>https://exampleapp.herokuapp.com/.well-known/security.txt</code>. I went to that address and the challenge completed but out of curiosity I looked up what this file was about anyway and heres the link for reference: <a href="https://securitytxt.org/">https://securitytxt.org/</a>.</p>
-<p>You successfully solved a challenge: Security Policy (Behave like any &ldquo;white-hat&rdquo; should before getting into the action.)</p>
 <h5 id="view-basket">View Basket</h5>
 <p>Category:  Broken Access Control</p>
 <blockquote>
 <p>View another user&rsquo;s shopping basket.</p>
 </blockquote>
 <p>I headed over to the main page and added an item to the basket then selected the basket. On the basket page I inspected the page and went to the session storage where I found the item total and bid. Bid must hold the user id value so I changed the 1 to 2 and reloaded the page to complete the challenge.</p>
-<p>You successfully solved a challenge: View Basket (View another user&rsquo;s shopping basket.)</p>
 <h5 id="visual-geo-stalking">Visual Geo Stalking</h5>
 <p>Category:  Sensitive Data Exposure</p>
 <blockquote>
@@ -417,7 +399,6 @@ rockyou. Running this attack on the free version is a bit slow but it works and 
 </blockquote>
 <p>At first I attempted a reverse image search on google but saw quickly that that was not the way to go with this. Looking closer at the image itself I noticed the ITsec logo in a window on the left side.</p>
 <p>Using this (case sensitive) as the security question I was able to reset her password and complete the challenge.</p>
-<p>You successfully solved a challenge: Visual Geo Stalking (Determine the answer to Emma&rsquo;s security question by looking at an upload of her to the Photo Wall and use it to reset her password via the Forgot Password mechanism.)</p>
 <h5 id="weird-crypto">Weird Crypto</h5>
 <p>Category:  Cryptographic Issues</p>
 <blockquote>
@@ -425,7 +406,6 @@ rockyou. Running this attack on the free version is a bit slow but it works and 
 </blockquote>
 <p>When completing the Meta Geo Stalking challenge I got a password hash back in the response from the burp request. Using hash-identifier I found out that this has is only an unsalted MD5. Taking this hash to crackstation.net easily got me the password of <code>john@juice-sh.op</code> as <code>test1234</code>.</p>
 <p>The challenge says to inform the shop about the algorithm so to complete this challenge I had to go to Customer Feedback on the menu and simply leave a comment that said MD5 and solve the captcha to submit.</p>
-<p>You successfully solved a challenge: Weird Crypto (Inform the shop about an algorithm or library it should definitely not use the way it does.)</p>
 <h5 id="reflected-xss">Reflected XSS</h5>
 <p>Unavailable on the Heroku environment.</p>
 <h3 id="3--challenges">3 * Challenges</h3>
@@ -437,10 +417,9 @@ rockyou. Running this attack on the free version is a bit slow but it works and 
 <p>Register as a user with administrator privileges.</p>
 </blockquote>
 <p>For this challenge all I had to do was submit a POST request to the API like so:</p>
-<p><code>curl -d '{&quot;email&quot;:&quot;admin&quot;,&quot;password&quot;:&quot;admin&quot;,&quot;role&quot;:&quot;admin&quot;}' -H 'Content-Type: application/json' https://owasp-juice-shop-pentesting.herokuapp.com/api/users/</code></p>
+<p><code>curl -d '{&quot;email&quot;:&quot;admin&quot;,&quot;password&quot;:&quot;admin&quot;,&quot;role&quot;:&quot;admin&quot;}' -H 'Content-Type: application/json' https://exampleapp.herokuapp.com/api/users/</code></p>
 <pre><code>{&quot;status&quot;:&quot;success&quot;,&quot;data&quot;:{&quot;username&quot;:&quot;&quot;,&quot;deluxeToken&quot;:&quot;&quot;,&quot;lastLoginIp&quot;:&quot;0.0.0.0&quot;,&quot;profileImage&quot;:&quot;/assets/public/images/uploads/defaultAdmin.png&quot;,&quot;isActive&quot;:true,&quot;id&quot;:21,&quot;email&quot;:&quot;admin&quot;,&quot;role&quot;:&quot;admin&quot;,&quot;updatedAt&quot;:&quot;2021-09-24T13:43:00.474Z&quot;,&quot;createdAt&quot;:&quot;2021-09-24T13:43:00.474Z&quot;,&quot;deletedAt&quot;:null}}  
-</code></pre><p>You successfully solved a challenge: Admin Registration (Register as a user with administrator privileges.)</p>
-<h5 id="bjoerns-favorite-pet">Bjoern&rsquo;s Favorite Pet</h5>
+</code></pre><h5 id="bjoerns-favorite-pet">Bjoern&rsquo;s Favorite Pet</h5>
 <p>Category:  Broken Authentication</p>
 <blockquote>
 <p>Reset the password of Bjoern&rsquo;s OWASP account via the Forgot Password mechanism with the original answer to his security question.</p>
@@ -448,7 +427,6 @@ rockyou. Running this attack on the free version is a bit slow but it works and 
 <p>The hint for this suggests looking up Bjorn. I quickly found he has a youtube channel that looks interesting and the information I need is likely there given the that the playlist is called &ldquo;OWASP Juice Shop&rdquo;, <a href="https://www.youtube.com/playlist?list=PLV9O4rIovHhO1y8_78GZfMbH6oznyx2g2">https://www.youtube.com/playlist?list=PLV9O4rIovHhO1y8_78GZfMbH6oznyx2g2</a>. But there are 110 videos here! I started at the bottom of the list as this is likely to be an early recording and going through the titles to check for ones that stand out or seem like they might hold the key I eventually came across <a href="https://www.youtube.com/watch?v=Lu0-kDdtVf4">https://www.youtube.com/watch?v=Lu0-kDdtVf4</a> (81 on the list).</p>
 <p>This is the introduction video to Juice Shop. Around 4 mins into the video he creates an account <code>bjoern@owasp.org</code> and chooses Name of your favorite pet? as his security question with the answer being <code>Zaya</code>.</p>
 <p>With this information I headed to the login page and chose &ldquo;Forgot your password?&rdquo; and tested the information from the video. Sure enough this account still existed using this information.</p>
-<p>You successfully solved a challenge: Bjoern&rsquo;s Favorite Pet (Reset the password of Bjoern&rsquo;s OWASP account via the Forgot Password mechanism with the original answer to his security question.)</p>
 <h5 id="captcha-bypass">CAPTCHA Bypass</h5>
 <p>Category:  Broken Anti Automation</p>
 <blockquote>
@@ -465,7 +443,6 @@ comment	&quot;test (***in@juice-sh.op)&quot;
 rating	1
 UserId	1
 </code></pre><p>So I open up Burp and capture a request to the /api/Feedback and send it to repeat to simply spam send and complete this challenge.</p>
-<p>You successfully solved a challenge: CAPTCHA Bypass (Submit 10 or more customer feedbacks within 10 seconds.)</p>
 <h5 id="csrf">CSRF</h5>
 <p>Category:  Broken Access Control</p>
 <blockquote>
@@ -501,14 +478,12 @@ back-end DBMS: SQLite
 [19:46:32] [WARNING] on SQLite it is not possible to enumerate databases (use only '--tables')
 </code></pre><p>Cool its vulnerable. I was able to rerun sqlmap with <code>--tables</code> and retrieve the database <code>SQLite_masterdb</code> as well as all the table but the challenge did not complete. Nonetheless I made a copy of the results and saved it some place ill remember in case its useful later on. Doing this the manual way really took some time as at first I thought we had to enumerate all 20 tables that sqlmap found but apparently it was just 9.</p>
 <p><code>https://exampleapp.herokuapp.com/rest/products/search?q=qwert')) UNION SELECT sql, '2', '3', '4', '5', '6', '7', '8', '9' FROM sqlite_master--</code></p>
-<p>You successfully solved a challenge: Database Schema (Exfiltrate the entire DB schema definition via SQL Injection.)</p>
 <h5 id="deluxe-fraud">Deluxe Fraud</h5>
 <p>Category: Improper Input Validation</p>
 <blockquote>
 <p>Obtain a Deluxe Membership without paying for it.</p>
 </blockquote>
 <p>I headed to <a href="https://exampleapp.herokuapp.com/#/payment/deluxe">https://exampleapp.herokuapp.com/#/payment/deluxe</a> and started up Burp to see if I could get an easy win intercepting a request but didn&rsquo;t find anything useful there. So I inspected the <code>pay using wallet</code> button and removed both codes that mentioned disabled (<code>mat-button-disabled</code> and <code>disabled=&quot;true&quot;</code>). After that I clicked the now enabled button and <code>continue</code> then checked the network tab of devtools. There is a POST request sent, which only contains one parameter in the request payload, &ldquo;paymentMode&rdquo;, which is set to &ldquo;wallet&rdquo;. I right clicked the POST request itself on the network tab list and selected to edit and resent. I changed the <code>&quot;wallet&quot;</code> value to just <code>&quot;&quot;</code> and send.</p>
-<p>You successfully solved a challenge: Deluxe Fraud (Obtain a Deluxe Membership without paying for it.)</p>
 <h5 id="forged-feedback">Forged Feedback</h5>
 <p>Category: Broken Access Control</p>
 <blockquote>
@@ -525,7 +500,6 @@ back-end DBMS: SQLite
 </blockquote>
 <p>For this one I selected an item and created a review that simply said test. As I was not logged in the user for this review was logged as Anonymous. Inspecting the page and checking the Network tab I found the POST request that was sent. I right clicked this request and selected to edit and resent and changed the <code>request body</code> to <code>{&quot;message&quot;:&quot;test&quot;,&quot;author&quot;:&quot;admin@juice-sh.op&quot;}</code> and hit send.</p>
 <p>This actually didn&rsquo;t work so I created an account and logged in then repeated the process and successfully completed it this time.</p>
-<p>You successfully solved a challenge: Forged Review (Post a product review as another user or edit any user&rsquo;s existing review.)</p>
 <h5 id="gdpr-data-erasure">GDPR Data Erasure</h5>
 <p>Category: Broken Authentication</p>
 <blockquote>
@@ -535,7 +509,6 @@ back-end DBMS: SQLite
 <p>As this was not the way they likely wanted me to complete this challenge I went back to the SQL injection method to find the proper email address for Chris. By using <code>qwert')) UNION SELECT id, email, password, '4', '5', '6', '7', '8', '9' FROM Users--</code> at <code>/rest/products/search</code> I successfully get the email <code>chris.pike@juice-sh.op</code>.</p>
 <p>Full address: <code>https://exampleapp.herokuapp.com/rest/products/search?q=qwert%27))%20UNION%20SELECT%20id,%20email,%20password,%20%274%27,%20%275%27,%20%276%27,%20%277%27,%20%278%27,%20%279%27%20FROM%20Users--</code></p>
 <p>With that I just need to login with the email as <code>chris.pike@juice-sh.op'--</code> and any password.</p>
-<p>You successfully solved a challenge: GDPR Data Erasure (Log in with Chris' erased user account.)</p>
 <h5 id="login-amy">Login Amy</h5>
 <p>Category: Sensitive Data Exposure</p>
 <blockquote>
@@ -543,21 +516,18 @@ back-end DBMS: SQLite
 </blockquote>
 <p>Googling either hints: &ldquo;This could take 93.83 billion trillion trillion centuries&rdquo; or &ldquo;One Important Final Note&rdquo; comes up with a link related to password haystacks, <a href="https://www.grc.com/haystack.htm?id">https://www.grc.com/haystack.htm?id</a>.</p>
 <p>This site gives two password examples and asks which we think is the more difficult to crack. The answer being <code>D0g.....................</code>. As the more hints section tells us this Amy is meant to be the Futurama Amy whose husband is named Kif, simply attempting <code>amy@juice-sh.op</code> and replacing the strong password with her husbands name <code>K1f.....................</code> succeeds in logging in and completing this challenge.</p>
-<p>You successfully solved a challenge: Login Amy (Log in with Amy&rsquo;s original user credentials. (This could take 93.83 billion trillion trillion centuries to brute force, but luckily she did not read the &ldquo;One Important Final Note&rdquo;))</p>
 <h5 id="login-bender">Login Bender</h5>
 <p>Category: Injection</p>
 <blockquote>
 <p>Log in with Bender&rsquo;s user account.</p>
 </blockquote>
 <p>As the category for this is injection I attempted to login as <code>bender@juice-sh.op'--</code> with any password and it worked. Or alternatively decode the MD5 passwords we found from the SQL Injection vulnerability found at <code>/rest/products/search</code></p>
-<p>You successfully solved a challenge: Login Bender (Log in with Bender&rsquo;s user account.)</p>
 <h5 id="login-jim">Login Jim</h5>
 <p>Category: injection</p>
 <blockquote>
 <p>Log in with Jim&rsquo;s user account.</p>
 </blockquote>
 <p>The same injection method used on Bender&rsquo;s account works on Jim. Simply change the login email to <code>jim@juice-sh.op'--</code> and again use anything for the password. Or alternatively decode the MD5 passwords we found from the SQL Injection vulnerability found at <code>/rest/products/search</code></p>
-<p>You successfully solved a challenge: Login Jim (Log in with Jim&rsquo;s user account.)</p>
 <h5 id="manipulate-basket">Manipulate Basket</h5>
 <p>Category: Broken Access Control</p>
 <blockquote>
@@ -566,14 +536,12 @@ back-end DBMS: SQLite
 <p>For this one I had to be logged in as any user and inspect the network traffic while adding an item to the cart.
 I selected to edit and resend the POST request to <code>/api/BasketItems</code>. Attempting to edit the BasketId and send got me an unauthorized 401 response.</p>
 <p>Adding another BasketId to also add the item to another users account however did succeed. <code>{&quot;ProductId&quot;:24,&quot;BasketId&quot;:&quot;2&quot;,&quot;quantity&quot;:1,&quot;BasketId&quot;:&quot;3&quot;}</code></p>
-<p>You successfully solved a challenge: Manipulate Basket (Put an additional product into another user&rsquo;s shopping basket.)</p>
 <h5 id="payback-time">Payback Time</h5>
 <p>Category: Improper Input Validation</p>
 <blockquote>
 <p>Place an order that makes you rich.</p>
 </blockquote>
 <p>To complete this one I simply had Burp Suite on while I accessed the basket and noticed when I changed the quantity Burp made a PUT request to /api/BasketItems/13 with <code>&quot;quantity&quot;:2</code>. I simply changed this to a negative number on Burp before forwarding the request to get &ldquo;rich&rdquo;.</p>
-<p>You successfully solved a challenge: Payback Time (Place an order that makes you rich.)</p>
 <h5 id="privacy-policy-inspection">Privacy Policy Inspection</h5>
 <p>Category:  Security through Obscurity</p>
 <blockquote>
@@ -583,7 +551,6 @@ I selected to edit and resend the POST request to <code>/api/BasketItems</code>.
 <p><code>https://exampleapp.herokuapp.com/we/may/also/instruct/you/to/refuse/all/reasonably/necessary/responsibility</code></p>
 <p>Going to this greets us with a <code>404 Error: ENOENT: no such file or directory, stat '/app/frontend/dist/frontend/assets/private/thank-you.jpg'</code></p>
 <p>And going back to the scoreboard I see the challenge has indeed completed.</p>
-<p>You successfully solved a challenge: Privacy Policy Inspection (Prove that you actually read our privacy policy.)</p>
 <h5 id="product-tampering">Product Tampering</h5>
 <p>Category: Broken Access Control</p>
 <blockquote>
@@ -591,7 +558,7 @@ I selected to edit and resend the POST request to <code>/api/BasketItems</code>.
 </blockquote>
 <p><a href="https://exampleapp.herokuapp.com/rest/products/search?q=o-saft">https://exampleapp.herokuapp.com/rest/products/search?q=o-saft</a> we find the id is 9. I intercepted a request to <code>/api/Products/9</code> in Burp and changed the request from <code>GET</code> to <code>PUT</code>, adding <code>Content-Type: application/json</code>, and finally <code>{&quot;description&quot;: &quot;&lt;a href=\&quot;https://owasp.slack.com\&quot; target=\&quot;_blank\&quot;&gt;More...&lt;/a&gt;&quot;}</code> to the body.</p>
 <pre><code>PUT /api/products/9 HTTP/1.1
-Host: owasp-juice-shop-pentesting.herokuapp.com
+Host: exampleapp.herokuapp.com
 Cookie: language=en; welcomebanner_status=dismiss; cookieconsent_status=dismiss; continueCode=wkhOtpIEsZUyHRumhYTZFyfySqtBi4fvSPHoMuaDtqni46fokSnxH5VuRYc7vS9KUZesDVig3S6ohOvtvvIx2TMnCPEs9RumbfoK; token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJzdGF0dXMiOiJzdWNjZXNzIiwiZGF0YSI6eyJpZCI6MjEsInVzZXJuYW1lIjoiIiwiZW1haWwiOiJ0ZXN0QHRlc3QuY29tIiwicGFzc3dvcmQiOiIwNWE2NzFjNjZhZWZlYTEyNGNjMDhiNzZlYTZkMzBiYiIsInJvbGUiOiJjdXN0b21lciIsImRlbHV4ZVRva2VuIjoiIiwibGFzdExvZ2luSXAiOiJ1bmRlZmluZWQiLCJwcm9maWxlSW1hZ2UiOiIvYXNzZXRzL3B1YmxpYy9pbWFnZXMvdXBsb2Fkcy9kZWZhdWx0LnN2ZyIsInRvdHBTZWNyZXQiOiIiLCJpc0FjdGl2ZSI6dHJ1ZSwiY3JlYXRlZEF0IjoiMjAyMS0wOS0yOSAyMjo1ODoyNC4xODEgKzAwOjAwIiwidXBkYXRlZEF0IjoiMjAyMS0wOS0yOSAyMzowNDo1NC4yNDcgKzAwOjAwIiwiZGVsZXRlZEF0IjpudWxsfSwiaWF0IjoxNjMyOTYxNTcyLCJleHAiOjE2MzI5Nzk1NzJ9.UEhLYcuCkaSYF0JvRXS64GYNMIxQqE98Wi46VTSXResmOH8w5Bg0pxXmCW0mGmNJPTGKBptbTPG_v-t5GfO4E36TeqiLCbOol_MHN1ZnyPQoqSfPLALIA37iNw6BQZsSa7TyG8ixA6hFNjmcno44lq_qM9p_V2cbUdffHbfwt4A
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101 Firefox/78.0
 Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
@@ -614,7 +581,6 @@ Content-Length: 84
 <p>So the first step is obviously to go over to the login page and select <code>Forgot Password</code>. Inputting the email as <code>jim@juice-sh.op</code> tells us that his secret question is &ldquo;Your eldest siblings middle name?&rdquo;. So I must find out who Jim is, looking around reviews I see one by Jim for the product <code>OWASP Juice Shop-CTF Velcro Patch</code> stating <code>&quot;Looks so much better on my uniform than the boring Starfleet symbol.&quot;</code></p>
 <p>If you are like me and Starfleet isn&rsquo;t a quick give away a simple Google search tells me this is related to Star Trek and that this account belongs to <code>James T. Kirk</code>. <a href="https://memory-alpha.fandom.com/wiki/James_T._Kirk">https://memory-alpha.fandom.com/wiki/James_T._Kirk</a> reveals his only sibling as <code>George Samuel Kirk</code>.</p>
 <p>Use <code>Samuel</code> as the answer to the security question and change the password.</p>
-<p>You successfully solved a challenge: Reset Jim&rsquo;s Password (Reset Jim&rsquo;s password via the Forgot Password mechanism with the original answer to his security question.)</p>
 <h5 id="upload-size">Upload Size</h5>
 <p>Category: Improper Input Validation</p>
 <blockquote>
@@ -630,6 +596,70 @@ Content-Length: 84
 <p>Simply capture the request in Burp and remove the extension from the <code>filename=</code>.</p>
 <h5 id="xxe-data-access">XXE Data Access</h5>
 <p>Unavailable on the Heroku environment.</p>
+<h3 id="4--challenges">4 * Challenges</h3>
+<h5 id="access-log">Access Log</h5>
+<p>Category: Sensitive Data Exposure</p>
+<blockquote>
+<p>Gain access to any access log file of the server.</p>
+</blockquote>
+<p>When I was testing out a tool from Github called Sitadel(<code>https://github.com/shenril/Sitadel</code>) I came across the log files. Another easy way is to use the OWASP ZAP DirBuster plugin for this.</p>
+<p>Go to <code>https://exampleapp.herokuapp.com/support/logs</code> and download the access log here to complete the challenge.</p>
+<h5 id="allowlist-bypass">Allowlist Bypass</h5>
+<p>Category: Unvalidated Redirects</p>
+<blockquote>
+<p>Enforce a redirect to a page you are not supposed to redirect to.</p>
+</blockquote>
+<p>On the menu list theres an option that redirects to the Juice Shop Github page <code>https://exampleapp.herokuapp.com/redirect?to=https://github.com/bkimminich/juice-shop</code>. To bypass the allowlist and the <code>406 Error: Unrecognized target URL for redirect</code> error I had to use the original redirect but craft it a bit differently so that it includes where I want to redirect to between the site we are on and the allowed redirect. Like so:</p>
+<p><a href="https://exampleapp.herokuapp.com/redirect?to=http://kimminich.de?pwned=https://github.com/bkimminich/juice-shop">https://exampleapp.herokuapp.com/redirect?to=http://kimminich.de?pwned=https://github.com/bkimminich/juice-shop</a></p>
+<h5 id="csp-bypass">CSP Bypass</h5>
+<p>Unavailable on the Heroku environment.</p>
+<h5 id="christmas-special">Christmas Special</h5>
+<p>Category: Injection</p>
+<blockquote>
+<p>Order the Christmas special offer of 2014.</p>
+</blockquote>
+<p>I already know that this is susceptible to SQL Injection but if I didn&rsquo;t the category would have been a give away. So first I use Injection to get a list of all the products <code>https://exampleapp.herokuapp.com/rest/products/search?q=%27))--</code>. I found one Christmas related entry with an id of 10.</p>
+<pre><code>id	10
+name	&quot;Christmas Super-Surprise-Box (2014 Edition)&quot;
+description	&quot;Contains a random selection of 10 bottles (each 500ml) of our tastiest juices and an extra fan shirt for an unbeatable price! (Seasonal special offer! Limited availability!)&quot;
+price	29.99
+deluxePrice	29.99
+image	&quot;undefined.jpg&quot;
+createdAt	&quot;2021-10-06 12:56:19.525 +00:00&quot;
+updatedAt	&quot;2021-10-06 12:56:19.525 +00:00&quot;
+deletedAt	&quot;2014-12-27 00:00:00.000 +00:00&quot;
+</code></pre><p>Next I added an item to the basket and inspected the basket page. Heading over to the <code>Network</code> tab to make a <code>POST</code> request to <code>/api/BasketItems</code> and added the following lines:</p>
+<p>in the header: <code>Content-Type: application/json</code>
+in the body: <code>{&quot;BasketId&quot;: &quot;&lt;Your Basket ID&gt;&quot;, &quot;ProductId&quot;: 10, &quot;quantity&quot;: 1}</code></p>
+<p>Reloading the page got a successful 200 code response and the Christmas product was visible in the basket and clicking <code>Checkout</code> completes this challenge.</p>
+<h5 id="easter-egg">Easter Egg</h5>
+<p>Category: Broken Access Control</p>
+<blockquote>
+<p>Find the hidden easter egg.</p>
+</blockquote>
+<p>I&rsquo;ve already been across the <code>/ftp</code> directory before in my search of log files and noticed a file there named <code>eastere.gg</code>. Attempting to download this I was met with an error, <code>403 Error: Only .md and .pdf files are allowed!</code>. So I had to bypass this by tricking it into thinking it was a .md file.</p>
+<p><code>https://exampleapp.herokuapp.com/ftp/eastere.gg%2500.md</code></p>
+<p>The attack used:
+<a href="http://projects.webappsec.org/w/page/13246949/Null%20Byte%20Injection">http://projects.webappsec.org/w/page/13246949/Null%20Byte%20Injection</a></p>
+<h5 id="ephemeral-accountant">Ephemeral Accountant</h5>
+<p>Category: Injection</p>
+<blockquote>
+<p>Log in with the (non-existing) accountant <a href="mailto:acc0unt4nt@juice-sh.op">acc0unt4nt@juice-sh.op</a> without ever registering that user.</p>
+</blockquote>
+<p>Carefully read the hints as it is possible to fail this challenge and have to restart the Juice Shop. Luckily it also reminds us that the category is a give away as to how to do this challenge properly. I had to look up the solution to this challenge as it was a bit above my current knowledge.</p>
+<p><code>' UNION SELECT * FROM (SELECT 15 as 'id', '' as 'username', 'acc0unt4nt@juice-sh.op' as 'email', '12345' as 'password', 'accounting' as 'role', '123' as 'deluxeToken', '1.2.3.4' as 'lastLoginIp' , '/assets/public/images/uploads/default.svg' as 'profileImage', '' as 'totpSecret', 1 as 'isActive', '1999-08-16 14:14:41.644 +00:00' as 'createdAt', '1999-08-16 14:33:41.930 +00:00' as 'updatedAt', null as 'deletedAt')--</code></p>
+<p>Logging in with this syntax as the email and anything as the password gets me a temporary JWT Token and establishes the ephemeral user session.</p>
+<h5 id="expired-coupon">Expired Coupon</h5>
+<p>Category: Improper Input Validation</p>
+<blockquote>
+<p>Successfully redeem an expired campaign coupon code.</p>
+</blockquote>
+<p>For this I went back to the debugger tab to have a look at <code>main-es2015.js</code> and did a search for <code>campaign</code>.</p>
+<pre><code>WMNSDY2019: {
+validOn: 1551999600000,
+discount: 75
+},
+</code></pre><p>This tells us when the coupon was valid if we convert it to a JavaScript date this tells us that its valid on <code>March 8th 2019</code>. I simply had to set my system to this date <code>timedatectl set-time `2019-03-08` </code> and submit the code <code>WMNSDY2019</code> to complete this challenge.</p>
 
         </div>
 
@@ -783,6 +813,21 @@ Content-Length: 84
             </li>
           </ul>
         </li>
+        <li><a href="#4--challenges">4 * Challenges</a>
+          <ul>
+            <li>
+              <ul>
+                <li><a href="#access-log">Access Log</a></li>
+                <li><a href="#allowlist-bypass">Allowlist Bypass</a></li>
+                <li><a href="#csp-bypass">CSP Bypass</a></li>
+                <li><a href="#christmas-special">Christmas Special</a></li>
+                <li><a href="#easter-egg">Easter Egg</a></li>
+                <li><a href="#ephemeral-accountant">Ephemeral Accountant</a></li>
+                <li><a href="#expired-coupon">Expired Coupon</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
       </ul>
     </li>
   </ul>
@@ -882,6 +927,7 @@ Content-Length: 84
                 </li>
               
               
+              
                 
                 
                   
@@ -889,7 +935,6 @@ Content-Length: 84
                 <li class="nav-item">
                   <a class="smooth-scroll" href="/#projects">Projects</a>
                 </li>
-              
               
               
                 
