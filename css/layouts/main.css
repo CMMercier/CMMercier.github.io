@@ -297,7 +297,7 @@ mark {
 .footer {
   color: #8392a5 !important;
   background-color: #1c2d41;
-  position: relative;
+  position: relative; 
   z-index: 9999;
 }
 
