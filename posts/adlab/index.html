@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Setting up an Active Directory Lab</title>
+    <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="/css/layouts/main.css"/>
+<link rel="stylesheet" href="/css/navigators/navbar.css"/>
+<link rel="stylesheet" href="/css/plyr.css"/>
+<link rel="stylesheet" href="/css/flag-icon.min.css"/>
+
+
+<link href="https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" />
+
+
+
+
+<meta property="og:title" content="Setting up an Active Directory Lab" />
+<meta property="og:description" content="I go through setting up my own Active Directory Home Lab for testing purposes" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/adlab/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-11-26T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2021-11-26T00:00:00&#43;00:00" />
+
+
+
+    
+    
+<meta name="description" content="I go through setting up my own Active Directory Home Lab for testing purposes" />
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/atom-one-dark.min.css"
+/>
+<link rel="stylesheet" href="/css/layouts/single.css"/>
+<link rel="stylesheet" href="/css/navigators/sidebar.css">
+
+<link rel="stylesheet" href="/css/style.css"/>
+
+
+
+    
+    
+        
+        
+          
+          
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Y0CHGWDWFD"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-Y0CHGWDWFD', { 'anonymize_ip': false });
+}
+</script>
+
+        
+    
+  </head>
+
+  <body data-spy="scroll" data-target="#TableOfContents" data-offset="80">
+    <div class="container-fluid bg-dimmed wrapper">
+      
+      
+    
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+  
+  
+    
+  
+  
+
+
+
+  
+  
+    
+  
+  
+
+
+<nav class="navbar navbar-expand-xl top-navbar final-navbar shadow">
+  <div class="container">
+      <button class="navbar-toggler navbar-light" id="sidebar-toggler" type="button" onclick="toggleSidebar()">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="/">
+      
+        <img src="/images/site/main-logo_hudad8b06f5df9584902d36e554221237e_21318_42x0_resize_box_2.png" alt="Logo">
+      Crystal Mercier</a>
+    <button class="navbar-toggler navbar-light" id="toc-toggler" type="button" onclick="toggleTOC()">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse lang-selector" id="top-nav-items">
+      <ul class="navbar-nav ml-auto">
+      
+      </ul>
+    </div>
+  </div>
+  
+  
+    <img src="/images/site/main-logo_hudad8b06f5df9584902d36e554221237e_21318_42x0_resize_box_2.png" class="d-none" id="main-logo" alt="Logo">
+  
+  
+    <img src="/images/site/inverted-logo_hudaa24b0be3ab59526a1d9eec311eb387_21454_42x0_resize_box_2.png" class="d-none" id="inverted-logo" alt="Inverted Logo">
+  
+</nav>
+
+
+
+      
+      
+  <section class="sidebar-section" id="sidebar-section">
+    <div class="sidebar-holder">
+      <div class="sidebar" id="sidebar">
+        <form class="mx-auto" method="get" action="/search">
+          <input type="text" name="keyword" value="" placeholder="Search" data-search="" id="search-box" />
+        </form>
+        <div class="sidebar-tree">
+          <ul class="tree" id="tree">
+            <li id="list-heading"><a href="/posts" data-filter="all">Posts</a></li>
+            <div class="subtree">
+                
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/website-guide/" title="Build your own Hugo website">Build your own Hugo website</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/owasp-juice-shop-walkthrough/" title="OWASP Juice Shop Walkthrough">OWASP Juice Shop Walkthrough</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/owasp-webgoat/" title="OWASP WebGoat Challenge">OWASP WebGoat Challenge</a></li>
+  
+
+  
+  
+  
+  
+    
+    
+  
+  
+    
+    <li><a class="active" href="/posts/adlab/" title="Setting up an Active Directory Lab">Setting up an Active Directory Lab</a></li>
+  
+
+
+            </div>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+      
+      
+<section class="content-section" id="content-section">
+  <div class="content">
+    <div class="container p-0 read-area">
+      
+      <div class="hero-area col-sm-12" id="hero-area" style='background-image: url(/posts/adlab/hero.png);'>
+      </div>
+
+      
+      <div class="page-content">
+        <div class="author-profile ml-auto align-self-lg-center">
+          <img class="rounded-circle" src='/images/author/crystal_hu56daec2eff645d56fb53cd8db157a676_63575_120x120_fit_q75_box.jpg' alt="Author Image">
+          <h5 class="author-name">Crystal Mercier</h5>
+          <p>November 26, 2021</p>
+        </div>
+
+        <div class="title">
+          <h1>Setting up an Active Directory Lab</h1>
+        </div>
+
+        <div class="post-content" id="post-content">
+          <p>Firstly, I want to give credit to Heath Adams at TCM Security. The Practical
+Ethical Hacking course helped me learn more than any book and the hands on
+learning was just what I needed!</p>
+<h3 id="the-lab">The Lab</h3>
+<ul>
+<li>1 Windows Server 2019</li>
+<li>2 Windows 10 Enterprise</li>
+</ul>
+<h3 id="requirements">Requirements</h3>
+<ul>
+<li>60 GB Disk Space</li>
+<li>16 GB RAM</li>
+</ul>
+<h3 id="downloading-the-necessary-isos">Downloading the Necessary ISOs</h3>
+<p>If you are able to get the ISOs from Microsoft Evaluation Center please feel
+free to do so. You can find it with Google search as it should be the first option
+that appears.
+<img src="2021-11-27-10-30-22.png" alt=""></p>
+<p>I however, did not have any luck getting ISOs to finish downloading from here as they
+would always fail after a short bit. So I used <a href="https://tb.rg-adguard.net/public.php">https://tb.rg-adguard.net/public.php</a>
+instead. As the ISOs on this site are legit and sourced directly from the MS servers.</p>
+<p>For Windows 10 Enterprise:
+<img src="2021-11-27-10-42-05.png" alt=""></p>
+<p>For Windows Server 2019:
+<img src="2021-11-27-10-43-27.png" alt=""></p>
+<h3 id="setting-up-the-domain-controllers">Setting Up the Domain Controllers</h3>
+<p>I will be using Oracle VM VirtualBox for this out of personal preference but feel free to use whatever you are comfortable with or step out of your comfort zone and learn something new!</p>
+<p>Firstly, well setup the Windows Server 2019. Click <code>Machine</code> and <code>New</code> and give your virtual machine a name. Set the machine folder to a location of your choosing, making sure you have the required space on that drive. Set the type to Windows and version to Windows 2019 (64-bit). I left the memory size at the minimum 2GB but feel free to bump it up if you&rsquo;d like and have the RAM to do so.</p>
+<p><img src="2021-11-28-12-00-33.png" alt=""></p>
+<p>In the next window you will be creating the virtual hard disk. Set this to 60GB and leave it to dynamically allocated then click create.</p>
+<p><img src="2021-11-28-12-06-29.png" alt=""></p>
+<p>Right click the newly created VM and click on settings. Go to System and uncheck Floppy.</p>
+<p><img src="2021-11-28-12-09-22.png" alt=""></p>
+<p>Then go to Storage and select the Empty CD storage. On the right side there is a disc icon, click it and select <code>choose a disk file</code> and choose your server ISO. If you aren&rsquo;t sure which ISO is which. The server ISO file will have SERVERESSENTIALS in the name.</p>
+<p><img src="2021-11-28-12-11-20.png" alt=""></p>
+<p>Leave the Network set to NAT and click ok. Go ahead and start the machine. It asked me to select the start-up disk so I changed that from the default GuestAdditons.iso to the Windows Server ISO and click start.</p>
+<p><img src="2021-11-28-12-16-00.png" alt=""></p>
+<p>Select your language information and click <code>Next</code>.</p>
+<p><img src="2021-11-28-12-19-37.png" alt=""></p>
+<p>Then click <code>Install Now</code>.</p>
+<p>Select <code>I don't have a licence key</code> and <code>Next</code>. Accept the license terms and click <code>Next</code> again. Select the <code>Custom: Install Windows only (advanced)</code>.</p>
+<p><img src="2021-11-28-12-22-54.png" alt=""></p>
+<p>On the Where do you want to install Windows window select <code>New</code> and <code>Apply</code> then click <code>Next</code> and wait for the install to finish.</p>
+<p><img src="2021-11-28-12-24-17.png" alt=""></p>
+<p>When it finishes it asks you to set a password for the Administrator account. I set mine to <code>P@$$w0rd!</code> but as this is your own virtual environment you can set it to whatever you wish as long as you remember it! Click finish to finally get to the Windows login. It asks you to press ctrl+alt+delete to unlock. To do this on VirtualBox go to <code>Input</code> then <code>Keyboard</code> and select <code>Insert Ctrl+Alt+Del</code>.</p>
+<p>If you are using VMWare you may have to setup VMWare Tools here to get a properly sized screen. The thing I love about VirtualBox is that I can just select the display size within the running machine settings and VirtualBox resizes properly without the need to install Tools usually.</p>
+<p>Next click <code>Start</code> and type in <code>Computer</code>. Select where it says <code>View your PC name</code>. Here you want to scroll down and select <code>Rename this PC</code> and name it whatever you want and restart.</p>
+<p>After you log back into Windows the Server Manager should open. If it does not go ahead and start it up. Next you&rsquo;ll want to go to <code>Manage</code> and <code>Add Roles and Features</code>.</p>
+<p><img src="2021-11-28-12-53-13.png" alt=""></p>
+<p>Select <code>Next</code> here. Keep it at the default <code>Role-based or feature-based installation</code> and click <code>Next</code>. Select <code>Next</code> again. On Server Roles you want to select <code>Active Directory Domain Services</code>, click <code>Add Features</code> and select <code>Next</code>. Select <code>Next</code> again. Select <code>Next</code> again and then <code>Install</code>.</p>
+<p>Now a flag will appear at the top and selecting it will alert us to the fact that we now have to <code>Promote this server to a domain controller</code>. So go ahead and select that now.</p>
+<p><img src="2021-11-28-13-11-17.png" alt=""></p>
+<p>Select <code>Add a new forest</code> and give it a <code>Root domain name</code> of your choosing and select <code>Next</code>. Give it a password and click <code>Next</code>. Click <code>Next</code> till you get to the option to <code>Install</code> and select it.</p>
+<h3 id="setting-up-the-user-machines">Setting Up the User Machines</h3>
+<p>For this part you will want to repeat the entire process at least once so that you have at least two client machines. Just like before if you are using VirtualBox go to <code>Machine</code> and <code>New</code> and set it like below the select <code>Create</code>.</p>
+<p><img src="2021-11-28-15-40-36.png" alt=""></p>
+<p>Again change the size to 60GB and the other settings can stay at their defaults then click <code>Create</code>. Right click and select <code>Settings</code> then <code>System</code> and uncheck that floppy from the boot order. Then select <code>Storage</code> then <code>Empty</code> and the disc icon to <code>Choose a disk file</code>. Select the CLIENT ISO file this time and click <code>OK</code>.</p>
+<p>Start the machine and select the CLIENT ISO file again if prompted to select a start-up disk. Check that the language settings are how you want them and select <code>Next</code> then <code>Install Now</code>. Check the box to accept the terms and click <code>Next</code>. Select <code>Custom: Install Windows only (advanced)</code>, this brings you to a new window to choose where you want to install Windows. Click <code>New</code> and <code>Apply</code> then <code>Next</code> after its done making the partitions.</p>
+<p>After it restarts you will need to select a region and keyboard layout. Once you get the option to sign in you&rsquo;ll want to click <code>Domain join instead</code>.</p>
+<p><img src="2021-11-28-16-04-21.png" alt=""></p>
+<p>Give it a name and click <code>Next</code>. Give it a password, here I just used P@$$w0rd1 to make it easier to remember, then click <code>Next</code>. Fill out the security questions with whatever you wish and click <code>Next</code>. Click <code>No</code> at this next screen. Change everything to <code>No</code> if you like on the privacy settings page and then click <code>Accept</code>.</p>
+<p>Again you may have to install Tools if you are using VMWare. After it finishes loading the Windows desktop you will want to click <code>Start</code> and search <code>computer</code> then select <code>View your PC name</code>. Scroll down to <code>Rename this PC</code> and give it a name of your choosing and reboot.</p>
+<p>Do this all again for at least one more Windows 10 client before moving onto the next section.</p>
+<h3 id="setting-up-users-groups-and-policies">Setting Up Users, Groups, and Policies</h3>
+<p>Start up your domain controller machine and login. Open up the Server Manager if it does not start automatically. Next select <code>Tools</code> from the menu on the right side and <code>Active Directory Users and Computers</code> from that drop down menu.</p>
+<p><img src="2021-11-29-12-04-04.png" alt=""></p>
+<p>Expand the domain controller list and you will see the default directories <code>Builtin</code>, <code>Computers</code>, <code>Domain Controllers</code>, <code>ForeignSecurityPrincipals</code>, <code>Managed Service Accounts</code>, and <code>Users</code>.</p>
+<p>The next step is optional and is more of a quality of life step:</p>
+<ul>
+<li>We want to create a new one for groups so right click the domain controller and select <code>New</code> and <code>Organizational Unit</code> and name it <code>Groups</code> then click <code>OK</code>. The click on <code>Users</code> and move everything that has the <code>Type</code> as <code>Security Group - *</code> to the newly created <code>Groups</code> folder.</li>
+</ul>
+<p>Now we will want to add the users from our client machines into the <code>Users</code> directory. To do this you will want to click anywhere on the right in the empty space under Administrator and Guest then hover over <code>New</code> and select <code>User</code>.</p>
+<p><img src="2021-11-29-15-37-37.png" alt=""></p>
+<p>Add the user logins you made for the clients here for the <code>First name</code> and <code>Last name</code> fields and come up with a naming convention that will be consistent for the <code>User Login name</code> field, ie. first initial and last name.
+Click <code>Next</code> and give the user a password. Note you can set the password to never expire in this virtual test environment but its not something you would realistically want to do. Repeat for however many users you wish to add.For one of the users be sure to make a copy of the <code>Administrator</code> user to easily create a user that will be the domain administrator.</p>
+<p>If you are building this lab for testing purposes you may choose to create a copy of the domain administrator account and make it a  SQL Service account. Just set the First Name as SQL and Last as Service and the login name as SQLService. Then right click the SQL Service user and give it a description that tells the password and click <code>Apply</code> and figure out how you can view that description without being a domain administrator as descriptions often contain valuable information.</p>
+<p>Next lets set up a file share. Close this window and select <code>File and Storage Services</code> under Server Manager.</p>
+<p><img src="2021-11-29-16-14-37.png" alt=""></p>
+<p>Click on <code>Shares</code> and at the top right where it says <code>TASKS</code> click there and then <code>New Share</code>.</p>
+<p><img src="2021-11-29-16-16-34.png" alt=""></p>
+<p>Leave it at the default <code>SMB Share - Quick</code> and click <code>Next</code>. Click <code>Next</code> again and now give it a <code>Share name</code> and click <code>Next</code> until you get the option to <code>Create</code>. Select <code>Create</code> then close once it finishes. Most domain controllers have shares so doing this opens the ports and gives us another attack vector to play around with.</p>
+<p>Next we want to create a service principal name(SPN) so we can play around with Kerberoasting attack so we need to open a command prompt as Administrator. Enter the following on command prompt:</p>
+<p><code>setspn -a DOMAINCONTROLLERPCNAME/SQLService.FORESTNAME:60111 FORESTNAME\SQLService</code></p>
+<p>Then:</p>
+<p><code>setspn -T FORESTNAME -Q */*</code></p>
+<p><img src="2021-11-29-16-31-23.png" alt=""></p>
+<p>As this is a testing environment we will want to make things easier and disable Windows Defender for now. Click start then type in <code>Group Policy Management</code> until it pops up then right click it and select run as Administrator.</p>
+<p>Expand the <code>Forest</code> and <code>Domains</code> then right click the domain and select <code>Create a GPO in this domain, and Link it here..</code>.</p>
+<p><img src="2021-11-29-16-38-28.png" alt=""></p>
+<p>Name it <code>Disable Windows Defender</code> and click <code>OK</code>. Now expand this tree so you see the newly created <code>Disable Windows Defender</code> then right click it and select <code>Edit</code>. Next Expand <code>Policies</code>, then <code>Administrative Templates</code>, then <code>Windows Components</code> and finally click <code>Windows Defender Antivirus</code>. Double click on <code>Turn off Windows Defender Antivirus</code> and select <code>Enabled</code> then <code>Apply</code> and <code>OK</code>.</p>
+<p><img src="2021-11-29-16-50-29.png" alt=""></p>
+<p>By default the <code>Enforced</code> is set to <code>No</code>. Right click this and select <code>Enforced</code> to change this to <code>Yes</code>.</p>
+<p><img src="2021-11-29-16-51-58.png" alt=""></p>
+<h3 id="joining-our-machines-to-the-domain">Joining Our Machines to the Domain</h3>
+<p>Start up one of the Windows 10 Clients and login. Open up <code>File Explorer</code> and navigate to the <code>C:</code> drive. Create a new directory here called <code>Share</code>.</p>
+<p><img src="2021-11-29-17-43-29.png" alt=""></p>
+<p>Right click the newly created <code>Share</code> directory and select <code>Properties</code>. Click the <code>Sharing</code> tab and the click <code>Share</code>. Click <code>Share</code> in the window that pops up and select <code>Yes, turn on network discovery and file sharing for all public networks</code> then <code>Done</code>.</p>
+<p>Close that out and go back to your domain controller virtual machine. Open up the <code>Command Prompt</code>  and type <code>ipconfig</code> to get the IP of the domain controller. Once you have the IP switch back to the Windows 10 client and right click the Network icon at the bottom right then select <code>Open Network and Internet Settings</code>. Select <code>Change adapter options</code> and there should be a single <code>Ethernet</code> here. Right click it and select <code>Properties</code> then double click on the <code>Internet Protocol Version 4(TCP/IPv4)</code>. Leave the IP address to obtain automatically but switch <code>Obtain DNS server address automatically</code> to <code>Use the following DNS server addresses</code> and set the <code>Preferred DNS server</code> to that domain controller IP you just looked up with ipconfig then click <code>OK</code> on this window and the next.</p>
+<p>Next click start and type <code>domain</code> and you should see the option <code>Access work or school</code>. Select it and click <code>Connect</code> then at the bottom you want to click <code>Join this device to a local Active Directory domain</code>.</p>
+<p><img src="2021-11-29-18-00-54.png" alt=""></p>
+<p>Enter the domain name you chose here.</p>
+<h5 id="note">Note</h5>
+<p><em>If you are using VirtualBox like me this is where you discover that leaving the virtual machines setting to <code>NAT</code> gives them all the same IP. So you must open VirtualBox and select <code>File</code>, then <code>Preferences</code>, then <code>Network</code> and click the button to add a new NAT network.</em></p>
+<p><img src="2021-11-29-18-17-33.png" alt=""></p>
+<p><em>Then right click each of your machines and go to <code>Settings</code> then <code>Network</code> and change the <code>NAT</code> to <code>NAT Network</code>. The name field should update to the newly created NAT network but change it if it does not and click <code>OK</code>.</em></p>
+<p>Next it asks for a user name and password. Type Administrator for the user name and whatever password you set for that account at the start. Click <code>Skip</code> at the next window and then <code>Restart Now</code>.</p>
+<p>After it boots back up to the login select <code>Other user</code> and enter the user information you setup on the domain controller using the first name initial and last name scheme and make sure its successful.</p>
+<p>Sign out then sign in as the user administrator <code>DOMAIN\administrator</code>. As we want to set the user to be an administrator on the local machine. Right click on start and select <code>Computer Management</code>. Click <code>Local Users and Groups</code> then double click <code>Groups</code>. Double click <code>Administrators</code> and then <code>Add</code> and type the user name into <code>Enter the object names to select</code> and make sure to click <code>Check Names</code> before hitting ok to make sure it found the user. Click <code>Apply</code> and <code>OK</code>.</p>
+<p>Do the same for your other Windows 10 client machines. Making sure that the local user is an administrator of that machine and that your main user is an admin on all machines.</p>
+<p>Lastly go back to your Windows Server 2019 machine and open <code>Active Directory Users and Computers</code> and select <code>Computers</code>. You may have to click refresh but the Windows 10 client computers should all appear here now.</p>
+<p>Congratulations! Your own active directory lab is fully set up. Time to get hacking!</p>
+
+        </div>
+
+        
+        
+
+        
+      <hr />
+        
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+    
+    
+  
+  
+
+
+<div class="row next-prev-navigator">
+  
+    <div class="col-md-6 previous-article">
+      <a href="/posts/owasp-webgoat/" title="OWASP WebGoat Challenge" class="btn btn-outline-info">
+        <div><i class="fas fa-chevron-circle-left"></i> Prev</div>
+        <div class="next-prev-text">OWASP WebGoat Challenge</div>
+      </a>
+    </div>
+  
+  
+</div>
+
+      <hr />
+      
+      
+      </div>
+    </div>
+  </div>
+  
+  <a id="scroll-to-top" class="btn"><i class="fas fa-chevron-circle-up"></i></a>
+  
+</section>
+
+
+      
+      
+  <section class="toc-section" id="toc-section">
+    
+    <div class="toc-holder">
+      <h5 class="text-center pl-3">Table of Contents</h5>
+      <hr>
+      <div class="toc">
+        <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#the-lab">The Lab</a></li>
+        <li><a href="#requirements">Requirements</a></li>
+        <li><a href="#downloading-the-necessary-isos">Downloading the Necessary ISOs</a></li>
+        <li><a href="#setting-up-the-domain-controllers">Setting Up the Domain Controllers</a></li>
+        <li><a href="#setting-up-the-user-machines">Setting Up the User Machines</a></li>
+        <li><a href="#setting-up-users-groups-and-policies">Setting Up Users, Groups, and Policies</a></li>
+        <li><a href="#joining-our-machines-to-the-domain">Joining Our Machines to the Domain</a>
+          <ul>
+            <li>
+              <ul>
+                <li><a href="#note">Note</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+      </div>
+    </div>
+    
+  </section>
+
+    </div>
+
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+    
+    
+      
+    
+  
+
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+    
+  
+  
+
+  
+  
+  
+
+  <footer class="container-fluid text-center align-content-center footer pb-2">
+    <div class="container pt-5">
+      <div class="row text-left">
+        
+        <div class="col-md-4 col-sm-12">
+          <h5>Navigation</h5>
+          
+          <ul>
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="/#about">About</a>
+                </li>
+              
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="/#skills">Skills</a>
+                </li>
+              
+              
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="/#education">Education</a>
+                </li>
+              
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="/#accomplishments">Accomplishments</a>
+                </li>
+              
+              
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="/#projects">Projects</a>
+                </li>
+              
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="/#recent-posts">Recent Posts</a>
+                </li>
+              
+          </ul>
+          
+        </div>
+        
+        
+        <div class="col-md-4 col-sm-12">
+          <h5>Contact me:</h5>
+          <ul>
+            
+            <li><span>Email: </span> <span>cmmercier86@gmail.com</span></li>
+            
+          </ul>
+	  </div>
+	
+        
+        
+      </div>
+    </div>
+    
+    
+    <hr />
+    <div class="container">
+      <div class="row text-left">
+        <div class="col-md-4">
+          <a id="theme" href="https://github.com/hossainemruz/toha" target="_blank" rel="noopener">
+            <img src="/images/theme-logo_hu8376fd15465fef26ffe66b6bcf0ca686_13669_32x0_resize_box_2.png" alt="Toha Theme Logo">
+            Toha
+          </a>
+        </div>
+        <div class="col-md-4 text-center">© 2021 Copyright.</div>
+        <div class="col-md-4 text-right">
+          <a id="hugo" href="https://gohugo.io/" target="_blank" rel="noopener">Powered by
+          <img
+            src="/images/hugo-logo.svg"
+            alt="Hugo Logo"
+            height="18"
+          />
+          </a>
+        </div>
+      </div>
+    </div>
+    
+  </footer>
+
+
+    <script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="/js/popper.min.js"></script>
+<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="/js/navbar.js"></script>
+<script type="text/javascript" src="/js/plyr.js"></script>
+<script type="text/javascript" src="/js/main.js"></script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
+<script src="/js/single.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+
+
+  </body>
+</html>

@@ -55,12 +55,15 @@
     <priority>0.1</priority>
   </url><url>
     <loc>/</loc>
-    <lastmod>2021-09-21T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/posts/owasp-webgoat/</loc>
-    <lastmod>2021-09-21T00:00:00+00:00</lastmod>
+    <lastmod>2021-11-26T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/posts/</loc>
+    <lastmod>2021-11-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/posts/adlab/</loc>
+    <lastmod>2021-11-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/posts/owasp-webgoat/</loc>
     <lastmod>2021-09-21T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/posts/owasp-juice-shop-walkthrough/</loc>
