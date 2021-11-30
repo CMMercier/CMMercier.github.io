@@ -312,9 +312,16 @@ Click <code>Next</code> and give the user a password. Note you can set the passw
 <p><img src="2021-11-29-18-00-54.png" alt=""></p>
 <p>Enter the domain name you chose here.</p>
 <h5 id="note">Note</h5>
-<p><em>If you are using VirtualBox like me this is where you discover that leaving the virtual machines setting to <code>NAT</code> gives them all the same IP. So you must open VirtualBox and select <code>File</code>, then <code>Preferences</code>, then <code>Network</code> and click the button to add a new NAT network.</em></p>
+<ul>
+<li>If you are using VirtualBox like me this is where you discover that leaving the
+virtual machines setting to <code>NAT</code> gives them all the same IP. So you must open
+VirtualBox and select <code>File</code>, then <code>Preferences</code>, then <code>Network</code> and click the
+button to add a new NAT network.</li>
+</ul>
 <p><img src="2021-11-29-18-17-33.png" alt=""></p>
-<p><em>Then right click each of your machines and go to <code>Settings</code> then <code>Network</code> and change the <code>NAT</code> to <code>NAT Network</code>. The name field should update to the newly created NAT network but change it if it does not and click <code>OK</code>.</em></p>
+<ul>
+<li>Then right click each of your machines and go to <code>Settings</code> then <code>Network</code> and change the <code>NAT</code> to <code>NAT Network</code>. The name field should update to the newly created NAT network but change it if it does not and click <code>OK</code>.</li>
+</ul>
 <p>Next it asks for a user name and password. Type Administrator for the user name and whatever password you set for that account at the start. Click <code>Skip</code> at the next window and then <code>Restart Now</code>.</p>
 <p>After it boots back up to the login select <code>Other user</code> and enter the user information you setup on the domain controller using the first name initial and last name scheme and make sure its successful.</p>
 <p>Sign out then sign in as the user administrator <code>DOMAIN\administrator</code>. As we want to set the user to be an administrator on the local machine. Right click on start and select <code>Computer Management</code>. Click <code>Local Users and Groups</code> then double click <code>Groups</code>. Double click <code>Administrators</code> and then <code>Add</code> and type the user name into <code>Enter the object names to select</code> and make sure to click <code>Check Names</code> before hitting ok to make sure it found the user. Click <code>Apply</code> and <code>OK</code>.</p>
