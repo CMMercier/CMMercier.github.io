@@ -6,7 +6,7 @@
     <description>Recent content in Posts on Crystal Mercier</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 26 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 04 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Resultados de Búsqueda</title>
       <link>/search/</link>
@@ -177,6 +177,25 @@ Initial setup Search depends on additional output content type of JSON in config
     </item>
     
     <item>
+      <title>OWASP WebGoat Challenge</title>
+      <link>/posts/owasp-webgoat/</link>
+      <pubDate>Tue, 04 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/owasp-webgoat/</guid>
+      <description>Next Project </description>
+    </item>
+    
+    <item>
+      <title>OpenWrt on Raspberry Pi 3b</title>
+      <link>/posts/openwrt/</link>
+      <pubDate>Tue, 28 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/openwrt/</guid>
+      <description>Introduction So back when Raspberry Pi was super hyped I really wanted one. I always loved to play with tech and there was so much that could be done with such a handy small and inexpensive device.
+So eventually and very excitedly I purchased the Raspberry Pi 3 when I had some extra cash to do so. But after an extensive search of existing Pi project lists, personal sites, and Youtube videos, I wasn&amp;rsquo;t really able to find many project or project ideas that actually interested me or felt worthy.</description>
+    </item>
+    
+    <item>
       <title>Setting up an Active Directory Lab</title>
       <link>/posts/adlab/</link>
       <pubDate>Fri, 26 Nov 2021 00:00:00 +0000</pubDate>
@@ -184,15 +203,6 @@ Initial setup Search depends on additional output content type of JSON in config
       <guid>/posts/adlab/</guid>
       <description>Firstly, I want to give credit to Heath Adams at TCM Security. The Practical Ethical Hacking course helped me learn more than any book and the hands on learning was just what I needed!
 The Lab  1 Windows Server 2019 2 Windows 10 Enterprise  Requirements  60 GB Disk Space 16 GB RAM  Downloading the Necessary ISOs If you are able to get the ISOs from Microsoft Evaluation Center please feel free to do so.</description>
-    </item>
-    
-    <item>
-      <title>OWASP WebGoat Challenge</title>
-      <link>/posts/owasp-webgoat/</link>
-      <pubDate>Tue, 21 Sep 2021 00:00:00 +0000</pubDate>
-      
-      <guid>/posts/owasp-webgoat/</guid>
-      <description>~Coming Soon~ </description>
     </item>
     
     <item>

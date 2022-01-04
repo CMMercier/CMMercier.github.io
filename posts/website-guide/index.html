@@ -24,8 +24,8 @@
 <meta property="og:description" content="I walk through the steps required to get a website up and running fast and easy using Hugo and Github Pages" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/posts/website-guide/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2021-09-12T00:00:00&#43;00:00" />
-<meta property="article:modified_time" content="2021-09-12T00:00:00&#43;00:00" />
+<meta property="article:published_time" content="2021-09-12T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-09-12T00:00:00+00:00" />
 
 
 
@@ -104,7 +104,7 @@ if (!doNotTrack) {
     </button>
     <a class="navbar-brand" href="/">
       
-        <img src="/images/site/main-logo_hudad8b06f5df9584902d36e554221237e_21318_42x0_resize_box_2.png" alt="Logo">
+        <img src="/images/site/main-logo_hudad8b06f5df9584902d36e554221237e_21318_42x0_resize_box_3.png" alt="Logo">
       Crystal Mercier</a>
     <button class="navbar-toggler navbar-light" id="toc-toggler" type="button" onclick="toggleTOC()">
       <span class="navbar-toggler-icon"></span>
@@ -118,10 +118,10 @@ if (!doNotTrack) {
   </div>
   
   
-    <img src="/images/site/main-logo_hudad8b06f5df9584902d36e554221237e_21318_42x0_resize_box_2.png" class="d-none" id="main-logo" alt="Logo">
+    <img src="/images/site/main-logo_hudad8b06f5df9584902d36e554221237e_21318_42x0_resize_box_3.png" class="d-none" id="main-logo" alt="Logo">
   
   
-    <img src="/images/site/inverted-logo_hudaa24b0be3ab59526a1d9eec311eb387_21454_42x0_resize_box_2.png" class="d-none" id="inverted-logo" alt="Inverted Logo">
+    <img src="/images/site/inverted-logo_hudaa24b0be3ab59526a1d9eec311eb387_21454_42x0_resize_box_3.png" class="d-none" id="inverted-logo" alt="Inverted Logo">
   
 </nav>
 
@@ -167,7 +167,7 @@ if (!doNotTrack) {
   
   
     
-    <li><a class="" href="/posts/owasp-webgoat/" title="OWASP WebGoat Challenge">OWASP WebGoat Challenge</a></li>
+    <li><a class="" href="/posts/adlab/" title="Setting up an Active Directory Lab">Setting up an Active Directory Lab</a></li>
   
 
   
@@ -176,7 +176,16 @@ if (!doNotTrack) {
   
   
     
-    <li><a class="" href="/posts/adlab/" title="Setting up an Active Directory Lab">Setting up an Active Directory Lab</a></li>
+    <li><a class="" href="/posts/openwrt/" title="OpenWrt on Raspberry Pi 3b">OpenWrt on Raspberry Pi 3b</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/owasp-webgoat/" title="OWASP WebGoat Challenge">OWASP WebGoat Challenge</a></li>
   
 
 
@@ -215,20 +224,20 @@ if (!doNotTrack) {
 <p>Clone this repository to your local machine and cd to it, I added mine under the users documents folder.</p>
 <h3 id="create-the-hugo-site">Create the Hugo Site</h3>
 <p>You&rsquo;ll want to get the basic Hugo site next by using the command:</p>
-<pre><code>hugo new site ./ -f=yaml --force
+<pre tabindex="0"><code>hugo new site ./ -f=yaml --force
 </code></pre><p>The <code>-f=yaml</code> makes your YAML configuration file while the <code>--force</code> command is optional and only forces Hugo to build the site if theres files already in the directory so its unnecessary if you just created the directory.</p>
 <h3 id="pick-a-theme">Pick a Theme</h3>
 <p>This part is the most important and should take you the longest. Before you go having a look around the themes first take the time to think about what you are making this site for and maybe note down what the theme needs to have and what things you&rsquo;d like it to have but aren&rsquo;t as necessary.</p>
 <p>Then head over to <a href="https://themes.gohugo.io/">https://themes.gohugo.io/</a> and have a look at the tags on the right side. Chances are you already have in mind the kind of site you want. I was after a Portfolio site so that tag was the obvious choice for me to begin at.</p>
 <p>When you&rsquo;ve found the theme you want you will have to click download and this will bring you to the github page for that theme. From there you will need to use the command <code>git submodule add https://the-github-link.git themes/theme-name</code>. I chose Toha for my theme so my command looks like:</p>
-<pre><code>git submodule add https://github.com/hugo-toha/toha.git themes/toha
+<pre tabindex="0"><code>git submodule add https://github.com/hugo-toha/toha.git themes/toha
 </code></pre><h3 id="run-the-site">Run the Site</h3>
 <p>You will want to test that its all working now and be able to see what changes you make appear like on the site locally before you commit those changes publicly on Github. To do this you will need to run the following command:</p>
-<pre><code>hugo server -t toha -w
+<pre tabindex="0"><code>hugo server -t toha -w
 </code></pre><p>Note that you will have to change <code>toha</code> to whatever theme you chose if you chose a different one. Running this opens up port 1313 by default to host your site locally and can be reached by going to http://localhost:1313.</p>
 <h3 id="configure-the-site">Configure the Site</h3>
 <p>Before you get started on the personal stuff it&rsquo;s time to configure the basics first. Remember that yaml file we had Hugo create at the start? It is <code>config.yaml</code> and it is located in the root directory of your repository. Open it up in your favorite text editor, I personally use Atom for this. You&rsquo;ll want to replace the default content with this:</p>
-<pre><code>#baseURL: https://hugo-toha.github.io
+<pre tabindex="0"><code>#baseURL: https://hugo-toha.github.io
 
 languageCode: en-us
 title: &quot;Crystal Mercier&quot;
@@ -336,7 +345,7 @@ params:
 <p>There should be a <code>data</code> folder in the root directory and inside this folder should be another called <code>en</code> for English. If one or both of these are missing then you&rsquo;ll need to create them.</p>
 <h5 id="site">Site</h5>
 <p>First you&rsquo;ll add site information by creating a file named <code>site.yaml</code> within the <code>/data/en/</code> directory and add the following content:</p>
-<pre><code># Copyright Notice
+<pre tabindex="0"><code># Copyright Notice
 copyright: © 2020 Copyright.
 
 # Meta description for your site.  This will help the search engines to find your site.
@@ -344,7 +353,7 @@ description: Portfolio and personal blog of Crystal Mercier.
 </code></pre><p>Change the description to whatever you want yours to be.</p>
 <h5 id="author">Author</h5>
 <p>Next create an <code>author.yaml</code> file within the <code>/data/en/</code> directory and add the following in it:</p>
-<pre><code># some information about you
+<pre tabindex="0"><code># some information about you
 name: &quot;Crystal Mercier&quot;
 nickname: &quot;Crystal&quot;
 # greeting message before your name. it will default to &quot;Hi! I am&quot; if not provided
@@ -364,7 +373,7 @@ summary:
 <p>Now that the basics are set you will need to add a new directory named <code>sections</code> in <code>/data/en</code> and move into this new directory to add some more files.</p>
 <h5 id="about">About</h5>
 <p>Create a file named <code>about.yaml</code> and copy the following inside it:</p>
-<pre><code># section information
+<pre tabindex="0"><code># section information
 section:
   name: About
   id: about
@@ -437,7 +446,7 @@ badges:
 </code></pre><p>Again change the information before saving and exiting this file. Also the <code>resume.pdf</code> should be supplied in the <code>/static/files</code> directory of your repository.</p>
 <h5 id="skills">Skills</h5>
 <p>Next create the <code>skills.yaml</code> and copy the following:</p>
-<pre><code># section information
+<pre tabindex="0"><code># section information
 section:
   name: Skills
   id: skills
@@ -475,7 +484,7 @@ skills:
 </code></pre><p>Change what you need to and save before closing.</p>
 <h5 id="experiences">Experiences</h5>
 <p>Next create <code>experiences.yaml</code> and add the following:</p>
-<pre><code># section information
+<pre tabindex="0"><code># section information
 section:
   name: Experiences
   id: experiences
@@ -520,7 +529,7 @@ experiences:
 </code></pre><p>Again Change what you need to and save before closing.</p>
 <h5 id="projects">Projects</h5>
 <p>Create <code>projects.yaml</code> and add the following to it:</p>
-<pre><code># section information
+<pre tabindex="0"><code># section information
 section:
   name: Projects
   id: projects
@@ -571,7 +580,7 @@ projects:
 </code></pre><p>Change what you need to and save before closing.</p>
 <h5 id="recent-posts">Recent Posts</h5>
 <p>Create the <code>recent-posts.yaml</code> file and add the following:</p>
-<pre><code># section information
+<pre tabindex="0"><code># section information
 section:
   name: Recent Posts
   id: recent-posts
@@ -581,7 +590,7 @@ section:
 </code></pre><p>The only things you might want to change here are the weight (decides what order it appears in relation to the other sections) and whether you want it on the Navbar or not.</p>
 <h5 id="achievements">Achievements</h5>
 <p>Create <code>achievements.yaml</code> file and add the following:</p>
-<pre><code># section information
+<pre tabindex="0"><code># section information
 section:
   name: Achievements
   id: achievements
@@ -608,7 +617,7 @@ achievements:
 </code></pre><p>Set enable to true and change the information if you wish to use this section.</p>
 <h3 id="deploy-site">Deploy site</h3>
 <p>In the root directory run the command <code>hugo</code>, this builds the site and adds the contents to the folder <code>public</code>. Move into this folder and use the following commands:</p>
-<pre><code>git init
+<pre tabindex="0"><code>git init
 git add .
 git remote add origin https://github.com/username/username.github.io.git
 git commit -m &quot;first commit&quot;
@@ -619,11 +628,11 @@ git push origin master
 <p>Use this token as the password and your push request will complete.</p>
 <h3 id="add-posts">Add Posts</h3>
 <p>To start adding new posts to your site you have to go to <code>themes/toha/content</code> and <code>posts</code>, if <code>posts</code> directory does not exist already you must create it then <code>cd posts</code>. Now create a file named <code>_index.md</code> within <code>themes/toha/content/posts</code> and add the following:</p>
-<pre><code>---
+<pre tabindex="0"><code>---
 title: Posts
 ---
 </code></pre><p>Next create a directory for your first post and <code>cd</code> into this new directory. Now create a file named <code>index.md</code>, this is a Markdown file and follows the Markdown syntax. Here is a quick cheat sheet for reference <a href="https://www.markdownguide.org/cheat-sheet/">https://www.markdownguide.org/cheat-sheet/</a>. Enter the following to the <code>index.md</code> file to get started:</p>
-<pre><code>---
+<pre tabindex="0"><code>---
 title: &quot;How to build your own Hugo Website and host it for free on Github Pages&quot;
 date: 2021-09-12
 description: &quot;I walk through the steps required to get a website up and running fast and easy using Hugo and Github Pages&quot;
@@ -664,6 +673,9 @@ menu:
   
     
     
+  
+  
+
   
   
 
@@ -902,7 +914,7 @@ menu:
       <div class="row text-left">
         <div class="col-md-4">
           <a id="theme" href="https://github.com/hossainemruz/toha" target="_blank" rel="noopener">
-            <img src="/images/theme-logo_hu8376fd15465fef26ffe66b6bcf0ca686_13669_32x0_resize_box_2.png" alt="Toha Theme Logo">
+            <img src="/images/theme-logo_hu8376fd15465fef26ffe66b6bcf0ca686_13669_32x0_resize_box_3.png" alt="Toha Theme Logo">
             Toha
           </a>
         </div>
