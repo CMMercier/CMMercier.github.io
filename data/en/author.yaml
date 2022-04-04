@@ -1,0 +1,15 @@
+# some information about you
+name: "Crystal Mercier"
+nickname: "Crystal"
+# greeting message before your name. it will default to "Hi! I am" if not provided
+greeting: "Hi, my name is"
+image: "/images/author/crystal.jpg"
+# give your some contact information. they will be used in the footer
+contactInfo:
+  email: "cmmercier86@gmail.com"
+  #phone: "+0123456789"
+
+# some summary about what you do
+summary:
+  - I am a Security Researcher
+  - I am a Bug Bounty Hunter

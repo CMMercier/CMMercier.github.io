@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Crystal Mercier</title>
+    <link>/posts/</link>
+    <description>Recent content in Posts on Crystal Mercier</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 04 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Resultados de Búsqueda</title>
+      <link>/search/</link>
+      <pubDate>Tue, 08 Jun 2010 08:06:25 +0600</pubDate>
+      
+      <guid>/search/</guid>
+      <description>Este archivo existe únicamente para responder a la URL /search con la plantilla de diseño search relacionada.
+No se muestra ningún contenido aquí, todo el contenido se basa en la plantilla layouts/page/search.html
+Establecer una prioridad muy baja en el mapa del sitio le dirá a los motores de búsqueda que éste no es un contenido importante.
+Esta implementación utiliza Fusejs, jquery y mark.js
+Configuración inicial La búsqueda depende del tipo de contenido de salida adicional de JSON en config.</description>
+    </item>
+    
+    <item>
+      <title>Search Results</title>
+      <link>/search/</link>
+      <pubDate>Tue, 08 Jun 2010 08:06:25 +0600</pubDate>
+      
+      <guid>/search/</guid>
+      <description>This file exists solely to respond to /search URL with the related search layout template.
+No content shown here is rendered, all content is based in the template layouts/page/search.html
+Setting a very low sitemap priority will tell search engines this is not important content.
+This implementation uses Fusejs, jquery and mark.js
+Initial setup Search depends on additional output content type of JSON in config.toml ``` [outputs] home = [&amp;ldquo;HTML&amp;rdquo;, &amp;ldquo;JSON&amp;rdquo;] ```</description>
+    </item>
+    
+    <item>
+      <title>Search Results</title>
+      <link>/search/</link>
+      <pubDate>Tue, 08 Jun 2010 08:06:25 +0600</pubDate>
+      
+      <guid>/search/</guid>
+      <description>This file exists solely to respond to /search URL with the related search layout template.
+No content shown here is rendered, all content is based in the template layouts/page/search.html
+Setting a very low sitemap priority will tell search engines this is not important content.
+This implementation uses Fusejs, jquery and mark.js
+Initial setup Search depends on additional output content type of JSON in config.toml ``` [outputs] home = [&amp;ldquo;HTML&amp;rdquo;, &amp;ldquo;JSON&amp;rdquo;] ```</description>
+    </item>
+    
+    <item>
+      <title>Search Results</title>
+      <link>/search/</link>
+      <pubDate>Tue, 08 Jun 2010 08:06:25 +0600</pubDate>
+      
+      <guid>/search/</guid>
+      <description>This file exists solely to respond to /search URL with the related search layout template.
+No content shown here is rendered, all content is based in the template layouts/page/search.html
+Setting a very low sitemap priority will tell search engines this is not important content.
+This implementation uses Fusejs, jquery and mark.js
+Initial setup Search depends on additional output content type of JSON in config.toml ``` [outputs] home = [&amp;ldquo;HTML&amp;rdquo;, &amp;ldquo;JSON&amp;rdquo;] ```</description>
+    </item>
+    
+    <item>
+      <title>Search Results</title>
+      <link>/search/</link>
+      <pubDate>Tue, 08 Jun 2010 08:06:25 +0600</pubDate>
+      
+      <guid>/search/</guid>
+      <description>This file exists solely to respond to /search URL with the related search layout template.
+No content shown here is rendered, all content is based in the template layouts/page/search.html
+Setting a very low sitemap priority will tell search engines this is not important content.
+This implementation uses Fusejs, jquery and mark.js
+Initial setup Search depends on additional output content type of JSON in config.toml ``` [outputs] home = [&amp;ldquo;HTML&amp;rdquo;, &amp;ldquo;JSON&amp;rdquo;] ```</description>
+    </item>
+    
+    <item>
+      <title>Search Results</title>
+      <link>/search/</link>
+      <pubDate>Tue, 08 Jun 2010 08:06:25 +0600</pubDate>
+      
+      <guid>/search/</guid>
+      <description>This file exists solely to respond to /search URL with the related search layout template.
+No content shown here is rendered, all content is based in the template layouts/page/search.html
+Setting a very low sitemap priority will tell search engines this is not important content.
+This implementation uses Fusejs, jquery and mark.js
+Initial setup Search depends on additional output content type of JSON in config.toml ``` [outputs] home = [&amp;ldquo;HTML&amp;rdquo;, &amp;ldquo;JSON&amp;rdquo;] ```</description>
+    </item>
+    
+    <item>
+      <title>Search Results</title>
+      <link>/search/</link>
+      <pubDate>Tue, 08 Jun 2010 08:06:25 +0600</pubDate>
+      
+      <guid>/search/</guid>
+      <description>This file exists solely to respond to /search URL with the related search layout template.
+No content shown here is rendered, all content is based in the template layouts/page/search.html
+Setting a very low sitemap priority will tell search engines this is not important content.
+This implementation uses Fusejs, jquery and mark.js
+Initial setup Search depends on additional output content type of JSON in config.toml ``` [outputs] home = [&amp;ldquo;HTML&amp;rdquo;, &amp;ldquo;JSON&amp;rdquo;] ```</description>
+    </item>
+    
+    <item>
+      <title>Search Results</title>
+      <link>/search/</link>
+      <pubDate>Tue, 08 Jun 2010 08:06:25 +0600</pubDate>
+      
+      <guid>/search/</guid>
+      <description>This file exists solely to respond to /search URL with the related search layout template.
+No content shown here is rendered, all content is based in the template layouts/page/search.html
+Setting a very low sitemap priority will tell search engines this is not important content.
+This implementation uses Fusejs, jquery and mark.js
+Initial setup Search depends on additional output content type of JSON in config.toml ``` [outputs] home = [&amp;ldquo;HTML&amp;rdquo;, &amp;ldquo;JSON&amp;rdquo;] ```</description>
+    </item>
+    
+    <item>
+      <title>Search Results</title>
+      <link>/search/</link>
+      <pubDate>Tue, 08 Jun 2010 08:06:25 +0600</pubDate>
+      
+      <guid>/search/</guid>
+      <description>This file exists solely to respond to /search URL with the related search layout template.
+No content shown here is rendered, all content is based in the template layouts/page/search.html
+Setting a very low sitemap priority will tell search engines this is not important content.
+This implementation uses Fusejs, jquery and mark.js
+Initial setup Search depends on additional output content type of JSON in config.toml ``` [outputs] home = [&amp;ldquo;HTML&amp;rdquo;, &amp;ldquo;JSON&amp;rdquo;] ```</description>
+    </item>
+    
+    <item>
+      <title>Search Results</title>
+      <link>/search/</link>
+      <pubDate>Tue, 08 Jun 2010 08:06:25 +0600</pubDate>
+      
+      <guid>/search/</guid>
+      <description>This file exists solely to respond to /search URL with the related search layout template.
+No content shown here is rendered, all content is based in the template layouts/page/search.html
+Setting a very low sitemap priority will tell search engines this is not important content.
+This implementation uses Fusejs, jquery and mark.js
+Initial setup Search depends on additional output content type of JSON in config.toml ``` [outputs] home = [&amp;ldquo;HTML&amp;rdquo;, &amp;ldquo;JSON&amp;rdquo;] ```</description>
+    </item>
+    
+    <item>
+      <title>Search Results</title>
+      <link>/search/</link>
+      <pubDate>Tue, 08 Jun 2010 08:06:25 +0600</pubDate>
+      
+      <guid>/search/</guid>
+      <description>This file exists solely to respond to /search URL with the related search layout template.
+No content shown here is rendered, all content is based in the template layouts/page/search.html
+Setting a very low sitemap priority will tell search engines this is not important content.
+This implementation uses Fusejs, jquery and mark.js
+Initial setup Search depends on additional output content type of JSON in config.toml ``` [outputs] home = [&amp;ldquo;HTML&amp;rdquo;, &amp;ldquo;JSON&amp;rdquo;] ```</description>
+    </item>
+    
+    <item>
+      <title>Search Results</title>
+      <link>/search/</link>
+      <pubDate>Tue, 08 Jun 2010 08:06:25 +0600</pubDate>
+      
+      <guid>/search/</guid>
+      <description>This file exists solely to respond to /search URL with the related search layout template.
+No content shown here is rendered, all content is based in the template layouts/page/search.html
+Setting a very low sitemap priority will tell search engines this is not important content.
+This implementation uses Fusejs, jquery and mark.js
+Initial setup Search depends on additional output content type of JSON in config.toml ``` [outputs] home = [&amp;ldquo;HTML&amp;rdquo;, &amp;ldquo;JSON&amp;rdquo;] ```</description>
+    </item>
+    
+    <item>
+      <title>অনুসন্ধানের ফলাফল</title>
+      <link>/search/</link>
+      <pubDate>Tue, 08 Jun 2010 08:06:25 +0600</pubDate>
+      
+      <guid>/search/</guid>
+      <description>This file exists solely to respond to /search URL with the related search layout template.
+No content shown here is rendered, all content is based in the template layouts/page/search.html
+Setting a very low sitemap priority will tell search engines this is not important content.
+This implementation uses Fusejs, jquery and mark.js
+Initial setup Search depends on additional output content type of JSON in config.toml ``` [outputs] home = [&amp;ldquo;HTML&amp;rdquo;, &amp;ldquo;JSON&amp;rdquo;] ```</description>
+    </item>
+    
+    <item>
+      <title>Blog Posts Moved</title>
+      <link>/posts/blogsmoved/</link>
+      <pubDate>Mon, 04 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/blogsmoved/</guid>
+      <description>New Medium blog post location: https://cyb3rwulfengrav.medium.com/
+I have decided to post my blogs to Medium instead. As I feel they will get the attention they deserve far better there than here and will be more likely to help out others.</description>
+    </item>
+    
+    <item>
+      <title>Kasm Workspaces</title>
+      <link>/posts/kasm/</link>
+      <pubDate>Tue, 28 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/kasm/</guid>
+      <description>Introduction Kasm Workspaces are delivered through Docker containers and is mainly aimed at small businesses looking to reduce platform resource requirements and increase security especially in this work from home space we have been moving into. But this software can easily have many personal uses with its disposable browsers and desktops. Options to host Kasm Workspaces include on-premise, in the cloud, or they even have the option to host it for you.</description>
+    </item>
+    
+    <item>
+      <title>OpenWrt on Raspberry Pi 3b</title>
+      <link>/posts/openwrt/</link>
+      <pubDate>Tue, 28 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/openwrt/</guid>
+      <description>Introduction So back when Raspberry Pi was super hyped I really wanted one. I always loved to play with tech and there was so much that could be done with such a handy small and inexpensive device.
+So eventually and very excitedly I purchased the Raspberry Pi 3 when I had some extra cash to do so. But after an extensive search of existing Pi project lists, personal sites, and Youtube videos, I wasn’t really able to find many project or project ideas that actually interested me or felt worthy.</description>
+    </item>
+    
+    <item>
+      <title>Setting up an Active Directory Lab</title>
+      <link>/posts/adlab/</link>
+      <pubDate>Fri, 26 Nov 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/adlab/</guid>
+      <description>Firstly, I want to give credit to Heath Adams at TCM Security. The Practical Ethical Hacking course helped me learn more than any book and the hands on learning was just what I needed!
+The Lab  1 Windows Server 2019 2 Windows 10 Enterprise  Requirements  60 GB Disk Space 16 GB RAM  Downloading the Necessary ISOs If you are able to get the ISOs from Microsoft Evaluation Center please feel free to do so.</description>
+    </item>
+    
+    <item>
+      <title>OWASP Juice Shop Walkthrough</title>
+      <link>/posts/owasp-juice-shop-walkthrough/</link>
+      <pubDate>Sun, 19 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/owasp-juice-shop-walkthrough/</guid>
+      <description>Setup For this I visited https://elements.heroku.com/buttons/bkimminich/juice-shop and looked through the many options to get my own personal instance of Juice Shop setup. The first option, Deploy on Heroku for free, caught my eye. For this I simply had to:
+ Sign up to Heroku and log in. Click the provided deploy button.  This really is the fastest and simplest way to get setup, and its free!
+After I clicked deploy I had to give the app a name and wait for it to build.</description>
+    </item>
+    
+    <item>
+      <title>How to build your own Hugo Website and host it for free on Github Pages</title>
+      <link>/posts/website-guide/</link>
+      <pubDate>Sun, 12 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/website-guide/</guid>
+      <description>Create a Repository Firstly you&amp;rsquo;ll want to create a repository for this on Github to make changes easier to update with git commit and push rather than uploading files manually every time you make changes. As this will be a Github Page you will want to name the repo as &amp;lsquo;.github.io&amp;rsquo;. Yes the .io here is important so make sure you add that.
+Clone this repository to your local machine and cd to it, I added mine under the users documents folder.</description>
+    </item>
+    
+  </channel>
+</rss>
