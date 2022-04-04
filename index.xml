@@ -6,7 +6,7 @@
     <description>Recent content on Crystal Mercier</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 26 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 04 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Resultados de Búsqueda</title>
       <link>/search/</link>
@@ -177,9 +177,19 @@ Initial setup Search depends on additional output content type of JSON in config
     </item>
     
     <item>
+      <title>Blog Posts Moved</title>
+      <link>/posts/blogsmoved/</link>
+      <pubDate>Mon, 04 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/blogsmoved/</guid>
+      <description>New Medium blog post location: https://cyb3rwulfengrav.medium.com/
+I have decided to post my blogs to Medium instead. As I feel they will get the attention they deserve far better there than here and will be more likely to help out others.</description>
+    </item>
+    
+    <item>
       <title>Kasm Workspaces</title>
       <link>/posts/kasm/</link>
-      <pubDate>Wed, 26 Jan 2022 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 28 Dec 2021 00:00:00 +0000</pubDate>
       
       <guid>/posts/kasm/</guid>
       <description>Introduction Kasm Workspaces are delivered through Docker containers and is mainly aimed at small businesses looking to reduce platform resource requirements and increase security especially in this work from home space we have been moving into. But this software can easily have many personal uses with its disposable browsers and desktops. Options to host Kasm Workspaces include on-premise, in the cloud, or they even have the option to host it for you.</description>
@@ -192,7 +202,7 @@ Initial setup Search depends on additional output content type of JSON in config
       
       <guid>/posts/openwrt/</guid>
       <description>Introduction So back when Raspberry Pi was super hyped I really wanted one. I always loved to play with tech and there was so much that could be done with such a handy small and inexpensive device.
-So eventually and very excitedly I purchased the Raspberry Pi 3 when I had some extra cash to do so. But after an extensive search of existing Pi project lists, personal sites, and Youtube videos, I wasn&amp;rsquo;t really able to find many project or project ideas that actually interested me or felt worthy.</description>
+So eventually and very excitedly I purchased the Raspberry Pi 3 when I had some extra cash to do so. But after an extensive search of existing Pi project lists, personal sites, and Youtube videos, I wasn’t really able to find many project or project ideas that actually interested me or felt worthy.</description>
     </item>
     
     <item>
