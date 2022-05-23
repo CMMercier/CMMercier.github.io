@@ -6,7 +6,7 @@
     <description>Recent content in Posts on Crystal Mercier</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 04 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 23 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Resultados de Búsqueda</title>
       <link>/search/</link>
@@ -177,13 +177,53 @@ Initial setup Search depends on additional output content type of JSON in config
     </item>
     
     <item>
-      <title>Blog Posts Moved</title>
-      <link>/posts/blogsmoved/</link>
-      <pubDate>Mon, 04 Apr 2022 00:00:00 +0000</pubDate>
+      <title>Cyber Apocalypse CTF 2022</title>
+      <link>/posts/htbctf2022/</link>
+      <pubDate>Mon, 23 May 2022 00:00:00 +0000</pubDate>
       
-      <guid>/posts/blogsmoved/</guid>
-      <description>New Medium blog post location: https://lostsoulofawolf.medium.com/
-I have decided to post my blogs to Medium instead. As I feel they will get the attention they deserve far better there than here and will be more likely to help out others.</description>
+      <guid>/posts/htbctf2022/</guid>
+      <description>Intro I have decided to write on my experience at this years HackTheBox CTF event. Apologies for the short writeups. They were taking from the mess of notes and whatever screenshots I had taken to share with the group for discussion. I didn’t plan ahead to write a post about it after so learning better note keeping is definitely going on the list!
+Kryptos Support For this task we were simply given a page saying “Report any issues regarding the Kryptos Vault below” and an input field similar to a reporting system where after submission the admin checks our report.</description>
+    </item>
+    
+    <item>
+      <title>Bug Bounty: How to get private invites</title>
+      <link>/posts/bbprivateinvites/</link>
+      <pubDate>Tue, 05 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/bbprivateinvites/</guid>
+      <description>Now I know that a lot of people will not like this answer and you certainly do not have to follow this method if you don’t wish to.
+But the answer is:
+Vulnerability Disclosure Programs
+These programs are generally frowned upon by the majority of skilled hackers as they do not pay anything for valid vulnerabilities. Since they are overlooked however, it is the easiest and fastest way to finding high ranking and valid vulnerabilities.</description>
+    </item>
+    
+    <item>
+      <title>One Month Bug Bounty Journey Update</title>
+      <link>/posts/onemonthbb/</link>
+      <pubDate>Thu, 24 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/onemonthbb/</guid>
+      <description>Introduction My goal with this is to explain some of my thoughts and how they changed as I progressed and how I modified my path along the way. For we will always be learning in the field of Cybersecurity and there is no race to a finish line just finding the most time efficient path to learn as much as we can as we go. Lastly I want to mention when you feel like you are struggling and seeing everyone’s accomplishments on social media is getting you down, remember that they too struggled.</description>
+    </item>
+    
+    <item>
+      <title>Beginner Bug Bounty Journey</title>
+      <link>/posts/beginnerbb/</link>
+      <pubDate>Wed, 23 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/beginnerbb/</guid>
+      <description>Introduction I began my journey with all the many resources out there both free and paid that are centered on training you to become a penetration tester. The main resources I found to be the best for learning were TryHackMe and the Practical Ethical Hacking course by TCM Academy. The problem I learned mostly by following the major community leaders in Youtube, LinkedIn and Twitter, is that there are already far more people wanting to be penetration testers than there are open roles for them to fill.</description>
+    </item>
+    
+    <item>
+      <title>HTB: Writeup — Forge</title>
+      <link>/posts/htb-forge/</link>
+      <pubDate>Thu, 27 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/htb-forge/</guid>
+      <description>Recon Using Rustscan and Nmap came back with different results. We can’t really do anything with the filtered port but it’s nice to know that it is there. I wasn’t able to find a way to make Rustscan discover this filtered port that Nmap had so I may default back to using nmap. Or just keep trying them both out like I have been.
+So here we have 3 open ports.</description>
     </item>
     
     <item>
