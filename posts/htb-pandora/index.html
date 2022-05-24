@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>HTB: Writeup — Pandora</title>
+    <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="/css/layouts/main.css"/>
+<link rel="stylesheet" href="/css/navigators/navbar.css"/>
+<link rel="stylesheet" href="/css/plyr.css"/>
+<link rel="stylesheet" href="/css/flag-icon.min.css"/>
+
+
+<link href="https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" />
+
+
+
+
+<meta property="og:title" content="HTB: Writeup — Pandora" />
+<meta property="og:description" content="HTB: Writeup — Pandora" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/htb-pandora/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-05-24T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-05-24T00:00:00+00:00" />
+
+
+
+    
+    
+<meta name="description" content="HTB: Writeup — Pandora" />
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/atom-one-dark.min.css"
+/>
+<link rel="stylesheet" href="/css/layouts/single.css"/>
+<link rel="stylesheet" href="/css/navigators/sidebar.css">
+
+<link rel="stylesheet" href="/css/style.css"/>
+
+
+
+    
+    
+        
+        
+          
+          
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Y0CHGWDWFD"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-Y0CHGWDWFD', { 'anonymize_ip': false });
+}
+</script>
+
+        
+    
+  </head>
+
+  <body data-spy="scroll" data-target="#TableOfContents" data-offset="80">
+    <div class="container-fluid bg-dimmed wrapper">
+      
+      
+    
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+  
+  
+    
+  
+  
+
+
+
+  
+  
+    
+  
+  
+
+
+<nav class="navbar navbar-expand-xl top-navbar final-navbar shadow">
+  <div class="container">
+      <button class="navbar-toggler navbar-light" id="sidebar-toggler" type="button" onclick="toggleSidebar()">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="/">
+      
+        <img src="/images/site/main-logo_hudad8b06f5df9584902d36e554221237e_21318_42x0_resize_box_3.png" alt="Logo">
+      Crystal Mercier</a>
+    <button class="navbar-toggler navbar-light" id="toc-toggler" type="button" onclick="toggleTOC()">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse lang-selector" id="top-nav-items">
+      <ul class="navbar-nav ml-auto">
+      
+      </ul>
+    </div>
+  </div>
+  
+  
+    <img src="/images/site/main-logo_hudad8b06f5df9584902d36e554221237e_21318_42x0_resize_box_3.png" class="d-none" id="main-logo" alt="Logo">
+  
+  
+    <img src="/images/site/inverted-logo_hudaa24b0be3ab59526a1d9eec311eb387_21454_42x0_resize_box_3.png" class="d-none" id="inverted-logo" alt="Inverted Logo">
+  
+</nav>
+
+
+
+      
+      
+  <section class="sidebar-section" id="sidebar-section">
+    <div class="sidebar-holder">
+      <div class="sidebar" id="sidebar">
+        <form class="mx-auto" method="get" action="/search">
+          <input type="text" name="keyword" value="" placeholder="Search" data-search="" id="search-box" />
+        </form>
+        <div class="sidebar-tree">
+          <ul class="tree" id="tree">
+            <li id="list-heading"><a href="/posts" data-filter="all">Posts</a></li>
+            <div class="subtree">
+                
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/website-guide/" title="Build your own Hugo website">Build your own Hugo website</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/owasp-juice-shop-walkthrough/" title="OWASP Juice Shop Walkthrough">OWASP Juice Shop Walkthrough</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/adlab/" title="Setting up an Active Directory Lab">Setting up an Active Directory Lab</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/openwrt/" title="OpenWrt on Raspberry Pi 3b">OpenWrt on Raspberry Pi 3b</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/kasm/" title="Kasm Workspaces">Kasm Workspaces</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/htb-forge/" title="HTB: Writeup — Forge">HTB: Writeup — Forge</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/beginnerbb/" title="Beginner Bug Bounty Journey">Beginner Bug Bounty Journey</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/onemonthbb/" title="One Month Bug Bounty Journey Update">One Month Bug Bounty Journey Update</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/bbprivateinvites/" title="Bug Bounty: How to get private invites">Bug Bounty: How to get private invites</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/htbctf2022/" title="Cyber Apocalypse CTF 2022">Cyber Apocalypse CTF 2022</a></li>
+  
+
+  
+  
+  
+  
+    
+    
+  
+  
+    
+    <li><a class="active" href="/posts/htb-pandora/" title="HTB: Writeup — Pandora">HTB: Writeup — Pandora</a></li>
+  
+
+
+            </div>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+      
+      
+<section class="content-section" id="content-section">
+  <div class="content">
+    <div class="container p-0 read-area">
+      
+      <div class="hero-area col-sm-12" id="hero-area" style='background-image: url(/posts/htb-pandora/hero.png);'>
+      </div>
+
+      
+      <div class="page-content">
+        <div class="author-profile ml-auto align-self-lg-center">
+          <img class="rounded-circle" src='/images/author/crystal_hu56daec2eff645d56fb53cd8db157a676_63575_120x120_fit_q75_box.jpg' alt="Author Image">
+          <h5 class="author-name">Crystal Mercier</h5>
+          <p>May 24, 2022</p>
+        </div>
+
+        <div class="title">
+          <h1>HTB: Writeup — Pandora</h1>
+        </div>
+
+        <div class="post-content" id="post-content">
+          <h2 id="recon">Recon</h2>
+<h3 id="initial-nmap-scan">Initial nmap scan</h3>
+<p>An initial scan with nmap shows that there is two ports open, ssh on 22 and http on 80.</p>
+<p><img src="https://user-images.githubusercontent.com/43668197/170124664-ab88f6b4-7047-4284-998d-288f8037d39a.png" alt="image"></p>
+<h3 id="site">Site</h3>
+<p>Having a look at the page hosted on port 80 there appears to be a host name of Panda.HTB.</p>
+<p><img src="https://user-images.githubusercontent.com/43668197/170124707-2510680b-01ef-4241-9ae7-ad384e0e0842.png" alt="image"></p>
+<p>Next I added this host to the <code>/etc/hosts/</code> file with my favorite editor nano. The line added to hosts should look like <code>10.10.11.136 Panda.HTB</code>. Oddly the same page loads so there&rsquo;s nothing new to see here.</p>
+<h3 id="directory-enumeration">Directory Enumeration</h3>
+<p>While walking the site its always best to run a directory scan with your favorite tool in the background. This one only returned the directory <code>/assets</code></p>
+<p><img src="https://user-images.githubusercontent.com/43668197/170124747-06d9a802-df6d-47b4-b9ec-b4346de3f793.png" alt="image"></p>
+<p>But there wasn’t much to see here.</p>
+<p><img src="https://user-images.githubusercontent.com/43668197/170124777-726d5bfb-4a5a-4782-a82e-9840b717a189.png" alt="image"></p>
+<h3 id="nmap-udp">NMAP UDP</h3>
+<p>Now it’s time to run a nmap scan to check all ports, but that came back with nothing. It never hurts to enumerate all the things while looking through the site some more so be sure to check at least the top UDP ports. Here I found that snmp port 161 is open!</p>
+<p><img src="https://user-images.githubusercontent.com/43668197/170124807-77bfbc55-9cd2-4714-a9bb-1a29efbf7833.png" alt="image"></p>
+<h3 id="snmp---udp-port-161">SNMP - UDP PORT 161</h3>
+<p>As the only finding so far it is time to install some tools to check it out.</p>
+<p><code>apt install snmp snmp-mibs-downloader</code></p>
+<p>Then I ran:</p>
+<p><code>snmpbulkwalk -Cr1000 -c public -v2c 10.10.11.136 &gt; snmp-pandora</code></p>
+<p>I got all kinds of information back from this. Running processes, network information, host information, installed packages and paths.</p>
+<p><img src="https://user-images.githubusercontent.com/43668197/170124847-d5b892d8-2ca3-462b-b8f3-5bed9945212b.png" alt="image"></p>
+<h2 id="initial-foothold">Initial Foothold</h2>
+<p>There is a lot to look through but the process running a script at <code>/usr/bin/host_check</code> stands out. This is where saving the results comes in handy as I can simply grep things that look interesting and see the result.</p>
+<p><img src="https://user-images.githubusercontent.com/43668197/170124947-c8bec222-25f5-40e2-b42f-1b06ed72ae69.png" alt="image"></p>
+<p>And here I found a username <code>daniel</code> and password <code>HotelBabylon23</code>! Time to try them out on ssh since the earlier scan showed that port is open.</p>
+<p><img src="https://user-images.githubusercontent.com/43668197/170124973-f53b5aa9-5867-42ae-9f0f-4bf37571f7ff.png" alt="image"></p>
+<p>Now that I am in its time to have a look around. There is nothing in Daniel’s home directory so I checked if there was any other users under home and sure enough there is a user named matt and matt has the<code>user.txt</code> flag but I am unable to read it just yet.</p>
+<p><code>cat: user.txt: Permission denied</code></p>
+<p>Next I checked <code>sudo -l</code> but Daniel has no permissions to for sudo. So I went and checked if there was anything interesting in the webserver config files.</p>
+<p><img src="https://user-images.githubusercontent.com/43668197/170125027-06127e81-fceb-4549-ad57-0b52aea14351.png" alt="image"></p>
+<p>Here I found another virtual host mention by pandora.panda.htb. As this is an internal host I had to forward it through ssh.</p>
+<p><code>ssh daniel@10.10.11.136 -L 8888:localhost:80</code></p>
+<p>And now I have access the site locally.</p>
+<p><img src="https://user-images.githubusercontent.com/43668197/170125068-de3cb2c2-b8cb-47dc-89cd-67150dd515ab.png" alt="image"></p>
+<h3 id="cve-2021-32099">CVE-2021-32099</h3>
+<p>I was immediately greeted with a Pandora FMS login page which nicely includes the version information at the bottom! A quick search reveals that this version has a vulnerability, CVE-2021-32099.</p>
+<p>Reference:</p>
+<p><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-32099">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-32099</a></p>
+<p>With this I gave sqlmap a quick attempt but as usual it found the injection but doesn’t exploit it.</p>
+<p><code>sqlmap -u '[http://127.0.0.1:8888/pandora_console/include/chart_generator.php?session_id=1](http://127.0.0.1:8888/pandora_console/include/chart_generator.php?session_id=1)' --batch</code></p>
+<p><img src="https://user-images.githubusercontent.com/43668197/170125132-633d5947-7ee2-47eb-bcb2-ac7fe55d082d.png" alt="image"></p>
+<p>I could however enumerate the database using <code>--dbs</code></p>
+<p><img src="https://user-images.githubusercontent.com/43668197/170125166-bc583d7a-83e3-43d9-a8bb-89f2dc31c480.png" alt="image"></p>
+<p>Checking the pandora tables with <code>-D pandora --tables</code> gives us a long list of 178 tables!</p>
+<p><img src="https://user-images.githubusercontent.com/43668197/170125232-3ed9a03a-f206-4f5f-aa83-eecaff4fd51e.png" alt="image"></p>
+<p>The most obvious table to check tpassword_history didn’t seem to reveal anything or at least I was unable to crack the password. <code>-D pandora -T tpassword_history --dump</code></p>
+<p><img src="https://user-images.githubusercontent.com/43668197/170125286-d69b4f90-d702-4652-9e68-252fb8c5d86d.png" alt="image"></p>
+<p>But in tsessions_php there was a list of 55 cookies. As I only need access to matt or admin accounts I ignored the NULL and Daniel cookies. Since the user.txt flag is located under matt I tried his cookie in the browser first and got access!</p>
+<p><img src="https://user-images.githubusercontent.com/43668197/170125322-ce14ea7d-9ef6-4b9c-a171-3782bb31864d.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/43668197/170125349-d96daf60-a984-4ba5-b378-fc1bcbd630ff.png" alt="image"></p>
+<h3 id="cve-2020-13851">CVE-2020-13851</h3>
+<p>From here I found another known vulnerability that I could use, <code>CVE-2020-13851</code> to perform RCE.</p>
+<p>Reference:</p>
+<p><a href="https://www.coresecurity.com/core-labs/advisories/pandora-fms-community-multiple-vulnerabilities">https://www.coresecurity.com/core-labs/advisories/pandora-fms-community-multiple-vulnerabilities</a></p>
+<p>From the console I went to <code>Events</code> and <code>View Events</code> and captured this request in burp which I then send over to repeater. I then modified the payload and started nc to be ready before sending the request.</p>
+<p><img src="https://user-images.githubusercontent.com/43668197/170125397-d5c4699e-1c3b-40d2-af0f-6cba5550d760.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/43668197/170125430-3cb8325a-697c-4256-9559-7c30947491e5.png" alt="image"></p>
+<p>And I am in as the user matt and can cat out the user flag in matt’s home directory!</p>
+<h2 id="privilege-escalation">Privilege Escalation</h2>
+<p>Nothing else in their directory so I try sudo -l with no luck. But the next thing to check for is SUID binaries <code>find / -perm -4000 -ls 2&gt;/dev/null</code> and something interesting comes up</p>
+<h3 id="suid">SUID</h3>
+<p><code>/usr/bin/pandora_backup</code></p>
+<p><img src="https://user-images.githubusercontent.com/43668197/170125487-be23f8a4-17bf-45a4-ae97-8530e8cfd355.png" alt="image"></p>
+<p>Strangely this fails and the connection keeps dropping so I dropped my public key in <code>/home/matt/.ssh/authorized_keys</code> and got a stable shell over ssh instead. This also made it so running pandora_backup now works just fine!</p>
+<p><img src="https://user-images.githubusercontent.com/43668197/170125518-c0032185-f2dd-4d7f-9718-8f7b71e6e863.png" alt="image"></p>
+<p>Tar is mentioned a few times here and has no path given. It may be susceptible to path hijack so I’ll use <code>export PATH**=**/dev/shm:$PATH</code> which makes the first place tar looks in as /dev/shm.</p>
+<p>Time to make a payload <code>nano tar</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#75715e">#!/bin/bash
+</span><span style="color:#75715e"></span>
+<span style="color:#a6e22e">bash</span>
+</code></pre></div><p>Then I changed permissions to execute<code>chmod +x tar</code> and reran <code>pandora_backup</code> again and it changed to root shell and all that is left is to go claim that root.txt flag!</p>
+<p><img src="https://user-images.githubusercontent.com/43668197/170125581-8fa39af5-8408-4504-9f31-3deeebaf6c79.png" alt="image"></p>
+
+        </div>
+
+        
+        
+
+        
+      <hr />
+        
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+    
+    
+  
+  
+
+
+<div class="row next-prev-navigator">
+  
+    <div class="col-md-6 previous-article">
+      <a href="/posts/htbctf2022/" title="Cyber Apocalypse CTF 2022" class="btn btn-outline-info">
+        <div><i class="fas fa-chevron-circle-left"></i> Prev</div>
+        <div class="next-prev-text">Cyber Apocalypse CTF 2022</div>
+      </a>
+    </div>
+  
+  
+</div>
+
+      <hr />
+      
+      
+      </div>
+    </div>
+  </div>
+  
+  <a id="scroll-to-top" class="btn"><i class="fas fa-chevron-circle-up"></i></a>
+  
+</section>
+
+
+      
+      
+  <section class="toc-section" id="toc-section">
+    
+    <div class="toc-holder">
+      <h5 class="text-center pl-3">Table of Contents</h5>
+      <hr>
+      <div class="toc">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#recon">Recon</a>
+      <ul>
+        <li><a href="#initial-nmap-scan">Initial nmap scan</a></li>
+        <li><a href="#site">Site</a></li>
+        <li><a href="#directory-enumeration">Directory Enumeration</a></li>
+        <li><a href="#nmap-udp">NMAP UDP</a></li>
+        <li><a href="#snmp---udp-port-161">SNMP - UDP PORT 161</a></li>
+      </ul>
+    </li>
+    <li><a href="#initial-foothold">Initial Foothold</a>
+      <ul>
+        <li><a href="#cve-2021-32099">CVE-2021-32099</a></li>
+        <li><a href="#cve-2020-13851">CVE-2020-13851</a></li>
+      </ul>
+    </li>
+    <li><a href="#privilege-escalation">Privilege Escalation</a>
+      <ul>
+        <li><a href="#suid">SUID</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+      </div>
+    </div>
+    
+  </section>
+
+    </div>
+
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+    
+    
+      
+    
+  
+
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+    
+  
+  
+
+  
+  
+  
+
+  <footer class="container-fluid text-center align-content-center footer pb-2">
+    <div class="container pt-5">
+      <div class="row text-left">
+        
+        <div class="col-md-4 col-sm-12">
+          <h5>Navigation</h5>
+          
+          <ul>
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="/#about">About</a>
+                </li>
+              
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="/#skills">Skills</a>
+                </li>
+              
+              
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="/#education">Education</a>
+                </li>
+              
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="/#accomplishments">Accomplishments</a>
+                </li>
+              
+              
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="/#projects">Projects</a>
+                </li>
+              
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="/#recent-posts">Recent Posts</a>
+                </li>
+              
+          </ul>
+          
+        </div>
+        
+        
+        <div class="col-md-4 col-sm-12">
+          <h5>Contact me:</h5>
+          <ul>
+            
+            <li><span>Email: </span> <span>cmmercier86@gmail.com</span></li>
+            
+          </ul>
+	  </div>
+	
+        
+        
+      </div>
+    </div>
+    
+    
+    <hr />
+    <div class="container">
+      <div class="row text-left">
+        <div class="col-md-4">
+          <a id="theme" href="https://github.com/hossainemruz/toha" target="_blank" rel="noopener">
+            <img src="/images/theme-logo_hu8376fd15465fef26ffe66b6bcf0ca686_13669_32x0_resize_box_3.png" alt="Toha Theme Logo">
+            Toha
+          </a>
+        </div>
+        <div class="col-md-4 text-center">© 2022 Copyright.</div>
+        <div class="col-md-4 text-right">
+          <a id="hugo" href="https://gohugo.io/" target="_blank" rel="noopener">Powered by
+          <img
+            src="/images/hugo-logo.svg"
+            alt="Hugo Logo"
+            height="18"
+          />
+          </a>
+        </div>
+      </div>
+    </div>
+    
+  </footer>
+
+
+    <script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="/js/popper.min.js"></script>
+<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="/js/navbar.js"></script>
+<script type="text/javascript" src="/js/plyr.js"></script>
+<script type="text/javascript" src="/js/main.js"></script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
+<script src="/js/single.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+
+
+  </body>
+</html>

@@ -6,7 +6,7 @@
     <description>Recent content on Crystal Mercier</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 23 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 24 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Resultados de Búsqueda</title>
       <link>/search/</link>
@@ -174,6 +174,17 @@ No content shown here is rendered, all content is based in the template layouts/
 Setting a very low sitemap priority will tell search engines this is not important content.
 This implementation uses Fusejs, jquery and mark.js
 Initial setup Search depends on additional output content type of JSON in config.toml ``` [outputs] home = [&amp;ldquo;HTML&amp;rdquo;, &amp;ldquo;JSON&amp;rdquo;] ```</description>
+    </item>
+    
+    <item>
+      <title>HTB: Writeup — Pandora</title>
+      <link>/posts/htb-pandora/</link>
+      <pubDate>Tue, 24 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/htb-pandora/</guid>
+      <description>Recon Initial nmap scan An initial scan with nmap shows that there is two ports open, ssh on 22 and http on 80.
+Site Having a look at the page hosted on port 80 there appears to be a host name of Panda.HTB.
+Next I added this host to the /etc/hosts/ file with my favorite editor nano. The line added to hosts should look like 10.10.11.136 Panda.HTB. Oddly the same page loads so there&amp;rsquo;s nothing new to see here.</description>
     </item>
     
     <item>
