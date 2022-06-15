@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>HTB: Writeup — Forge</title>
+    <title>Bug Bounty: Path Traversal in Snap Creek Duplicator plugin before 1.3.28 for WordPress</title>
     <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta http-equiv="X-UA-Compatible" content="ie=edge" />
@@ -20,18 +20,18 @@
 
 
 
-<meta property="og:title" content="HTB: Writeup — Forge" />
-<meta property="og:description" content="HTB: Writeup — Forge" />
+<meta property="og:title" content="Bug Bounty: Path Traversal in Snap Creek Duplicator plugin before 1.3.28 for WordPress" />
+<meta property="og:description" content="Bug Bounty: Path Traversal in Snap Creek Duplicator plugin before 1.3.28 for WordPress" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/posts/htb-forge/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2022-01-27T00:00:00+00:00" />
-<meta property="article:modified_time" content="2022-01-27T00:00:00+00:00" />
+<meta property="og:url" content="/posts/bb-pathtraversal/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-06-15T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-06-15T00:00:00+00:00" />
 
 
 
     
     
-<meta name="description" content="HTB: Writeup — Forge" />
+<meta name="description" content="Bug Bounty: Path Traversal in Snap Creek Duplicator plugin before 1.3.28 for WordPress" />
 <link
   rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/atom-one-dark.min.css"
@@ -189,12 +189,9 @@ if (!doNotTrack) {
   
   
   
-    
-    
-  
   
     
-    <li><a class="active" href="/posts/htb-forge/" title="HTB: Writeup — Forge">HTB: Writeup — Forge</a></li>
+    <li><a class="" href="/posts/htb-forge/" title="HTB: Writeup — Forge">HTB: Writeup — Forge</a></li>
   
 
   
@@ -255,9 +252,12 @@ if (!doNotTrack) {
   
   
   
+    
+    
+  
   
     
-    <li><a class="" href="/posts/bb-pathtraversal/" title="Bug Bounty: Path Traversal in Snap Creek Duplicator plugin before 1.3.28 for WordPress">Bug Bounty: Path Traversal in Snap Creek Duplicator plugin before 1.3.28 for WordPress</a></li>
+    <li><a class="active" href="/posts/bb-pathtraversal/" title="Bug Bounty: Path Traversal in Snap Creek Duplicator plugin before 1.3.28 for WordPress">Bug Bounty: Path Traversal in Snap Creek Duplicator plugin before 1.3.28 for WordPress</a></li>
   
 
 
@@ -275,7 +275,7 @@ if (!doNotTrack) {
   <div class="content">
     <div class="container p-0 read-area">
       
-      <div class="hero-area col-sm-12" id="hero-area" style='background-image: url(/posts/htb-forge/hero.png);'>
+      <div class="hero-area col-sm-12" id="hero-area" style='background-image: url(/posts/bb-pathtraversal/hero.png);'>
       </div>
 
       
@@ -283,59 +283,25 @@ if (!doNotTrack) {
         <div class="author-profile ml-auto align-self-lg-center">
           <img class="rounded-circle" src='/images/author/crystal_hu56daec2eff645d56fb53cd8db157a676_63575_120x120_fit_q75_box.jpg' alt="Author Image">
           <h5 class="author-name">Crystal Mercier</h5>
-          <p>January 27, 2022</p>
+          <p>June 15, 2022</p>
         </div>
 
         <div class="title">
-          <h1>HTB: Writeup — Forge</h1>
+          <h1>Bug Bounty: Path Traversal in Snap Creek Duplicator plugin before 1.3.28 for WordPress</h1>
         </div>
 
         <div class="post-content" id="post-content">
-          <h2 id="recon">Recon</h2>
-<p><img src="img-paste-20220523134231851.png" alt="20220523134231851"></p>
-<p>Using Rustscan and Nmap came back with different results. We can’t really do anything with the filtered port but it’s nice to know that it is there. I wasn’t able to find a way to make Rustscan discover this filtered port that Nmap had so I may default back to using nmap. Or just keep trying them both out like I have been.</p>
-<p>So here we have 3 open ports. The 2 standard ports on 22:ssh and 80:http and a filtered ftp port on 21. Again we cannot do anything on the filtered port so it is time to check out the only option, the website.</p>
-<p><img src="img-paste-20220523134259662.png" alt="20220523134259662">
-<img src="img-paste-2022052313431257.png" alt="2022052313431257"></p>
-<p>Immediately we notice the option to Upload an image. Trying to upload a php reverse shell comes back with:</p>
-<p><img src="img-paste-2022052313432978.png" alt="2022052313432978"></p>
-<p>Trying again with curl shows our script is there but it wasn’t run. Maybe this server isn’t running php. Running a netcat listener and submitting my own ip on the site shows that this is infact running Python.</p>
-<p>Running ffuf immediately comes back with an interesting subdomain:</p>
-<p><img src="img-paste-20220523134349905.png" alt="20220523134349905"></p>
-<p>Adding this new discovery to /etc/hosts and attempting to visit it gives us this message:</p>
-<p><code>Only localhost is allowed!</code></p>
-<p>Attempting to upload a file from url with the url <a href="http://admin.forge.htb">http://admin.forge.htb</a> tells us this is blacklisted.</p>
-<p><img src="img-paste-20220523134429184.png" alt="20220523134429184"></p>
-<p>I was able to bypass this silly blacklist by simply using http://ADMIN.FORGE.HTB instead. Using curl on the link it provides reveals another directory /announcements.</p>
-<p><img src="img-paste-20220523134442423.png" alt="20220523134442423"></p>
-<p>Now to get a new link by uploading from the url http://ADMIN.FORGE.HTB/announcements and using curl on that.</p>
-<p><img src="img-paste-20220523134454223.png" alt="20220523134454223"></p>
-<p>We get the internal ftp server credentials of user:heightofsecurity123!. Seems filtered ports aren&rsquo;t always useless to know about but we would have found out about it this way even if I hadn&rsquo;t used nmap.</p>
-<p>Time to try http://ADMIN.FORGE.HTB/upload?u=ftp://user:heightofsecurity123!@ADMIN.FORGE.HTB and curl that url responce. And we get the directory with user.txt so all we have to do to get the flag from user.txt is to add it to the end of the url. http://ADMIN.FORGE.HTB/upload?u=ftp://user:heightofsecurity123!@ADMIN.FORGE.HTB/user.txt</p>
-<p><img src="img-paste-2022052313451039.png" alt="2022052313451039">
-<img src="img-paste-20220523134519500.png" alt="20220523134519500"></p>
-<h2 id="initial-foothold">Initial Foothold</h2>
-<p>To get the initial foothold onto the system all we have to do now is upload from the url again but this time to http://ADMIN.FORGE.HTB/upload?u=ftp://user:heightofsecurity123!@ADMIN.FORGE.HTB/.ssh/id_rsa</p>
-<p><img src="img-paste-20220523134537947.png" alt="20220523134537947"></p>
-<p>nano id_rsa and paste the private key info in there and don&rsquo;t forget to chmod 600 id_rsa. And we are in!</p>
-<p><img src="img-paste-20220523134554206.png" alt="20220523134554206"></p>
-<h2 id="privilege-escalation">Privilege escalation</h2>
-<p>First thing we always do once we gain user access is to check what sudo permissions that user has.</p>
-<p><img src="img-paste-2022052313461124.png" alt="2022052313461124"></p>
-<p>The user has sudo access to running a specific python script so time to see what this script does and how we can use it to gain root access.</p>
-<p><img src="img-paste-20220523134626611.png" alt="20220523134626611"></p>
-<p>We get the password secretadminpassword. I ran the script and found that it is listening on port 48888.</p>
-<p><img src="img-paste-20220523140804744.png" alt="20220523140804744"></p>
-<p><img src="img-paste-20220523140814327.png" alt="20220523140814327"></p>
-<p>This brings up a menu. If you enter invalid information into the menu it brings up a Pdb debugger.</p>
-<p><img src="img-paste-20220523140832545.png" alt="20220523140832545"></p>
-<p>Now we can use Pdb debugger to get root access with the following commands:</p>
-<pre tabindex="0"><code>(Pdb) import os
-(Pdb) os.system ('chmod u+s /bin/bash')
-(Pdb) exit
-user@forge:~$ /bin/bash -p
-</code></pre><p><img src="img-paste-20220523140854580.png" alt="20220523140854580"></p>
-<p>Just cat out /root/root.txt and machine complete! This felt easier than some of the “easy” machines and I enjoyed the Web and SSRF learning involved.</p>
+          <h2 id="the-vulnerability">The Vulnerability</h2>
+<p>The Snap Creek Duplicator plugin before 1.3.28 for WordPress (and Duplicator Pro before 3.8.7.1) allows Directory Traversal via ../ in the file parameter to duplicator_download or duplicator_init.</p>
+<h2 id="intro">Intro</h2>
+<p>Early in my bug bounty journey, I picked a few programs from different platforms to learn how they work and respond to reports and to ultimately decide which platform I would choose to stick to.</p>
+<p>Knowing that WordPress plugins were often forgotten to update and a good place to find vulnerabilities I focused on finding WordPress vulnerabilities in the wild. My first real finding ended up being an Exceptional severity vulnerability on Intigriti. Unfortunately, it was already a duplicate. I guess everyone watches for outdated WordPress plugins!</p>
+<h2 id="the-finding">The Finding</h2>
+<p>The public program Kinepolis was running WordPress with the outdated Duplicator plugin. I was able to visit the path:</p>
+<p><strong><code>/wp-admin/admin-ajax.php?action=duplicator_download&amp;file=%2F..%2Fwp-config.php</code></strong></p>
+<p>Which downloaded the wp-config.php file and contained the MySQL settings.</p>
+<h2 id="lessons-learned">Lessons Learned</h2>
+<p>After hearing so much about the vulnerabilities of WordPress I had set out to find something in the wild myself. It took longer than I thought it would but it proved to me that with some determination I would be able to pick a CMS or even a specific vulnerability and hunt for it in the wild just fine, it might take some time but they are there! This has shifted my interest in learning API and GraphQL vulnerabilities since I have seen those in use in most of the programs I follow.</p>
 
         </div>
 
@@ -374,29 +340,29 @@ user@forge:~$ /bin/bash -p
   
 
   
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
     
     
-  
-  
-
-  
-  
-
-  
-  
-
-  
-  
-
-  
-  
-
-  
-  
-
-  
-  
-
   
   
 
@@ -404,24 +370,13 @@ user@forge:~$ /bin/bash -p
 <div class="row next-prev-navigator">
   
     <div class="col-md-6 previous-article">
-      <a href="/posts/kasm/" title="Kasm Workspaces" class="btn btn-outline-info">
+      <a href="/posts/bb-phpinfo/" title="Bug Bounty: A tale of credentials listed on phpinfo" class="btn btn-outline-info">
         <div><i class="fas fa-chevron-circle-left"></i> Prev</div>
-        <div class="next-prev-text">Kasm Workspaces</div>
+        <div class="next-prev-text">Bug Bounty: A tale of credentials listed on phpinfo</div>
       </a>
     </div>
   
   
-      
-      
-        
-      
-      <div class="col-md-6 next-article">
-        <a href="/posts/beginnerbb/" title="Beginner Bug Bounty Journey" class="btn btn-outline-info">
-          <div>Next <i class="fas fa-chevron-circle-right"></i></div>
-          <div class="next-prev-text">Beginner Bug Bounty Journey</div>
-        </a>
-      </div>
-    
 </div>
 
       <hr />
@@ -446,9 +401,10 @@ user@forge:~$ /bin/bash -p
       <div class="toc">
         <nav id="TableOfContents">
   <ul>
-    <li><a href="#recon">Recon</a></li>
-    <li><a href="#initial-foothold">Initial Foothold</a></li>
-    <li><a href="#privilege-escalation">Privilege escalation</a></li>
+    <li><a href="#the-vulnerability">The Vulnerability</a></li>
+    <li><a href="#intro">Intro</a></li>
+    <li><a href="#the-finding">The Finding</a></li>
+    <li><a href="#lessons-learned">Lessons Learned</a></li>
   </ul>
 </nav>
       </div>

@@ -235,6 +235,24 @@ if (!doNotTrack) {
     <li><a class="" href="/posts/htb-pandora/" title="HTB: Writeup — Pandora">HTB: Writeup — Pandora</a></li>
   
 
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/bb-phpinfo/" title="Bug Bounty: A tale of credentials listed on phpinfo">Bug Bounty: A tale of credentials listed on phpinfo</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/bb-pathtraversal/" title="Bug Bounty: Path Traversal in Snap Creek Duplicator plugin before 1.3.28 for WordPress">Bug Bounty: Path Traversal in Snap Creek Duplicator plugin before 1.3.28 for WordPress</a></li>
+  
+
 
             </div>
           </ul>
@@ -251,6 +269,58 @@ if (!doNotTrack) {
     <div class="container-fluid post-card-holder" id="post-card-holder">
       
       
+      
+        
+          <div class="post-card">
+  <a href="/posts/bb-phpinfo/" class="post-card-link">
+    <div class="card">
+      <div class="card-head">
+        <img class="card-img-top" src='/posts/bb-phpinfo/hero.png' alt="Hero Image">
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Bug Bounty: A tale of credentials listed on phpinfo</h5>
+        <p class="card-text post-summary">While I am manually going through target websites I always run automated scanning in the background. It rarely finds a real reportable vulnerability and a lot of it is either informational even if it says low or medium or companies tend to run vulnerable versions of software that are patched so the vulnerabilities aren’t exploitable, but I still enjoy looking up what it sees and learning about that specific issue or CVE.</p>
+      </div>
+      <div class="card-footer">
+        <span class="float-left">June 15, 2022</span>
+        <a
+        href="/posts/bb-phpinfo/"
+        class="float-right btn btn-outline-info btn-sm"
+        >Read</a
+        >
+      </div>
+    </div>
+  </a>
+</div>
+
+        
+      
+        
+          <div class="post-card">
+  <a href="/posts/bb-pathtraversal/" class="post-card-link">
+    <div class="card">
+      <div class="card-head">
+        <img class="card-img-top" src='/posts/bb-pathtraversal/hero.png' alt="Hero Image">
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Bug Bounty: Path Traversal in Snap Creek Duplicator plugin before 1.3.28 for WordPress</h5>
+        <p class="card-text post-summary">The Vulnerability The Snap Creek Duplicator plugin before 1.3.28 for WordPress (and Duplicator Pro before 3.8.7.1) allows Directory Traversal via ../ in the file parameter to duplicator_download or duplicator_init.
+Intro Early in my bug bounty journey, I picked a few programs from different platforms to learn how they work and respond to reports and to ultimately decide which platform I would choose to stick to.
+Knowing that WordPress plugins were often forgotten to update and a good place to find vulnerabilities I focused on finding WordPress vulnerabilities in the wild.</p>
+      </div>
+      <div class="card-footer">
+        <span class="float-left">June 15, 2022</span>
+        <a
+        href="/posts/bb-pathtraversal/"
+        class="float-right btn btn-outline-info btn-sm"
+        >Read</a
+        >
+      </div>
+    </div>
+  </a>
+</div>
+
+        
       
         
           <div class="post-card">
@@ -513,35 +583,29 @@ After I clicked deploy I had to give the app a name and wait for it to build.</p
 
         
       
-        
-          <div class="post-card">
-  <a href="/posts/website-guide/" class="post-card-link">
-    <div class="card">
-      <div class="card-head">
-        <img class="card-img-top" src='/posts/website-guide/hero.png' alt="Hero Image">
-      </div>
-      <div class="card-body">
-        <h5 class="card-title">How to build your own Hugo Website and host it for free on Github Pages</h5>
-        <p class="card-text post-summary">Create a Repository Firstly you&rsquo;ll want to create a repository for this on Github to make changes easier to update with git commit and push rather than uploading files manually every time you make changes. As this will be a Github Page you will want to name the repo as &lsquo;.github.io&rsquo;. Yes the .io here is important so make sure you add that.
-Clone this repository to your local machine and cd to it, I added mine under the users documents folder.</p>
-      </div>
-      <div class="card-footer">
-        <span class="float-left">September 12, 2021</span>
-        <a
-        href="/posts/website-guide/"
-        class="float-right btn btn-outline-info btn-sm"
-        >Read</a
-        >
-      </div>
-    </div>
-  </a>
-</div>
-
-        
-      
     </div>
     <div class="paginator">
       
+    <ul class="pagination pagination-default">
+      <li class="page-item disabled">
+        <a aria-disabled="true" aria-label="First" class="page-link" role="button" tabindex="-1"><span aria-hidden="true">&laquo;&laquo;</span></a>
+      </li>
+      <li class="page-item disabled">
+        <a aria-disabled="true" aria-label="Previous" class="page-link" role="button" tabindex="-1"><span aria-hidden="true">&laquo;</span></a>
+      </li>
+      <li class="page-item active">
+        <a aria-current="page" aria-label="Page 1" class="page-link" role="button">1</a>
+      </li>
+      <li class="page-item">
+        <a href="/posts/page/2/" aria-label="Page 2" class="page-link" role="button">2</a>
+      </li>
+      <li class="page-item">
+        <a href="/posts/page/2/" aria-label="Next" class="page-link" role="button"><span aria-hidden="true">&raquo;</span></a>
+      </li>
+      <li class="page-item">
+        <a href="/posts/page/2/" aria-label="Last" class="page-link" role="button"><span aria-hidden="true">&raquo;&raquo;</span></a>
+      </li>
+    </ul>
     </div>
   </div>
 </section>
@@ -629,6 +693,7 @@ Clone this repository to your local machine and cd to it, I added mine under the
                 </li>
               
               
+              
                 
                 
                   
@@ -636,7 +701,6 @@ Clone this repository to your local machine and cd to it, I added mine under the
                 <li class="nav-item">
                   <a class="smooth-scroll" href="/#skills">Skills</a>
                 </li>
-              
               
               
                 
@@ -657,7 +721,6 @@ Clone this repository to your local machine and cd to it, I added mine under the
                 </li>
               
               
-              
                 
                 
                   
@@ -665,6 +728,7 @@ Clone this repository to your local machine and cd to it, I added mine under the
                 <li class="nav-item">
                   <a class="smooth-scroll" href="/#accomplishments">Accomplishments</a>
                 </li>
+              
               
           </ul>
           
