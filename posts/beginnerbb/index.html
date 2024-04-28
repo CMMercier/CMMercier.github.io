@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Beginner Bug Bounty Journey</title>
+    <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+<link rel="stylesheet" href="/application.6053c2440fb32ef2010c84f629a987aa593a9a7ff9a82643ef43d9bbe9096d92.css" integrity="sha256-YFPCRA&#43;zLvIBDIT2KamHqlk6mn/5qCZD70PZu&#43;kJbZI=" />
+
+
+
+
+
+<meta property="og:url" content="https://example.org/posts/beginnerbb/">
+  <meta property="og:site_name" content="Crystal&#39;s Portfolio Page">
+  <meta property="og:title" content="Beginner Bug Bounty Journey">
+  <meta property="og:description" content="Beginner Bug Bounty Journey">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2022-02-23T00:00:00+00:00">
+    <meta property="article:modified_time" content="2022-02-23T00:00:00+00:00">
+
+    <meta name="twitter:card" content="summary"><meta name="twitter:title" content="Beginner Bug Bounty Journey">
+<meta name="twitter:description" content="Beginner Bug Bounty Journey">
+
+    
+    
+<meta name="description" content="Beginner Bug Bounty Journey" />
+
+
+    
+
+    
+        
+        
+        
+
+        
+        
+
+        
+	
+		
+			<script data-goatcounter="https://lsoaw.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+    		
+        
+
+        
+        
+
+        
+        
+    
+
+
+
+
+<script>
+      theme = localStorage.getItem('darkmode:color-scheme') || 'system';
+      if (theme == 'system') {
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          theme = 'dark';
+        } else {
+          theme = 'light';
+        }
+      }
+      document.documentElement.setAttribute('data-theme', theme);
+    </script>
+  </head>
+
+  <body class="type-posts kind-page" data-spy="scroll" data-target="#TableOfContents" data-offset="80">
+    <div class="container-fluid bg-secondary wrapper">
+      
+      
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+  
+  
+    
+  
+  
+
+
+
+  
+  
+    
+  
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<nav class="navbar navbar-expand-xl top-navbar shadow " id="top-navbar">
+  <div class="container">
+    
+    <button class="navbar-toggler navbar-light" id="sidebar-toggler" type="button">
+      <i data-feather="sidebar"></i>
+    </button>
+    
+    <a class="navbar-brand" href="/">
+      
+        <img src="/images/site/main-logo_hu9df2ac3b5d10077ba06959afc947cddc_1649_42x0_resize_box_3.png" id="logo" alt="Logo">
+      Crystal&#39;s Portfolio Page</a>
+    <button
+      class="navbar-toggler navbar-light"
+      id="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#top-nav-items"
+      aria-label="menu"
+    >
+      <i data-feather="menu"></i>
+    </button>
+
+    <div class="collapse navbar-collapse dynamic-navbar" id="top-nav-items">
+      <ul class="nav navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/#home">Home</a>
+        </li>
+        
+          
+          
+            
+              
+              
+                <li class="nav-item">
+                  <a class="nav-link" href="/#about">About</a>
+                </li>
+              
+            
+            
+              
+              
+                <li class="nav-item">
+                  <a class="nav-link" href="/#skills">Skills</a>
+                </li>
+              
+            
+            
+              
+              
+                <li class="nav-item">
+                  <a class="nav-link" href="/#experiences">Experiences</a>
+                </li>
+              
+            
+            
+              
+              
+                <li class="nav-item">
+                  <a class="nav-link" href="/#education">Education</a>
+                </li>
+              
+            
+            
+              
+              
+            
+            
+              
+              
+            
+            
+              
+              
+            
+            
+          
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">More</a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                
+                  
+                    
+                    
+                  
+                  
+                    
+                    
+                  
+                  
+                    
+                    
+                  
+                  
+                    
+                    
+                  
+                  
+                    
+                    
+                      <a class="dropdown-item" href="/#recent-posts">Recent Posts</a>
+                    
+                  
+                  
+                    
+                    
+                      <a class="dropdown-item" href="/#projects">Projects</a>
+                    
+                  
+                  
+                    
+                    
+                      <a class="dropdown-item" href="/#accomplishments">Accomplishments</a>
+                    
+                  
+                  
+              </div>
+            </li>
+          
+        
+        
+          <div id="top-navbar-divider"></div>
+        
+        
+          <li class="nav-item">
+            <a class="nav-link" id="blog-link" href="/posts">Posts</a>
+          </li>
+        
+        
+          <li class="nav-item">
+            <a class="nav-link" id="note-link" href="/notes">Notes</a>
+          </li>
+        
+        
+        
+        
+          <li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle"  href="#" id="themeSelector" role="button"
+  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <img id="navbar-theme-icon-svg" class="theme-icon" src="/icons/moon-svgrepo-com.svg" width=20 alt="Dark Theme">
+</a>
+<div id="themeMenu" class="dropdown-menu dropdown-menu-icons-only" aria-labelledby="themeSelector">
+  <a class="dropdown-item nav-link" href="#" data-scheme="light">
+    <img class="theme-icon" src="/icons/sun-svgrepo-com.svg" width=20 alt="Light Theme">
+  </a>
+  <a class="dropdown-item nav-link" href="#" data-scheme="dark">
+    <img class="theme-icon" src="/icons/moon-svgrepo-com.svg" width=20 alt="Dark Theme">
+  </a>
+  <a class="dropdown-item nav-link" href="#" data-scheme="system">
+    <img class="theme-icon" src="/icons/computer-svgrepo-com.svg" width=20 alt="System Theme">
+  </a>
+</div>
+</li>
+
+        
+      </ul>
+    </div>
+  </div>
+  
+  
+    <img src="/images/site/main-logo_hu9df2ac3b5d10077ba06959afc947cddc_1649_42x0_resize_box_3.png" class="d-none" id="main-logo" alt="Logo">
+  
+  
+    <img src="/images/site/inverted-logo_hu16507d0a1a268223a19d2a540dec58be_1607_42x0_resize_box_3.png" class="d-none" id="inverted-logo" alt="Inverted Logo">
+  
+</nav>
+
+
+
+      
+      
+  <section class="sidebar-section" id="sidebar-section">
+    <div class="sidebar-holder">
+      <div class="sidebar" id="sidebar">
+        <form class="mx-auto" method="get" action="/search">
+          <input type="text" name="keyword" value="" placeholder="Search" data-search="" id="search-box" />
+        </form>
+        <div class="sidebar-tree">
+          <ul class="tree" id="tree">
+            <li id="list-heading"><a href="/posts/" data-filter="all">Posts</a></li>
+            <div class="subtree">
+                
+  
+  
+  
+  
+  
+    
+    <li><a class=" list-link" href="/posts/website-guide/" title="Build your own Hugo website">Build your own Hugo website</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class=" list-link" href="/posts/owasp-juice-shop-walkthrough/" title="OWASP Juice Shop Walkthrough">OWASP Juice Shop Walkthrough</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class=" list-link" href="/posts/adlab/" title="Setting up an Active Directory Lab">Setting up an Active Directory Lab</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class=" list-link" href="/posts/openwrt/" title="OpenWrt on Raspberry Pi 3b">OpenWrt on Raspberry Pi 3b</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class=" list-link" href="/posts/kasm/" title="Kasm Workspaces">Kasm Workspaces</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class=" list-link" href="/posts/htb-forge/" title="HTB: Writeup — Forge">HTB: Writeup — Forge</a></li>
+  
+
+  
+  
+  
+  
+    
+    
+  
+  
+    
+    <li><a class="active list-link" href="/posts/beginnerbb/" title="Beginner Bug Bounty Journey">Beginner Bug Bounty Journey</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class=" list-link" href="/posts/onemonthbb/" title="One Month Bug Bounty Journey Update">One Month Bug Bounty Journey Update</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class=" list-link" href="/posts/bbprivateinvites/" title="Bug Bounty: How to get private invites">Bug Bounty: How to get private invites</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class=" list-link" href="/posts/htbctf2022/" title="Cyber Apocalypse CTF 2022">Cyber Apocalypse CTF 2022</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class=" list-link" href="/posts/htb-pandora/" title="HTB: Writeup — Pandora">HTB: Writeup — Pandora</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class=" list-link" href="/posts/bb-phpinfo/" title="Bug Bounty: A tale of credentials listed on phpinfo">Bug Bounty: A tale of credentials listed on phpinfo</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class=" list-link" href="/posts/bb-pathtraversal/" title="Bug Bounty: Path Traversal in Snap Creek Duplicator plugin before 1.3.28 for WordPress">Bug Bounty: Path Traversal in Snap Creek Duplicator plugin before 1.3.28 for WordPress</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class=" list-link" href="/posts/ollama3installation/" title="Installing and running llama3 locally&#34;">Installing and running llama3 locally&#34;</a></li>
+  
+
+
+            </div>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+      
+      
+<section class="content-section" id="content-section">
+  <div class="content">
+    <div class="container p-0 read-area">
+      
+      <div class="hero-area col-sm-12" id="hero-area" style='background-image: url(/posts/beginnerbb/hero.png);'>
+      </div>
+
+      
+      <div class="page-content">
+        
+        <div class="author-profile ml-auto align-self-lg-center">
+          <img class="rounded-circle" src='/images/author/crystal_hu56daec2eff645d56fb53cd8db157a676_63575_120x120_fit_q75_box.jpg' alt="Author Image">
+          <h5 class="author-name">Crystal Mercier</h5>
+          <p class="text-muted">Wednesday, February 23, 2022</p>
+        </div>
+        
+        
+        <div class="title">
+          <h1>Beginner Bug Bounty Journey</h1>
+        </div>
+
+        
+
+        
+        <div class="post-content" id="post-content">
+          <h2 id="introduction">Introduction</h2>
+<p>I began my journey with all the many resources out there both free and paid that are centered on training you to become a penetration tester. The main resources I found to be the best for learning were TryHackMe and the Practical Ethical Hacking course by TCM Academy. The problem I learned mostly by following the major community leaders in Youtube, LinkedIn and Twitter, is that there are already far more people wanting to be penetration testers than there are open roles for them to fill. But this was alright as these courses still taught the basics required for most other Cyber Security roles.</p>
+<p>The problem I actually had was finding myself quickly overwhelmed by the sheer amount of materials available and how much more in depth I wanted to learn. I needed somewhere to begin my focus on so I decided to go back to the Practical Ethical Hacking course curriculum and choose a section from there to dig deeper into. As you can probably guess from the title, the Web Application Enumeration and Top 10 Web Application Vulnerabilities are what stood out to me. I knew that the Bug Bounty scene had been gaining a lot of popularity lately and it gave me the opportunity to not only learn a lot but possibly make a little side cash to help fund more certifications or fun projects.</p>
+<h2 id="the-beginner-methodology">The Beginner Methodology</h2>
+<p>Initially and somewhat shamefully my first response, since my web application knowledge is limited to a web application programming course taken in uni and a little bit in TryHackMe and OWASP Juice Shop, was to find tools and scan ALL the things. I thought that maybe I could find some things from them and learn from there but it is highly unlike to find low hanging fruit especially on bug bounty programs which have already been scanned by many others and this wasn’t going to be nearly as easy as intentionally vulnerable applications.</p>
+<p>Doing this did however lead me to a couple auto recon tools that I do find to be very helpful. reconftw which you can find over at <a href="https://github.com/six2dez/reconftw" target="_blank" rel="noopener">https://github.com/six2dez/reconftw</a> and Sn1per which you can find at <a href="https://github.com/1N3/Sn1per" target="_blank" rel="noopener">https://github.com/1N3/Sn1per</a>. They handle a lot of the very helpful initial recon for me. Another amazing resource is the Pentesting Web checklist by six2dez found at <a href="https://github.com/six2dez/pentest-book/blob/master/others/web-checklist.md" target="_blank" rel="noopener">https://github.com/six2dez/pentest-book/blob/master/others/web-checklist.md</a>. The recon tools can cover a good amount of this checklist but I prefer to also manually go through each part and try out the different tools and methods myself. Also while the tools are running it is very important to have <code>OWASP ZAP</code> and <code>Burp</code> open while manually crawling through the websites. I have personally found out a lot more about the sites by doing this.</p>
+<p>So at first I was scanning around different bounty programs and while this might be the faster way of finding something, I didn’t really feel like I was learning anything. So I decided to pick one program and stick to it. Most importantly my goal has been to learn everything I can about their tech stacks. Especially their versions and known vulnerabilities the software has or has had in the past.</p>
+<p>It is also important to learn about these web application vulnerabilities, so I have also been reading Real-World Bug Hunting: A Field Guide to Web Hacking by Peter Yaworski and after reading about each vulnerability I have been testing them out on my bug bounty program of choice. I do want to note that I did read over this book before I even started on this journey but it honestly didn’t make a whole lot of sense to me then. I understand a lot of it much clearer now and I will likely end up reading over it again at least once more in the future as my understanding grows. So if the material that you look up now doesn’t make sense do not give up! You will get there!</p>
+<h2 id="next-steps">Next Steps</h2>
+<p>One of the things I have been working on is growing my LinkedIn and Twitter communities. Especially Twitter is a great way to learn about new things and keep up with current happenings but it’s also been a great resource for finding out about course discounts or giveaways! I tend to spend a half hour or hour before bed reading over posts.</p>
+<p>That being said I plan to take a break from that unless I have the extra time and instead make it my priority to spend that particular time reading over reports on HackerOne. The Hactivity section is a great way to find the latest disclosures and reading the reports is probably going to be the best way to learn as they often include the disclosed report. I also plan to get back to the free amazing web security training from PortSwigger Academy located over at portswigger.net/web-security.</p>
+<p>Hopefully the next time I write it will be to talk about a bug I found and how I accomplished the finding. But if not I will not be discouraged as my goal and my passion is learning and I have learned so much already! Remember, bug bounty hunting is free hands-on pentesting experience!</p>
+
+        </div>
+
+        
+        <div class="row pl-3 pr-3">
+        
+          <div class="col-md-6 share-buttons">
+          
+          </div>
+
+        
+        
+          
+            
+          
+          <div class="col-md-6 btn-improve-page">
+             
+               <a href="https://cmmercier.github.io//edit/main/content/posts/BeginnerBB/index.md" title="Improve this page" target="_blank" rel="noopener">
+            
+                <i class="fas fa-code-branch"></i>
+                Improve this page
+              </a>
+          </div>
+        
+        </div>
+
+
+
+      
+      <hr />
+        
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+    
+    
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+<div class="row next-prev-navigator">
+  
+    <div class="col-md-6 previous-article">
+      <a href="/posts/htb-forge/" title="HTB: Writeup — Forge" class="btn filled-button">
+        <div><i class="fas fa-chevron-circle-left"></i> Prev</div>
+        <div class="next-prev-text">HTB: Writeup — Forge</div>
+      </a>
+    </div>
+  
+  
+      
+      
+        
+      
+      <div class="col-md-6 next-article">
+        <a href="/posts/onemonthbb/" title="One Month Bug Bounty Journey Update" class="btn filled-button">
+          <div>Next <i class="fas fa-chevron-circle-right"></i></div>
+          <div class="next-prev-text">One Month Bug Bounty Journey Update</div>
+        </a>
+      </div>
+    
+</div>
+
+      <hr />
+
+      
+      
+
+      
+      
+
+      </div>
+    </div>
+  </div>
+  
+  <a id="scroll-to-top" class="btn"  data-toggle="tooltip" data-placement="left" title="Scroll to top">
+    <i class="fas fa-chevron-circle-up"></i>
+  </a>
+</section>
+
+
+      
+      
+  <section class="toc-section" id="toc-section">
+    
+    <div class="toc-holder">
+      <h5 class="text-center pl-3">Table of Contents</h5>
+      <hr>
+      <div class="toc">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#the-beginner-methodology">The Beginner Methodology</a></li>
+    <li><a href="#next-steps">Next Steps</a></li>
+  </ul>
+</nav>
+      </div>
+    </div>
+    
+  </section>
+
+    </div>
+
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+
+  
+  
+    
+    
+      
+    
+  
+
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+    
+  
+  
+
+  
+  
+  
+
+  <footer id="footer" class="container-fluid text-center align-content-center footer pb-2">
+    <div class="container pt-5">
+      <div class="row text-left">
+        
+        <div class="col-md-4 col-sm-12">
+          <h5>Navigation</h5>
+          
+          <ul>
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="https://example.org/#about">About</a>
+                </li>
+              
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="https://example.org/#skills">Skills</a>
+                </li>
+              
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="https://example.org/#experiences">Experiences</a>
+                </li>
+              
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="https://example.org/#education">Education</a>
+                </li>
+              
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="https://example.org/#recent-posts">Recent Posts</a>
+                </li>
+              
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="https://example.org/#projects">Projects</a>
+                </li>
+              
+              
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="https://example.org/#accomplishments">Accomplishments</a>
+                </li>
+              
+            
+              
+            
+          </ul>
+          
+        </div>
+        
+        
+        <div class="col-md-4 col-sm-12">
+          <h5>Contact me:</h5>
+          <ul>
+            
+              
+                <li><a href=mailto:cmmercier86@gmail.com target="_blank" rel="noopener">
+                  <span><i class="fas fa-envelope"></i></span> <span>cmmercier86@gmail.com</span>
+                </a></li>
+              
+            
+              
+                <li><a href=https://github.com/CMMercier target="_blank" rel="noopener">
+                  <span><i class="fab fa-github"></i></span> <span>CMMercier</span>
+                </a></li>
+              
+            
+              
+                <li><a href=https://www.linkedin.com/in/crystalmercier target="_blank" rel="noopener">
+                  <span><i class="fab fa-linkedin"></i></span> <span>Crystal Mercier</span>
+                </a></li>
+              
+            
+          </ul>
+        </div>
+        
+        
+        
+          
+          <div class="col-md-4 col-sm-12">
+            <p>Stay up to date with email notification</p>
+            
+              <form method='post' action='https://blogtrottr.com'>
+              <div class="form-group">
+              <input type='email' class="form-control" name='btr_email' placeholder="Enter email"/><br />
+              <input type='hidden' name='btr_url' value='https://example.org//index.xml' />
+              <input type='hidden' name='schedule_type' value='1' />
+              <small id="emailHelp" class="form-text text-muted">By entering your email address, you agree to receive the newsletter of this website.</small>
+              <button type="submit" class="btn btn-info"> Submit </button>
+              </div>
+              </form>
+            
+          </div>
+        
+      </div>
+    </div>
+    
+    
+    <hr />
+    <div class="container">
+      <div class="row text-left">
+        <div class="col-md-4">
+          <a id="theme" href="https://github.com/hugo-toha/toha" target="_blank" rel="noopener">
+            <img src="/images/theme-logo_hu8376fd15465fef26ffe66b6bcf0ca686_13669_32x0_resize_box_3.png" alt="Toha Theme Logo">
+            Toha
+          </a>
+        </div>
+        <div class="col-md-4 text-center">© 2024 Copyright.</div>
+        <div class="col-md-4 text-right">
+          <a id="hugo" href="https://gohugo.io/" target="_blank" rel="noopener">Powered by
+          <img
+            src="/images/hugo-logo.svg"
+            alt="Hugo Logo"
+            height="18"
+          />
+          </a>
+        </div>
+      </div>
+    </div>
+    
+  </footer>
+
+
+    <script src="/application.b8c95b66a01e532235142adb23f68467c46f29b4d385c0fed7d751dcb1e824be.js" integrity="sha256-uMlbZqAeUyI1FCrbI/aEZ8RvKbTThcD&#43;19dR3LHoJL4=" defer></script>
+
+
+    
+     
+
+    
+    
+
+</body>
+</html>

@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>OpenWrt on Raspberry Pi 3b</title>
+    <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+<link rel="stylesheet" href="/application.6053c2440fb32ef2010c84f629a987aa593a9a7ff9a82643ef43d9bbe9096d92.css" integrity="sha256-YFPCRA&#43;zLvIBDIT2KamHqlk6mn/5qCZD70PZu&#43;kJbZI=" />
+
+
+
+
+
+<meta property="og:url" content="https://example.org/posts/openwrt/">
+  <meta property="og:site_name" content="Crystal&#39;s Portfolio Page">
+  <meta property="og:title" content="OpenWrt on Raspberry Pi 3b">
+  <meta property="og:description" content="OpenWrt on Raspberry Pi 3b">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2021-12-28T00:00:00+00:00">
+    <meta property="article:modified_time" content="2021-12-28T00:00:00+00:00">
+
+    <meta name="twitter:card" content="summary"><meta name="twitter:title" content="OpenWrt on Raspberry Pi 3b">
+<meta name="twitter:description" content="OpenWrt on Raspberry Pi 3b">
+
+    
+    
+<meta name="description" content="OpenWrt on Raspberry Pi 3b" />
+
+
+    
+
+    
+        
+        
+        
+
+        
+        
+
+        
+	
+		
+			<script data-goatcounter="https://lsoaw.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+    		
+        
+
+        
+        
+
+        
+        
+    
+
+
+
+
+<script>
+      theme = localStorage.getItem('darkmode:color-scheme') || 'system';
+      if (theme == 'system') {
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          theme = 'dark';
+        } else {
+          theme = 'light';
+        }
+      }
+      document.documentElement.setAttribute('data-theme', theme);
+    </script>
+  </head>
+
+  <body class="type-posts kind-page" data-spy="scroll" data-target="#TableOfContents" data-offset="80">
+    <div class="container-fluid bg-secondary wrapper">
+      
+      
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+  
+  
+    
+  
+  
+
+
+
+  
+  
+    
+  
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<nav class="navbar navbar-expand-xl top-navbar shadow " id="top-navbar">
+  <div class="container">
+    
+    <button class="navbar-toggler navbar-light" id="sidebar-toggler" type="button">
+      <i data-feather="sidebar"></i>
+    </button>
+    
+    <a class="navbar-brand" href="/">
+      
+        <img src="/images/site/main-logo_hu9df2ac3b5d10077ba06959afc947cddc_1649_42x0_resize_box_3.png" id="logo" alt="Logo">
+      Crystal&#39;s Portfolio Page</a>
+    <button
+      class="navbar-toggler navbar-light"
+      id="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#top-nav-items"
+      aria-label="menu"
+    >
+      <i data-feather="menu"></i>
+    </button>
+
+    <div class="collapse navbar-collapse dynamic-navbar" id="top-nav-items">
+      <ul class="nav navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/#home">Home</a>
+        </li>
+        
+          
+          
+            
+              
+              
+                <li class="nav-item">
+                  <a class="nav-link" href="/#about">About</a>
+                </li>
+              
+            
+            
+              
+              
+                <li class="nav-item">
+                  <a class="nav-link" href="/#skills">Skills</a>
+                </li>
+              
+            
+            
+              
+              
+                <li class="nav-item">
+                  <a class="nav-link" href="/#experiences">Experiences</a>
+                </li>
+              
+            
+            
+              
+              
+                <li class="nav-item">
+                  <a class="nav-link" href="/#education">Education</a>
+                </li>
+              
+            
+            
+              
+              
+            
+            
+              
+              
+            
+            
+            
+              
+              
+            
+          
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">More</a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                
+                  
+                    
+                    
+                  
+                  
+                    
+                    
+                  
+                  
+                    
+                    
+                  
+                  
+                    
+                    
+                  
+                  
+                    
+                    
+                      <a class="dropdown-item" href="/#recent-posts">Recent Posts</a>
+                    
+                  
+                  
+                    
+                    
+                      <a class="dropdown-item" href="/#projects">Projects</a>
+                    
+                  
+                  
+                    
+                    
+                      <a class="dropdown-item" href="/#accomplishments">Accomplishments</a>
+                    
+                  
+                  
+              </div>
+            </li>
+          
+        
+        
+          <div id="top-navbar-divider"></div>
+        
+        
+          <li class="nav-item">
+            <a class="nav-link" id="blog-link" href="/posts">Posts</a>
+          </li>
+        
+        
+          <li class="nav-item">
+            <a class="nav-link" id="note-link" href="/notes">Notes</a>
+          </li>
+        
+        
+        
+        
+          <li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle"  href="#" id="themeSelector" role="button"
+  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <img id="navbar-theme-icon-svg" class="theme-icon" src="/icons/moon-svgrepo-com.svg" width=20 alt="Dark Theme">
+</a>
+<div id="themeMenu" class="dropdown-menu dropdown-menu-icons-only" aria-labelledby="themeSelector">
+  <a class="dropdown-item nav-link" href="#" data-scheme="light">
+    <img class="theme-icon" src="/icons/sun-svgrepo-com.svg" width=20 alt="Light Theme">
+  </a>
+  <a class="dropdown-item nav-link" href="#" data-scheme="dark">
+    <img class="theme-icon" src="/icons/moon-svgrepo-com.svg" width=20 alt="Dark Theme">
+  </a>
+  <a class="dropdown-item nav-link" href="#" data-scheme="system">
+    <img class="theme-icon" src="/icons/computer-svgrepo-com.svg" width=20 alt="System Theme">
+  </a>
+</div>
+</li>
+
+        
+      </ul>
+    </div>
+  </div>
+  
+  
+    <img src="/images/site/main-logo_hu9df2ac3b5d10077ba06959afc947cddc_1649_42x0_resize_box_3.png" class="d-none" id="main-logo" alt="Logo">
+  
+  
+    <img src="/images/site/inverted-logo_hu16507d0a1a268223a19d2a540dec58be_1607_42x0_resize_box_3.png" class="d-none" id="inverted-logo" alt="Inverted Logo">
+  
+</nav>
+
+
+
+      
+      
+  <section class="sidebar-section" id="sidebar-section">
+    <div class="sidebar-holder">
+      <div class="sidebar" id="sidebar">
+        <form class="mx-auto" method="get" action="/search">
+          <input type="text" name="keyword" value="" placeholder="Search" data-search="" id="search-box" />
+        </form>
+        <div class="sidebar-tree">
+          <ul class="tree" id="tree">
+            <li id="list-heading"><a href="/posts/" data-filter="all">Posts</a></li>
+            <div class="subtree">
+                
+  
+  
+  
+  
+  
+    
+    <li><a class=" list-link" href="/posts/website-guide/" title="Build your own Hugo website">Build your own Hugo website</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class=" list-link" href="/posts/owasp-juice-shop-walkthrough/" title="OWASP Juice Shop Walkthrough">OWASP Juice Shop Walkthrough</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class=" list-link" href="/posts/adlab/" title="Setting up an Active Directory Lab">Setting up an Active Directory Lab</a></li>
+  
+
+  
+  
+  
+  
+    
+    
+  
+  
+    
+    <li><a class="active list-link" href="/posts/openwrt/" title="OpenWrt on Raspberry Pi 3b">OpenWrt on Raspberry Pi 3b</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class=" list-link" href="/posts/kasm/" title="Kasm Workspaces">Kasm Workspaces</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class=" list-link" href="/posts/htb-forge/" title="HTB: Writeup — Forge">HTB: Writeup — Forge</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class=" list-link" href="/posts/beginnerbb/" title="Beginner Bug Bounty Journey">Beginner Bug Bounty Journey</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class=" list-link" href="/posts/onemonthbb/" title="One Month Bug Bounty Journey Update">One Month Bug Bounty Journey Update</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class=" list-link" href="/posts/bbprivateinvites/" title="Bug Bounty: How to get private invites">Bug Bounty: How to get private invites</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class=" list-link" href="/posts/htbctf2022/" title="Cyber Apocalypse CTF 2022">Cyber Apocalypse CTF 2022</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class=" list-link" href="/posts/htb-pandora/" title="HTB: Writeup — Pandora">HTB: Writeup — Pandora</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class=" list-link" href="/posts/bb-phpinfo/" title="Bug Bounty: A tale of credentials listed on phpinfo">Bug Bounty: A tale of credentials listed on phpinfo</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class=" list-link" href="/posts/bb-pathtraversal/" title="Bug Bounty: Path Traversal in Snap Creek Duplicator plugin before 1.3.28 for WordPress">Bug Bounty: Path Traversal in Snap Creek Duplicator plugin before 1.3.28 for WordPress</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class=" list-link" href="/posts/ollama3installation/" title="Installing and running llama3 locally&#34;">Installing and running llama3 locally&#34;</a></li>
+  
+
+
+            </div>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+      
+      
+<section class="content-section" id="content-section">
+  <div class="content">
+    <div class="container p-0 read-area">
+      
+      <div class="hero-area col-sm-12" id="hero-area" style='background-image: url(/posts/openwrt/hero.png);'>
+      </div>
+
+      
+      <div class="page-content">
+        
+        <div class="author-profile ml-auto align-self-lg-center">
+          <img class="rounded-circle" src='/images/author/crystal_hu56daec2eff645d56fb53cd8db157a676_63575_120x120_fit_q75_box.jpg' alt="Author Image">
+          <h5 class="author-name">Crystal Mercier</h5>
+          <p class="text-muted">Tuesday, December 28, 2021</p>
+        </div>
+        
+        
+        <div class="title">
+          <h1>OpenWrt on Raspberry Pi 3b</h1>
+        </div>
+
+        
+
+        
+        <div class="post-content" id="post-content">
+          <h3 id="introduction">Introduction</h3>
+<p>So back when Raspberry Pi was super hyped I really wanted one. I always loved to play with tech and there was so much that could be done with such a handy small and inexpensive device.</p>
+<p>So eventually and very excitedly I purchased the Raspberry Pi 3 when I had some extra cash to do so. But after an extensive search of existing Pi project lists, personal sites, and Youtube videos, I wasn’t really able to find many project or project ideas that actually interested me or felt worthy.</p>
+<p>First I tried out the famous Pi-hole. It was fun to setup and watch it work and it does indeed work rather well but it felt like a waste to just use the device for that. As I was interested in security I started to wonder if I could use this little device for IDS/IPS and actually found existing guides for installing and configuring Snort on Raspberry Pi.</p>
+<p>In my excited haste I was able to get Snort all setup and running before finding out that the Raspberry Pi 3 does not have the CPU or Memory required. In my disappointment I placed the Pi away in a drawer for some years before I recently ran across this video by NetworkChuck: <a href="https://www.youtube.com/watch?v=jlHWnKVpygw" target="_blank" rel="noopener">https://www.youtube.com/watch?v=jlHWnKVpygw</a>.</p>
+<p>I immediately grabbed that old Raspberry Pi 3b out and got to work installing and playing with OpenWrt on it. So, you might be wondering…why OpenWrt?</p>
+<p>While NetworkChuck’s idea of using it as a travel router for security purposes really interested me and I do plan on using it as such when I do travel. My main use for it currently is subnetting certain systems on my network from others while providing these wireless devices with an adblock at the router level. Some of these devices being rather difficult or impossible to get adblocks onto themselves. I also have a vpn setup on the OpenWrt but I am currently using the free ProtonVPN instead of the nordVPN that NetworkChuck uses.</p>
+<h3 id="installation">Installation</h3>
+<p>Firstly, you will need to find your Raspberry Pi model and version and download the OpenWrt image from <a href="https://openwrt.org/toh/raspberry_pi_foundation/raspberry_pi" target="_blank" rel="noopener">https://openwrt.org/toh/raspberry_pi_foundation/raspberry_pi</a>.</p>
+<p>Then install that operating system onto your Raspberry Pi’s microSD card. Personally I enjoy using the simple Raspberry Pi Imager from <a href="https://www.raspberrypi.com/software/" target="_blank" rel="noopener">https://www.raspberrypi.com/software/</a>.</p>
+<p>Insert the microSD back into your Raspberry Pi once the Imager is complete and connect your Pi to a laptop or pc using an Ethernet cable.</p>
+<p>By default the OpenWrt gateway will be 192.168.1.1 which you should be able to access immediately but if you run into any issues connecting (remember to give the Pi some time if you recently booted it) then you might need to set your pc IP to an IP on the network like 192.168.1.10.</p>
+<p>Next you will want to use SSH to access and configure your new Pi router.</p>
+<p><code>ssh root@192.168.1.1</code></p>
+<p>As you might have noticed, it does not prompt you for a password which is super insecure and you should definitely change this first by running:</p>
+<p><code>passwd</code></p>
+<p>Enter a new super secure password of your choosing!</p>
+<p>Now its time to edit some configurations.</p>
+<p><code>cd /etc/config</code></p>
+<p>You can create backups of the config files first if you like by doing:</p>
+<pre tabindex="0"><code>cp firewall firewall.bk
+cp network network.bk
+cp wireless wireless.bk
+</code></pre><p>It would take seconds to redo the whole process thus far if something did go wrong so while this backup isn’t necessary it is good to get into the habit of creating backups before making changes!</p>
+<p>Currently we don’t have access to nano so we have to use vi to edit the config files. Which as much as we all want to cry at having to use vi it is good to learn or refresh on its use as this isn’t likely the only time you will experience an environment in which you are forced to use it.</p>
+<p><code>vi network</code></p>
+<p>Where it says:</p>
+<pre tabindex="0"><code>config interface &#39;lan&#39;
+    option device &#39;br-lan&#39;
+    option proto &#39;static&#39;
+    option ipaddr &#39;192.168.1.1&#39;
+    option netmask &#39;255.255.255.0&#39;
+    option ip6assign &#39;60&#39;
+</code></pre><p>Change option <code>ipaddr '192.168.1.1'</code> to something of your choosing that isn’t so commonly used. NetworkChuck for example used <code>option ipaddr '10.71.71.1'</code> so I will use this example going forward. Also add the line:</p>
+<p><code>option force_link '1'</code></p>
+<p>After <code>option ip6assign '60'</code>. At the bottom we will add a new interface:</p>
+<pre tabindex="0"><code>config interface &#39;wwan&#39;
+    option proto &#39;dhcp&#39;
+    option peerdns &#39;0&#39;
+    option dns &#39;1.1.1.1 8.8.8.8&#39;
+</code></pre><p>If you wish to setup a vpn to use with this then there is one more interface you will need to add to the bottom:</p>
+<pre tabindex="0"><code>config interface &#39;vpnclient&#39;
+    option ifname &#39;tun0&#39;
+    option proto &#39;none&#39;
+</code></pre><p>Now to save and exit from vi simply hit <code>esc</code> then type in <code>:wq</code> and hit <code>enter</code>.</p>
+<p>The next thing we need to configure is the firewall.</p>
+<p><code>vi firewall</code></p>
+<p>Where it says:</p>
+<pre tabindex="0"><code>config zone
+    option name       wan
+    list network      &#39;wan&#39;
+    list network      &#39;wan6&#39;
+    option input      REJECT
+    option output     ACCEPT
+    option forward    REJECT
+    option masq       1
+    option mtu_fix    1
+</code></pre><p>Simply change <code>option input REJECT</code> to <code>option input ACCEPT</code></p>
+<p>Now to save and exit from vi simply hit esc then type in :wq and hit enter.</p>
+<p>Time to reboot by using the command:</p>
+<p><code>reboot</code></p>
+<p>You will get kicked out of the SSH session at this time. If you had to change your network adapter settings previously you will now have to go back and set it to obtain ip automattically again before continuing.</p>
+<p>Give it some time to reboot if you didn’t have to go change settings and maybe enjoy some coffee or some tea while waiting. SSH back with the IP and password you set.</p>
+<p><code>ssh root@10.71.71.1</code></p>
+<p>So now we must get the usb wifi setup. For this we will need internet access to download the drivers.</p>
+<p><code>vi /etc/config/wireless</code></p>
+<p>Make a few changes to the first config so it looks exactly like so:</p>
+<pre tabindex="0"><code>config wifi-device &#39;radio0&#39;
+    option type &#39;mac80211&#39;
+    option channel &#39;7&#39;
+    option hwmode &#39;11g&#39;
+    option path &#39;platform/soc/fe300000.mmcnr/mmc_host/mmc1/mmc1:0001/mmc1:0001:1&#39;
+    option htmode &#39;VHT80&#39;
+    option disabled &#39;0&#39;
+    option short_gi_40 &#39;0&#39;
+</code></pre><p>Now to save and exit from vi simply hit esc then type in :wq and hit enter.</p>
+<p>Update the wireless interface configuration.</p>
+<pre tabindex="0"><code>uci commit wireless
+wifi
+</code></pre><p>Open a web browser to access the OpenWrt GUI by going to the IP 10.71.71.1 or whatever you choose for your IP.</p>
+<p>After you login select <code>Network</code> and <code>Wireless</code> and then click <code>Scan</code>. You will need to select your wireless network from the list and on the new window that pops up make sure <code>Replace wireless configuration</code> is selected and put in your <code>WPA passphrase</code>. Select <code>Submit</code>, then <code>Save</code> and lastly <code>Save and Apply</code>.</p>
+<p>Go back to your command prompt and <code>ping google.com</code> just to make sure the connection is working.</p>
+<p>Now that your Raspberry Pi has internet its time to update using:</p>
+<p><code>opkg update</code></p>
+<p>If it fails reboot and run it again and it should work. After update is successfully completed its time to install usb drivers along with openvpn and nano. If you do not wish to use openvpn or nano simply do not include those commands.</p>
+<pre tabindex="0"><code>opkg install kmod-rt2800-lib kmod-rt2800-usb kmod-rt2x00-lib kmod-rt2x00-usb kmod-usb-core kmod-usb-uhci kmod-usb-ohci kmod-usb2 usbutils openvpn-openssl luci-app-openvpn nano
+</code></pre><p>Connect your wireless usb now and use <code>lsusb</code> and check that the wireless usb is listed there.</p>
+<p>Now we must edit the wireless config with the editor of your choice:</p>
+<p><code>nano /etc/config/wireless</code></p>
+<p>Under <code>config wifi-device 'radio1'</code> set <code>option disabled '1'</code> to <code>option disabled '0'</code></p>
+<p>Then under <code>config wifi-iface 'default_radio1'</code> change <code>option ssid 'OpenWrt'</code> to an ssid of your choosing. Change <code>option encryption 'none'</code> to <code>option encryption psk2</code>. And add another option line under it <code>option key 'EnterStrongKeyHere'</code> and enter your own strong psk2 key.</p>
+<p>Save and exit. If using nano its <code>ctrl x y and enter</code>.</p>
+<p>Update the wireless interface configuration.</p>
+<pre tabindex="0"><code>uci commit wireless
+wifi
+</code></pre><p>Connect to the new ssid you created for the wifi and make sure its giving internet.</p>
+<p>Configurations! You’ve now got your very own Raspberry Pi Router!</p>
+<h3 id="setting-up-ad-blocking">Setting up Ad Blocking</h3>
+<p>OpenWrt comes with its own additional service for Ad Blocking. The setup is rather basic thankfully.</p>
+<pre tabindex="0"><code># Install packages
+opkg update
+opkg install adblock
+
+# Provide web interface
+opkg install luci-app-adblock
+
+# Backup the blocklists
+uci set adblock.global.adb_backupdir=&#34;/etc/adblock&#34;
+
+# Save and apply
+uci commit adblock
+/etc/init.d/adblock restart
+</code></pre><h3 id="setting-up-vpn">Setting up VPN</h3>
+<p>I set this up using the free ProtonVPN. If you dont already have an account with them and would like to use them on your Raspberry Pi device go ahead and create an account now on their website.</p>
+<p>Once you are logged in head over to the <code>Downloads</code> section and scroll down to the <code>OpenVPN configuration files</code> section. Here you want to select <code>Router</code> for platform and leave the protocol as <code>UDP</code>. Scroll down and decide which server you want to use and click <code>Download</code> on that server.</p>
+<p>Next load up your OpenWrt GUI at 10.71.71.1 (or whatever you set your ip to) and login. At the top select <code>VPN</code> and <code>OpenVPN</code>. Now where it says <code>OPVN configuration file upload</code> give it a name and click <code>Choose File</code>. Select the file that you just downloaded and click <code>Upload</code> then <code>Save &amp; Apply</code>.</p>
+<p>It should now appear on the list above. Check the <code>Enabled</code> box and click <code>start</code> then <code>Save &amp; Apply</code>.</p>
+<p>At this point you will lose connection to the internet due to the firewall. I found that the best way to do this part was actually to follow NetworkChuck’s commands:</p>
+<pre tabindex="0"><code>uci rename firewall.@zone[0]=&#34;lan&#34;
+uci rename firewall.@zone[1]=&#34;wan&#34;
+uci del_list firewall.wan.device=&#34;tun+&#34;
+uci add_list firewall.wan.device=&#34;tun+&#34;
+uci commit firewall
+/etc/init.d/firewall restart
+</code></pre><p>You should have access to the internet once again. Go ahead now and make sure your connection is indeed running through the vpn.</p>
+<h3 id="conclusion">Conclusion</h3>
+<p>This has been my favorite Raspberry Pi project by far. While the rest were fun and a learning experience in themselves, they lacked the functionality to feel truly satisfying once complete.</p>
+<p>The only downside to this project has been how truly simple it is to set all this up. There was very little issue that I ran into and had to do my own research for. So now my focus has been on what other capabilities and features OpenWrt has to play around with and continue to learn!</p>
+<p>I hope this guide has been interesting enough for you to give this project a try and discover all the great uses a Raspberry Pi Router can have in your life too!</p>
+
+        </div>
+
+        
+        <div class="row pl-3 pr-3">
+        
+          <div class="col-md-6 share-buttons">
+          
+          </div>
+
+        
+        
+          
+            
+          
+          <div class="col-md-6 btn-improve-page">
+             
+               <a href="https://cmmercier.github.io//edit/main/content/posts/OpenWrt/index.md" title="Improve this page" target="_blank" rel="noopener">
+            
+                <i class="fas fa-code-branch"></i>
+                Improve this page
+              </a>
+          </div>
+        
+        </div>
+
+
+
+      
+      <hr />
+        
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+    
+    
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+<div class="row next-prev-navigator">
+  
+    <div class="col-md-6 previous-article">
+      <a href="/posts/adlab/" title="Setting up an Active Directory Lab" class="btn filled-button">
+        <div><i class="fas fa-chevron-circle-left"></i> Prev</div>
+        <div class="next-prev-text">Setting up an Active Directory Lab</div>
+      </a>
+    </div>
+  
+  
+      
+      
+        
+      
+      <div class="col-md-6 next-article">
+        <a href="/posts/kasm/" title="Kasm Workspaces" class="btn filled-button">
+          <div>Next <i class="fas fa-chevron-circle-right"></i></div>
+          <div class="next-prev-text">Kasm Workspaces</div>
+        </a>
+      </div>
+    
+</div>
+
+      <hr />
+
+      
+      
+
+      
+      
+
+      </div>
+    </div>
+  </div>
+  
+  <a id="scroll-to-top" class="btn"  data-toggle="tooltip" data-placement="left" title="Scroll to top">
+    <i class="fas fa-chevron-circle-up"></i>
+  </a>
+</section>
+
+
+      
+      
+  <section class="toc-section" id="toc-section">
+    
+    <div class="toc-holder">
+      <h5 class="text-center pl-3">Table of Contents</h5>
+      <hr>
+      <div class="toc">
+        <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#introduction">Introduction</a></li>
+        <li><a href="#installation">Installation</a></li>
+        <li><a href="#setting-up-ad-blocking">Setting up Ad Blocking</a></li>
+        <li><a href="#setting-up-vpn">Setting up VPN</a></li>
+        <li><a href="#conclusion">Conclusion</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+      </div>
+    </div>
+    
+  </section>
+
+    </div>
+
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+
+  
+  
+    
+    
+      
+    
+  
+
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+    
+  
+  
+
+  
+  
+  
+
+  <footer id="footer" class="container-fluid text-center align-content-center footer pb-2">
+    <div class="container pt-5">
+      <div class="row text-left">
+        
+        <div class="col-md-4 col-sm-12">
+          <h5>Navigation</h5>
+          
+          <ul>
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="https://example.org/#about">About</a>
+                </li>
+              
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="https://example.org/#skills">Skills</a>
+                </li>
+              
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="https://example.org/#experiences">Experiences</a>
+                </li>
+              
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="https://example.org/#education">Education</a>
+                </li>
+              
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="https://example.org/#recent-posts">Recent Posts</a>
+                </li>
+              
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="https://example.org/#projects">Projects</a>
+                </li>
+              
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="https://example.org/#accomplishments">Accomplishments</a>
+                </li>
+              
+              
+            
+              
+            
+          </ul>
+          
+        </div>
+        
+        
+        <div class="col-md-4 col-sm-12">
+          <h5>Contact me:</h5>
+          <ul>
+            
+              
+                <li><a href=mailto:cmmercier86@gmail.com target="_blank" rel="noopener">
+                  <span><i class="fas fa-envelope"></i></span> <span>cmmercier86@gmail.com</span>
+                </a></li>
+              
+            
+              
+                <li><a href=https://github.com/CMMercier target="_blank" rel="noopener">
+                  <span><i class="fab fa-github"></i></span> <span>CMMercier</span>
+                </a></li>
+              
+            
+              
+                <li><a href=https://www.linkedin.com/in/crystalmercier target="_blank" rel="noopener">
+                  <span><i class="fab fa-linkedin"></i></span> <span>Crystal Mercier</span>
+                </a></li>
+              
+            
+          </ul>
+        </div>
+        
+        
+        
+          
+          <div class="col-md-4 col-sm-12">
+            <p>Stay up to date with email notification</p>
+            
+              <form method='post' action='https://blogtrottr.com'>
+              <div class="form-group">
+              <input type='email' class="form-control" name='btr_email' placeholder="Enter email"/><br />
+              <input type='hidden' name='btr_url' value='https://example.org//index.xml' />
+              <input type='hidden' name='schedule_type' value='1' />
+              <small id="emailHelp" class="form-text text-muted">By entering your email address, you agree to receive the newsletter of this website.</small>
+              <button type="submit" class="btn btn-info"> Submit </button>
+              </div>
+              </form>
+            
+          </div>
+        
+      </div>
+    </div>
+    
+    
+    <hr />
+    <div class="container">
+      <div class="row text-left">
+        <div class="col-md-4">
+          <a id="theme" href="https://github.com/hugo-toha/toha" target="_blank" rel="noopener">
+            <img src="/images/theme-logo_hu8376fd15465fef26ffe66b6bcf0ca686_13669_32x0_resize_box_3.png" alt="Toha Theme Logo">
+            Toha
+          </a>
+        </div>
+        <div class="col-md-4 text-center">© 2024 Copyright.</div>
+        <div class="col-md-4 text-right">
+          <a id="hugo" href="https://gohugo.io/" target="_blank" rel="noopener">Powered by
+          <img
+            src="/images/hugo-logo.svg"
+            alt="Hugo Logo"
+            height="18"
+          />
+          </a>
+        </div>
+      </div>
+    </div>
+    
+  </footer>
+
+
+    <script src="/application.b8c95b66a01e532235142adb23f68467c46f29b4d385c0fed7d751dcb1e824be.js" integrity="sha256-uMlbZqAeUyI1FCrbI/aEZ8RvKbTThcD&#43;19dR3LHoJL4=" defer></script>
+
+
+    
+     
+
+    
+    
+
+</body>
+</html>

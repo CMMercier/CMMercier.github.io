@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>One Month Bug Bounty Journey Update</title>
+    <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+<link rel="stylesheet" href="/application.6053c2440fb32ef2010c84f629a987aa593a9a7ff9a82643ef43d9bbe9096d92.css" integrity="sha256-YFPCRA&#43;zLvIBDIT2KamHqlk6mn/5qCZD70PZu&#43;kJbZI=" />
+
+
+
+
+
+<meta property="og:url" content="https://example.org/posts/onemonthbb/">
+  <meta property="og:site_name" content="Crystal&#39;s Portfolio Page">
+  <meta property="og:title" content="One Month Bug Bounty Journey Update">
+  <meta property="og:description" content="One Month Bug Bounty Journey Update">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2022-03-24T00:00:00+00:00">
+    <meta property="article:modified_time" content="2022-03-24T00:00:00+00:00">
+
+    <meta name="twitter:card" content="summary"><meta name="twitter:title" content="One Month Bug Bounty Journey Update">
+<meta name="twitter:description" content="One Month Bug Bounty Journey Update">
+
+    
+    
+<meta name="description" content="One Month Bug Bounty Journey Update" />
+
+
+    
+
+    
+        
+        
+        
+
+        
+        
+
+        
+	
+		
+			<script data-goatcounter="https://lsoaw.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+    		
+        
+
+        
+        
+
+        
+        
+    
+
+
+
+
+<script>
+      theme = localStorage.getItem('darkmode:color-scheme') || 'system';
+      if (theme == 'system') {
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          theme = 'dark';
+        } else {
+          theme = 'light';
+        }
+      }
+      document.documentElement.setAttribute('data-theme', theme);
+    </script>
+  </head>
+
+  <body class="type-posts kind-page" data-spy="scroll" data-target="#TableOfContents" data-offset="80">
+    <div class="container-fluid bg-secondary wrapper">
+      
+      
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+  
+  
+    
+  
+  
+
+
+
+  
+  
+    
+  
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<nav class="navbar navbar-expand-xl top-navbar shadow " id="top-navbar">
+  <div class="container">
+    
+    <button class="navbar-toggler navbar-light" id="sidebar-toggler" type="button">
+      <i data-feather="sidebar"></i>
+    </button>
+    
+    <a class="navbar-brand" href="/">
+      
+        <img src="/images/site/main-logo_hu9df2ac3b5d10077ba06959afc947cddc_1649_42x0_resize_box_3.png" id="logo" alt="Logo">
+      Crystal&#39;s Portfolio Page</a>
+    <button
+      class="navbar-toggler navbar-light"
+      id="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#top-nav-items"
+      aria-label="menu"
+    >
+      <i data-feather="menu"></i>
+    </button>
+
+    <div class="collapse navbar-collapse dynamic-navbar" id="top-nav-items">
+      <ul class="nav navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/#home">Home</a>
+        </li>
+        
+          
+          
+            
+              
+              
+                <li class="nav-item">
+                  <a class="nav-link" href="/#about">About</a>
+                </li>
+              
+            
+            
+              
+              
+                <li class="nav-item">
+                  <a class="nav-link" href="/#skills">Skills</a>
+                </li>
+              
+            
+            
+              
+              
+                <li class="nav-item">
+                  <a class="nav-link" href="/#experiences">Experiences</a>
+                </li>
+              
+            
+            
+              
+              
+                <li class="nav-item">
+                  <a class="nav-link" href="/#education">Education</a>
+                </li>
+              
+            
+            
+              
+              
+            
+            
+              
+              
+            
+            
+              
+              
+            
+            
+          
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">More</a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                
+                  
+                    
+                    
+                  
+                  
+                    
+                    
+                  
+                  
+                    
+                    
+                  
+                  
+                    
+                    
+                  
+                  
+                    
+                    
+                      <a class="dropdown-item" href="/#recent-posts">Recent Posts</a>
+                    
+                  
+                  
+                    
+                    
+                      <a class="dropdown-item" href="/#projects">Projects</a>
+                    
+                  
+                  
+                    
+                    
+                      <a class="dropdown-item" href="/#accomplishments">Accomplishments</a>
+                    
+                  
+                  
+              </div>
+            </li>
+          
+        
+        
+          <div id="top-navbar-divider"></div>
+        
+        
+          <li class="nav-item">
+            <a class="nav-link" id="blog-link" href="/posts">Posts</a>
+          </li>
+        
+        
+          <li class="nav-item">
+            <a class="nav-link" id="note-link" href="/notes">Notes</a>
+          </li>
+        
+        
+        
+        
+          <li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle"  href="#" id="themeSelector" role="button"
+  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <img id="navbar-theme-icon-svg" class="theme-icon" src="/icons/moon-svgrepo-com.svg" width=20 alt="Dark Theme">
+</a>
+<div id="themeMenu" class="dropdown-menu dropdown-menu-icons-only" aria-labelledby="themeSelector">
+  <a class="dropdown-item nav-link" href="#" data-scheme="light">
+    <img class="theme-icon" src="/icons/sun-svgrepo-com.svg" width=20 alt="Light Theme">
+  </a>
+  <a class="dropdown-item nav-link" href="#" data-scheme="dark">
+    <img class="theme-icon" src="/icons/moon-svgrepo-com.svg" width=20 alt="Dark Theme">
+  </a>
+  <a class="dropdown-item nav-link" href="#" data-scheme="system">
+    <img class="theme-icon" src="/icons/computer-svgrepo-com.svg" width=20 alt="System Theme">
+  </a>
+</div>
+</li>
+
+        
+      </ul>
+    </div>
+  </div>
+  
+  
+    <img src="/images/site/main-logo_hu9df2ac3b5d10077ba06959afc947cddc_1649_42x0_resize_box_3.png" class="d-none" id="main-logo" alt="Logo">
+  
+  
+    <img src="/images/site/inverted-logo_hu16507d0a1a268223a19d2a540dec58be_1607_42x0_resize_box_3.png" class="d-none" id="inverted-logo" alt="Inverted Logo">
+  
+</nav>
+
+
+
+      
+      
+  <section class="sidebar-section" id="sidebar-section">
+    <div class="sidebar-holder">
+      <div class="sidebar" id="sidebar">
+        <form class="mx-auto" method="get" action="/search">
+          <input type="text" name="keyword" value="" placeholder="Search" data-search="" id="search-box" />
+        </form>
+        <div class="sidebar-tree">
+          <ul class="tree" id="tree">
+            <li id="list-heading"><a href="/posts/" data-filter="all">Posts</a></li>
+            <div class="subtree">
+                
+  
+  
+  
+  
+  
+    
+    <li><a class=" list-link" href="/posts/website-guide/" title="Build your own Hugo website">Build your own Hugo website</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class=" list-link" href="/posts/owasp-juice-shop-walkthrough/" title="OWASP Juice Shop Walkthrough">OWASP Juice Shop Walkthrough</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class=" list-link" href="/posts/adlab/" title="Setting up an Active Directory Lab">Setting up an Active Directory Lab</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class=" list-link" href="/posts/openwrt/" title="OpenWrt on Raspberry Pi 3b">OpenWrt on Raspberry Pi 3b</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class=" list-link" href="/posts/kasm/" title="Kasm Workspaces">Kasm Workspaces</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class=" list-link" href="/posts/htb-forge/" title="HTB: Writeup — Forge">HTB: Writeup — Forge</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class=" list-link" href="/posts/beginnerbb/" title="Beginner Bug Bounty Journey">Beginner Bug Bounty Journey</a></li>
+  
+
+  
+  
+  
+  
+    
+    
+  
+  
+    
+    <li><a class="active list-link" href="/posts/onemonthbb/" title="One Month Bug Bounty Journey Update">One Month Bug Bounty Journey Update</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class=" list-link" href="/posts/bbprivateinvites/" title="Bug Bounty: How to get private invites">Bug Bounty: How to get private invites</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class=" list-link" href="/posts/htbctf2022/" title="Cyber Apocalypse CTF 2022">Cyber Apocalypse CTF 2022</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class=" list-link" href="/posts/htb-pandora/" title="HTB: Writeup — Pandora">HTB: Writeup — Pandora</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class=" list-link" href="/posts/bb-phpinfo/" title="Bug Bounty: A tale of credentials listed on phpinfo">Bug Bounty: A tale of credentials listed on phpinfo</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class=" list-link" href="/posts/bb-pathtraversal/" title="Bug Bounty: Path Traversal in Snap Creek Duplicator plugin before 1.3.28 for WordPress">Bug Bounty: Path Traversal in Snap Creek Duplicator plugin before 1.3.28 for WordPress</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class=" list-link" href="/posts/ollama3installation/" title="Installing and running llama3 locally&#34;">Installing and running llama3 locally&#34;</a></li>
+  
+
+
+            </div>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+      
+      
+<section class="content-section" id="content-section">
+  <div class="content">
+    <div class="container p-0 read-area">
+      
+      <div class="hero-area col-sm-12" id="hero-area" style='background-image: url(/posts/onemonthbb/hero.png);'>
+      </div>
+
+      
+      <div class="page-content">
+        
+        <div class="author-profile ml-auto align-self-lg-center">
+          <img class="rounded-circle" src='/images/author/crystal_hu56daec2eff645d56fb53cd8db157a676_63575_120x120_fit_q75_box.jpg' alt="Author Image">
+          <h5 class="author-name">Crystal Mercier</h5>
+          <p class="text-muted">Thursday, March 24, 2022</p>
+        </div>
+        
+        
+        <div class="title">
+          <h1>One Month Bug Bounty Journey Update</h1>
+        </div>
+
+        
+
+        
+        <div class="post-content" id="post-content">
+          <h2 id="introduction">Introduction</h2>
+<p>My goal with this is to explain some of my thoughts and how they changed as I progressed and how I modified my path along the way. For we will always be learning in the field of Cybersecurity and there is no race to a finish line just finding the most time efficient path to learn as much as we can as we go. Lastly I want to mention when you feel like you are struggling and seeing everyone’s accomplishments on social media is getting you down, remember that they too struggled. Remember, Many of life’s failures are people who did not realize how close they were to success when they gave up.</p>
+<h2 id="initial-steps">Initial Steps</h2>
+<p>When I started out I had run across a few web application testing checklists and thought that was a great way to start. The one I found to be most helpful is by six2dez and is located at <a href="https://github.com/six2dez/pentest-book/blob/master/others/web-checklist.md" target="_blank" rel="noopener">https://github.com/six2dez/pentest-book/blob/master/others/web-checklist.md</a> but it is also a part of their Pentest Book of resources at <a href="https://pentestbook.six2dez.com/" target="_blank" rel="noopener">https://pentestbook.six2dez.com/</a>. So far this is the only check list that I have run across that goes as far as listing the tools used and even linking to parts of their book that give usage examples so huge thanks to six2dez!</p>
+<p>Initially I had decided that I was going to pick one program and run through the checklist the best I could while testing the tools and methods they used as well as others I could find to get a feel of what worked best for me. Also a lot of the tools and techniques that you run across in past resources will be outdated but are still a good guideline. I worked through the recon scopes of the list first, it’s very important to always begin on your target with a solid recon plan. But at the same time when I was going through initial recon on my single target I was testing out vulnerability scanners on it and other targets.</p>
+<h2 id="scanner-approach">Scanner Approach</h2>
+<p>On the side I have been running tools for a few reasons. I wished to discover which ones worked best and also to get some experience finding vulnerabilities in the wild. Investigating templates and doing further research online whenever there was a discovery was the most fun learning experience to me. Although everything that I have found this way has either been a false positive, already reported, or a disclosure program that does not reward cash. But there are a few real values in this approach still.</p>
+<p>Firstly, I learned to tell what was more likely to be a false positive or not and how to research into many new and varying vulnerability types. Also that some things things that appear to be false positives or not serious enough to report can be chained or otherwise lead to a more serious vulnerability with some time and effort.</p>
+<p>Secondly, this is free penetration testing experience. Whether its on paid or disclosure programs it is still real world experience and learning how to submit good reports even if its on disclosure only programs or only leads to duplicates will help you submit great reports to paying ones in the future that might even land you more of a reward if you impress them enough!</p>
+<h2 id="manual-approach">Manual Approach</h2>
+<p>My approach has changed quite a bit since I first started. Currently what I am trying out Portswigger Academy, <a href="https://portswigger.net/web-security/all-materials" target="_blank" rel="noopener">https://portswigger.net/web-security/all-materials</a>. This is a free learning resource that is meant to be used alongside their Burp Suite Application. It is really meant to be used alongside the paid version but whenever labs do require it they tend to give alternative methods of completion. I picked a couple programs and as I learn sections on portswigger I then go and test them out on those programs. I do suggest having more than one program to test on as this helps to see differences in responses and how the developers think.</p>
+<p>I know a lot of bug bounty hunters suggest picking a program that is wide scope and you can hunt on it longer. While there is indeed many benefits to this I feel like this approach is likely to be less successful to new hunters than in their times where there was much less competition. But I also believe having two to three programs to focus on is the best approach and that picking one with a large scope is in fact a good idea still. As for the other one or two program choices? Pick stuff you either use often or have an interest in using or learning. It’s a much more competitive field now and it’s easy to feel burned out not finding anything for long periods so have at least one program that helps keep that interest flowing!</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Manually picking a target or targets to test on for an extended period of time and diving in to your favorite learning resource (portswigger, pentesterlab, bugbountyhunter, etc.) will be the best path to finding undiscovered high impact vulnerabilities. If you are able to put all your time into this method without feeling burned out it is probably the best choice to focus most if not all your energy.</p>
+<p>While automated vulnerability scanners can help you get experience in reporting and digging into specific CVEs (which I find to be the most fun so far and a good distraction when I am feeling stressed or burned out). Most bug bounty programs however frown on the use of vulnerability scanners as they really are heavy on traffic and they have likely already put their systems to these tests. If you do plan on using scanners be sure that the programs you choose don’t specify not using them and make sure you follow rate limits they require and add those headers whenever possible or they will block your ip and possibly go after your VPS! As always if anyone has any recommendations I would love to hear them!</p>
+<h2 id="my-favorite-tools">My Favorite Tools</h2>
+<p>Subfinder — <a href="https://github.com/projectdiscovery/subfinder" target="_blank" rel="noopener">https://github.com/projectdiscovery/subfinder</a> The very best at passive subdomain finding. If you need to be more through of course you should use other tools as well such as amass and assetfinder. But when you want fast and effective this tool is amazing.</p>
+<p>Nuclei — <a href="https://github.com/projectdiscovery/nuclei" target="_blank" rel="noopener">https://github.com/projectdiscovery/nuclei</a> The most effective vulnerability scanner I have tried yet. Full of false positives and duplicates but lots of learning! Be sure to use headers and limited those rates as required or they will block and report you.</p>
+<p>httpx — <a href="https://github.com/projectdiscovery/httpx" target="_blank" rel="noopener">https://github.com/projectdiscovery/httpx</a> There really isn’t much this tool cant do for you in recon. Its a fast and easy to use tool for getting titles, status codes, tech detection, probing for content, IP addresses and much more including many options for filtering results. Here is a helpful guide for those interested: <a href="https://www.hackingarticles.in/a-detailed-guide-on-httpx/" target="_blank" rel="noopener">https://www.hackingarticles.in/a-detailed-guide-on-httpx/</a>.</p>
+<h2 id="recommended-resources">Recommended Resources</h2>
+<p>Portswigger</p>
+<p><a href="https://www.pentesterlab.com/exercises" target="_blank" rel="noopener">https://www.pentesterlab.com/exercises</a></p>
+<p><a href="https://www.bugbountyhunter.com/" target="_blank" rel="noopener">https://www.bugbountyhunter.com/</a></p>
+<p><a href="https://github.com/KingOfBugbounty/KingOfBugBountyTips" target="_blank" rel="noopener">https://github.com/KingOfBugbounty/KingOfBugBountyTips</a></p>
+<p><a href="https://pentestbook.six2dez.com/" target="_blank" rel="noopener">https://pentestbook.six2dez.com/</a></p>
+
+        </div>
+
+        
+        <div class="row pl-3 pr-3">
+        
+          <div class="col-md-6 share-buttons">
+          
+          </div>
+
+        
+        
+          
+            
+          
+          <div class="col-md-6 btn-improve-page">
+             
+               <a href="https://cmmercier.github.io//edit/main/content/posts/OneMonthBB/index.md" title="Improve this page" target="_blank" rel="noopener">
+            
+                <i class="fas fa-code-branch"></i>
+                Improve this page
+              </a>
+          </div>
+        
+        </div>
+
+
+
+      
+      <hr />
+        
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+    
+    
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+<div class="row next-prev-navigator">
+  
+    <div class="col-md-6 previous-article">
+      <a href="/posts/beginnerbb/" title="Beginner Bug Bounty Journey" class="btn filled-button">
+        <div><i class="fas fa-chevron-circle-left"></i> Prev</div>
+        <div class="next-prev-text">Beginner Bug Bounty Journey</div>
+      </a>
+    </div>
+  
+  
+      
+      
+        
+      
+      <div class="col-md-6 next-article">
+        <a href="/posts/bbprivateinvites/" title="Bug Bounty: How to get private invites" class="btn filled-button">
+          <div>Next <i class="fas fa-chevron-circle-right"></i></div>
+          <div class="next-prev-text">Bug Bounty: How to get private invites</div>
+        </a>
+      </div>
+    
+</div>
+
+      <hr />
+
+      
+      
+
+      
+      
+
+      </div>
+    </div>
+  </div>
+  
+  <a id="scroll-to-top" class="btn"  data-toggle="tooltip" data-placement="left" title="Scroll to top">
+    <i class="fas fa-chevron-circle-up"></i>
+  </a>
+</section>
+
+
+      
+      
+  <section class="toc-section" id="toc-section">
+    
+    <div class="toc-holder">
+      <h5 class="text-center pl-3">Table of Contents</h5>
+      <hr>
+      <div class="toc">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#initial-steps">Initial Steps</a></li>
+    <li><a href="#scanner-approach">Scanner Approach</a></li>
+    <li><a href="#manual-approach">Manual Approach</a></li>
+    <li><a href="#conclusion">Conclusion</a></li>
+    <li><a href="#my-favorite-tools">My Favorite Tools</a></li>
+    <li><a href="#recommended-resources">Recommended Resources</a></li>
+  </ul>
+</nav>
+      </div>
+    </div>
+    
+  </section>
+
+    </div>
+
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+
+  
+  
+    
+    
+      
+    
+  
+
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+    
+  
+  
+
+  
+  
+  
+
+  <footer id="footer" class="container-fluid text-center align-content-center footer pb-2">
+    <div class="container pt-5">
+      <div class="row text-left">
+        
+        <div class="col-md-4 col-sm-12">
+          <h5>Navigation</h5>
+          
+          <ul>
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="https://example.org/#about">About</a>
+                </li>
+              
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="https://example.org/#skills">Skills</a>
+                </li>
+              
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="https://example.org/#experiences">Experiences</a>
+                </li>
+              
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="https://example.org/#education">Education</a>
+                </li>
+              
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="https://example.org/#recent-posts">Recent Posts</a>
+                </li>
+              
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="https://example.org/#projects">Projects</a>
+                </li>
+              
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="https://example.org/#accomplishments">Accomplishments</a>
+                </li>
+              
+              
+            
+              
+            
+          </ul>
+          
+        </div>
+        
+        
+        <div class="col-md-4 col-sm-12">
+          <h5>Contact me:</h5>
+          <ul>
+            
+              
+                <li><a href=mailto:cmmercier86@gmail.com target="_blank" rel="noopener">
+                  <span><i class="fas fa-envelope"></i></span> <span>cmmercier86@gmail.com</span>
+                </a></li>
+              
+            
+              
+                <li><a href=https://github.com/CMMercier target="_blank" rel="noopener">
+                  <span><i class="fab fa-github"></i></span> <span>CMMercier</span>
+                </a></li>
+              
+            
+              
+                <li><a href=https://www.linkedin.com/in/crystalmercier target="_blank" rel="noopener">
+                  <span><i class="fab fa-linkedin"></i></span> <span>Crystal Mercier</span>
+                </a></li>
+              
+            
+          </ul>
+        </div>
+        
+        
+        
+          
+          <div class="col-md-4 col-sm-12">
+            <p>Stay up to date with email notification</p>
+            
+              <form method='post' action='https://blogtrottr.com'>
+              <div class="form-group">
+              <input type='email' class="form-control" name='btr_email' placeholder="Enter email"/><br />
+              <input type='hidden' name='btr_url' value='https://example.org//index.xml' />
+              <input type='hidden' name='schedule_type' value='1' />
+              <small id="emailHelp" class="form-text text-muted">By entering your email address, you agree to receive the newsletter of this website.</small>
+              <button type="submit" class="btn btn-info"> Submit </button>
+              </div>
+              </form>
+            
+          </div>
+        
+      </div>
+    </div>
+    
+    
+    <hr />
+    <div class="container">
+      <div class="row text-left">
+        <div class="col-md-4">
+          <a id="theme" href="https://github.com/hugo-toha/toha" target="_blank" rel="noopener">
+            <img src="/images/theme-logo_hu8376fd15465fef26ffe66b6bcf0ca686_13669_32x0_resize_box_3.png" alt="Toha Theme Logo">
+            Toha
+          </a>
+        </div>
+        <div class="col-md-4 text-center">© 2024 Copyright.</div>
+        <div class="col-md-4 text-right">
+          <a id="hugo" href="https://gohugo.io/" target="_blank" rel="noopener">Powered by
+          <img
+            src="/images/hugo-logo.svg"
+            alt="Hugo Logo"
+            height="18"
+          />
+          </a>
+        </div>
+      </div>
+    </div>
+    
+  </footer>
+
+
+    <script src="/application.b8c95b66a01e532235142adb23f68467c46f29b4d385c0fed7d751dcb1e824be.js" integrity="sha256-uMlbZqAeUyI1FCrbI/aEZ8RvKbTThcD&#43;19dR3LHoJL4=" defer></script>
+
+
+    
+     
+
+    
+    
+
+</body>
+</html>

