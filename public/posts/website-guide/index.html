@@ -1,0 +1,1299 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <title>How to build your own Hugo Website and host it for free on Github Pages</title>
+    <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+<link rel="stylesheet" href="/application.82b772fb4dca3e014b67448668eed100a62c97192dc4155077b17dfd44d21faf.css" integrity="sha256-grdy&#43;03KPgFLZ0SGaO7RAKYslxktxBVQd7F9/UTSH68=" />
+
+
+
+
+
+<meta property="og:url" content="http://localhost:1313/posts/website-guide/">
+  <meta property="og:site_name" content="Crystal&#39;s Portfolio Page">
+  <meta property="og:title" content="How to build your own Hugo Website and host it for free on Github Pages">
+  <meta property="og:description" content="I walk through the steps required to get a website up and running fast and easy using Hugo and Github Pages">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2021-09-12T00:00:00+00:00">
+    <meta property="article:modified_time" content="2021-09-12T00:00:00+00:00">
+
+    <meta name="twitter:card" content="summary"><meta name="twitter:title" content="How to build your own Hugo Website and host it for free on Github Pages">
+<meta name="twitter:description" content="I walk through the steps required to get a website up and running fast and easy using Hugo and Github Pages">
+
+    
+    
+<meta name="description" content="I walk through the steps required to get a website up and running fast and easy using Hugo and Github Pages" />
+
+
+    
+
+    
+        
+        
+        
+
+        
+        
+
+        
+	
+		
+			<script data-goatcounter="https://lsoaw.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+    		
+        
+
+        
+        
+
+        
+        
+    
+
+
+
+
+<script>
+      theme = localStorage.getItem('darkmode:color-scheme') || 'system';
+      if (theme == 'system') {
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          theme = 'dark';
+        } else {
+          theme = 'light';
+        }
+      }
+      document.documentElement.setAttribute('data-theme', theme);
+    </script>
+  </head>
+
+  <body class="type-posts kind-page" data-spy="scroll" data-target="#TableOfContents" data-offset="80">
+    <div class="container-fluid bg-secondary wrapper">
+      
+      
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+  
+  
+    
+  
+  
+
+
+
+  
+  
+    
+  
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<nav class="navbar navbar-expand-xl top-navbar shadow " id="top-navbar">
+  <div class="container">
+    
+    <button class="navbar-toggler navbar-light" id="sidebar-toggler" type="button">
+      <i data-feather="sidebar"></i>
+    </button>
+    
+    <a class="navbar-brand" href="/">
+      
+        <img src="/images/site/main-logo_hu9df2ac3b5d10077ba06959afc947cddc_1649_42x0_resize_box_3.png" id="logo" alt="Logo">
+      Crystal&#39;s Portfolio Page</a>
+    <button
+      class="navbar-toggler navbar-light"
+      id="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#top-nav-items"
+      aria-label="menu"
+    >
+      <i data-feather="menu"></i>
+    </button>
+
+    <div class="collapse navbar-collapse dynamic-navbar" id="top-nav-items">
+      <ul class="nav navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/#home">Home</a>
+        </li>
+        
+          
+          
+            
+              
+              
+                <li class="nav-item">
+                  <a class="nav-link" href="/#about">About</a>
+                </li>
+              
+            
+            
+              
+              
+                <li class="nav-item">
+                  <a class="nav-link" href="/#skills">Skills</a>
+                </li>
+              
+            
+            
+              
+              
+                <li class="nav-item">
+                  <a class="nav-link" href="/#experiences">Experiences</a>
+                </li>
+              
+            
+            
+              
+              
+                <li class="nav-item">
+                  <a class="nav-link" href="/#education">Education</a>
+                </li>
+              
+            
+            
+              
+              
+            
+            
+              
+              
+            
+            
+              
+              
+            
+            
+          
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">More</a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                
+                  
+                    
+                    
+                  
+                  
+                    
+                    
+                  
+                  
+                    
+                    
+                  
+                  
+                    
+                    
+                  
+                  
+                    
+                    
+                      <a class="dropdown-item" href="/#recent-posts">Recent Posts</a>
+                    
+                  
+                  
+                    
+                    
+                      <a class="dropdown-item" href="/#projects">Projects</a>
+                    
+                  
+                  
+                    
+                    
+                      <a class="dropdown-item" href="/#accomplishments">Accomplishments</a>
+                    
+                  
+                  
+              </div>
+            </li>
+          
+        
+        
+          <div id="top-navbar-divider"></div>
+        
+        
+          <li class="nav-item">
+            <a class="nav-link" id="blog-link" href="/posts">Posts</a>
+          </li>
+        
+        
+          <li class="nav-item">
+            <a class="nav-link" id="note-link" href="/notes">Notes</a>
+          </li>
+        
+        
+        
+        
+          <li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle"  href="#" id="themeSelector" role="button"
+  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <img id="navbar-theme-icon-svg" class="theme-icon" src="/icons/moon-svgrepo-com.svg" width=20 alt="Dark Theme">
+</a>
+<div id="themeMenu" class="dropdown-menu dropdown-menu-icons-only" aria-labelledby="themeSelector">
+  <a class="dropdown-item nav-link" href="#" data-scheme="light">
+    <img class="theme-icon" src="/icons/sun-svgrepo-com.svg" width=20 alt="Light Theme">
+  </a>
+  <a class="dropdown-item nav-link" href="#" data-scheme="dark">
+    <img class="theme-icon" src="/icons/moon-svgrepo-com.svg" width=20 alt="Dark Theme">
+  </a>
+  <a class="dropdown-item nav-link" href="#" data-scheme="system">
+    <img class="theme-icon" src="/icons/computer-svgrepo-com.svg" width=20 alt="System Theme">
+  </a>
+</div>
+</li>
+
+        
+      </ul>
+    </div>
+  </div>
+  
+  
+    <img src="/images/site/main-logo_hu9df2ac3b5d10077ba06959afc947cddc_1649_42x0_resize_box_3.png" class="d-none" id="main-logo" alt="Logo">
+  
+  
+    <img src="/images/site/inverted-logo_hu16507d0a1a268223a19d2a540dec58be_1607_42x0_resize_box_3.png" class="d-none" id="inverted-logo" alt="Inverted Logo">
+  
+</nav>
+
+
+
+      
+      
+  <section class="sidebar-section" id="sidebar-section">
+    <div class="sidebar-holder">
+      <div class="sidebar" id="sidebar">
+        <form class="mx-auto" method="get" action="/search">
+          <input type="text" name="keyword" value="" placeholder="Search" data-search="" id="search-box" />
+        </form>
+        <div class="sidebar-tree">
+          <ul class="tree" id="tree">
+            <li id="list-heading"><a href="/posts/" data-filter="all">Posts</a></li>
+            <div class="subtree">
+                
+  
+  
+  
+  
+    
+    
+  
+  
+    
+    <li><a class="active list-link" href="/posts/website-guide/" title="Build your own Hugo website">Build your own Hugo website</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class=" list-link" href="/posts/owasp-juice-shop-walkthrough/" title="OWASP Juice Shop Walkthrough">OWASP Juice Shop Walkthrough</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class=" list-link" href="/posts/adlab/" title="Setting up an Active Directory Lab">Setting up an Active Directory Lab</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class=" list-link" href="/posts/openwrt/" title="OpenWrt on Raspberry Pi 3b">OpenWrt on Raspberry Pi 3b</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class=" list-link" href="/posts/kasm/" title="Kasm Workspaces">Kasm Workspaces</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class=" list-link" href="/posts/htb-forge/" title="HTB: Writeup — Forge">HTB: Writeup — Forge</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class=" list-link" href="/posts/beginnerbb/" title="Beginner Bug Bounty Journey">Beginner Bug Bounty Journey</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class=" list-link" href="/posts/onemonthbb/" title="One Month Bug Bounty Journey Update">One Month Bug Bounty Journey Update</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class=" list-link" href="/posts/bbprivateinvites/" title="Bug Bounty: How to get private invites">Bug Bounty: How to get private invites</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class=" list-link" href="/posts/htbctf2022/" title="Cyber Apocalypse CTF 2022">Cyber Apocalypse CTF 2022</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class=" list-link" href="/posts/htb-pandora/" title="HTB: Writeup — Pandora">HTB: Writeup — Pandora</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class=" list-link" href="/posts/bb-phpinfo/" title="Bug Bounty: A tale of credentials listed on phpinfo">Bug Bounty: A tale of credentials listed on phpinfo</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class=" list-link" href="/posts/bb-pathtraversal/" title="Bug Bounty: Path Traversal in Snap Creek Duplicator plugin before 1.3.28 for WordPress">Bug Bounty: Path Traversal in Snap Creek Duplicator plugin before 1.3.28 for WordPress</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class=" list-link" href="/posts/ollama3installation/" title="Installing and running llama3 locally&#34;">Installing and running llama3 locally&#34;</a></li>
+  
+
+
+            </div>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+      
+      
+<section class="content-section" id="content-section">
+  <div class="content">
+    <div class="container p-0 read-area">
+      
+      <div class="hero-area col-sm-12" id="hero-area" style='background-image: url(/posts/website-guide/hero.png);'>
+      </div>
+
+      
+      <div class="page-content">
+        
+        <div class="author-profile ml-auto align-self-lg-center">
+          <img class="rounded-circle" src='/images/author/crystal_hu56daec2eff645d56fb53cd8db157a676_63575_120x120_fit_q75_box.jpg' alt="Author Image">
+          <h5 class="author-name">Crystal Mercier</h5>
+          <p class="text-muted">Sunday, September 12, 2021</p>
+        </div>
+        
+        
+        <div class="title">
+          <h1>How to build your own Hugo Website and host it for free on Github Pages</h1>
+        </div>
+
+        
+
+        
+        <div class="post-content" id="post-content">
+          <h3 id="create-a-repository">Create a Repository</h3>
+<p>Firstly you&rsquo;ll want to create a repository for this on Github to make changes easier to update with git commit and push rather than uploading files manually every time you make changes. As this will be a Github Page you will want to name the repo as &lsquo;<your Github name>.github.io&rsquo;. Yes the .io here is important so make sure you add that.</p>
+<p>Clone this repository to your local machine and cd to it, I added mine under the users documents folder.</p>
+<h3 id="create-the-hugo-site">Create the Hugo Site</h3>
+<p>You&rsquo;ll want to get the basic Hugo site next by using the command:</p>
+<pre tabindex="0"><code>hugo new site ./ -f=yaml --force
+</code></pre><p>The <code>-f=yaml</code> makes your YAML configuration file while the <code>--force</code> command is optional and only forces Hugo to build the site if theres files already in the directory so its unnecessary if you just created the directory.</p>
+<h3 id="pick-a-theme">Pick a Theme</h3>
+<p>This part is the most important and should take you the longest. Before you go having a look around the themes first take the time to think about what you are making this site for and maybe note down what the theme needs to have and what things you&rsquo;d like it to have but aren&rsquo;t as necessary.</p>
+<p>Then head over to <a href="https://themes.gohugo.io/" target="_blank" rel="noopener">https://themes.gohugo.io/</a> and have a look at the tags on the right side. Chances are you already have in mind the kind of site you want. I was after a Portfolio site so that tag was the obvious choice for me to begin at.</p>
+<p>When you&rsquo;ve found the theme you want you will have to click download and this will bring you to the github page for that theme. From there you will need to use the command <code>git submodule add https://the-github-link.git themes/theme-name</code>. I chose Toha for my theme so my command looks like:</p>
+<pre tabindex="0"><code>git submodule add https://github.com/hugo-toha/toha.git themes/toha
+</code></pre><h3 id="run-the-site">Run the Site</h3>
+<p>You will want to test that its all working now and be able to see what changes you make appear like on the site locally before you commit those changes publicly on Github. To do this you will need to run the following command:</p>
+<pre tabindex="0"><code>hugo server -t toha -w
+</code></pre><p>Note that you will have to change <code>toha</code> to whatever theme you chose if you chose a different one. Running this opens up port 1313 by default to host your site locally and can be reached by going to http://localhost:1313.</p>
+<h3 id="configure-the-site">Configure the Site</h3>
+<p>Before you get started on the personal stuff it&rsquo;s time to configure the basics first. Remember that yaml file we had Hugo create at the start? It is <code>config.yaml</code> and it is located in the root directory of your repository. Open it up in your favorite text editor, I personally use Atom for this. You&rsquo;ll want to replace the default content with this:</p>
+<pre tabindex="0"><code>#baseURL: https://hugo-toha.github.io
+
+languageCode: en-us
+title: &#34;Crystal Mercier&#34;
+theme: &#34;toha&#34;
+
+# Manage languages
+# For any more details, you can check the official documentation: https://gohugo.io/content-management/multilingual/
+languages:
+  en:
+    languageName: English
+    weight: 1
+
+# Force a locale to be use, really useful to develop the application ! Should be commented in production, the &#34;weight&#34; should rocks.
+# DefaultContentLanguage: bn
+
+# Allow raw html in markdown file
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+  tableOfContents:
+    startLevel: 2
+    endLevel: 6
+    ordered: false
+
+# At least HTML and JSON are required for the main HTML content and
+# client-side JavaScript search
+outputs:
+  home:
+  - HTML
+  - RSS
+  - JSON
+
+# Enable Google Analytics
+googleAnalytics: UA-122321624-2
+
+# Enable global emoji support
+enableEmoji: true
+
+# Site parameters
+params:
+  # Background image of the landing page
+  background: /images/default-background.jpg
+
+  # Provide logos for your site. The inverted logo will be used in the initial
+  # transparent navbar and the main logo will be used in the non-transparent navbar.
+  logo:
+   main: /images/site/main-logo.png
+   inverted: /images/site/inverted-logo.png
+
+  # GitHub repo of your site
+  #gitRepo: https://github.com/hugo-toha/hugo-toha.github.io
+  # Default branch of your Git repo
+  #gitBranch: source
+
+  # Configure various features of this theme
+  features:
+    # Enable and configure portfolio
+    portfolio:
+      enable: true
+    # Enable and configure blog posts
+    blog:
+      enable: true
+    # Enable &amp; configure &#34;Notes&#34; features
+    notes:
+      enable: true
+
+
+  # specify whether you want to show Table of Contents in reading page
+  enableTOC: true
+
+  # If you want to use different country flag for a language, specify them here.
+  # flagOverwrites:
+  # - languageCode: en
+  #   countryCode: us
+
+  # Provide footer configuration.
+  footer:
+    enable: true
+    # You can provide your custom footer template using this option.
+    # Put your template in &#34;layouts/partials&#34; folder of your repo.
+    template: footer.html
+    # Show/hide navigation in the footer. Default is &#34;true&#34;.
+    navigation:
+      enable: true
+    # Show/hide &#34;Contact Me&#34; section in the footer. Default is &#34;true&#34;.
+    contactMe:
+      enable: true
+    # Show/hide credentials section in the footer. Default is &#34;true&#34;.
+    credentials:
+      enable: true
+
+    # Show/hide newsletter section in the footer. Default is &#34;true&#34;.
+    # Currently, it supports &#34;mailchimp&#34;.
+    newsletter:
+      enable: false
+      provider: mailchimp
+      mailchimpURL: https://github.us1.list-manage.com/subscribe/post?u=19de52a4603135aae97163fd8&amp;amp;id=094a24c76e
+
+    # Show/hide disclaimer notice in the footer. Default is &#34;false&#34;.
+    disclaimer:
+      enable: false
+</code></pre><p>If you used a different theme I suggest Googling configuration examples or complete documentation for that theme instead of just copying this. If you are using Toha theme make sure you change the <code>title:</code> and more configurable options can be found at <a href="https://toha-guides.netlify.app/posts/configuration/site-parameters/" target="_blank" rel="noopener">https://toha-guides.netlify.app/posts/configuration/site-parameters/</a>.</p>
+<h3 id="add-data">Add Data</h3>
+<p>There should be a <code>data</code> folder in the root directory and inside this folder should be another called <code>en</code> for English. If one or both of these are missing then you&rsquo;ll need to create them.</p>
+<h5 id="site">Site</h5>
+<p>First you&rsquo;ll add site information by creating a file named <code>site.yaml</code> within the <code>/data/en/</code> directory and add the following content:</p>
+<pre tabindex="0"><code># Copyright Notice
+copyright: © 2020 Copyright.
+
+# Meta description for your site.  This will help the search engines to find your site.
+description: Portfolio and personal blog of Crystal Mercier.
+</code></pre><p>Change the description to whatever you want yours to be.</p>
+<h5 id="author">Author</h5>
+<p>Next create an <code>author.yaml</code> file within the <code>/data/en/</code> directory and add the following in it:</p>
+<pre tabindex="0"><code># some information about you
+name: &#34;Crystal Mercier&#34;
+nickname: &#34;Crystal&#34;
+# greeting message before your name. it will default to &#34;Hi! I am&#34; if not provided
+greeting: &#34;Hi, My name is&#34;
+image: &#34;images/author/crystal.png&#34;
+# give your some contact information. they will be used in the footer
+contactInfo:
+  email: &#34;cmmercier86@gmail.com&#34;
+#  phone: &#34;+0123456789&#34;
+
+# some summary about what you do
+summary:
+  - I am a Bug Bounty Hunter
+  - I am a Security Researcher
+</code></pre><p>Again take some time to go over this and change the information to your own before saving.</p>
+<h4 id="sections">Sections</h4>
+<p>Now that the basics are set you will need to add a new directory named <code>sections</code> in <code>/data/en</code> and move into this new directory to add some more files.</p>
+<h5 id="about">About</h5>
+<p>Create a file named <code>about.yaml</code> and copy the following inside it:</p>
+<pre tabindex="0"><code># section information
+section:
+  name: About
+  id: about
+  enable: true
+  weight: 1
+  showOnNavbar: true
+  template: sections/about.html
+
+# your designation
+designation: Security Researcher
+# your company information
+#company:
+#  name: Example Co.
+#  url: &#34;https://www.example.com&#34;
+
+# your resume. this file path should be relative to you &#34;static&#34; directory
+resume: &#34;files/resume.pdf&#34;
+
+# a summary about you
+summary: &#39;I am a passionate about technology and fitness. I enjoy constantly learning new things and helping out others. This blog is to share helpful bits of information about various topics in IT and also topics that happen to interest me at the time. Hopefully as a visitor to the site you’ll find the blog posts here useful.&#39;
+# your social links
+# give as many as you want. use font-awesome for the icons.
+socialLinks:
+- name: Email
+  icon: &#34;fas fa-envelope&#34;
+  url: &#34;cmmercier86@gmail.com&#34;
+- name: Github
+  icon: &#34;fab fa-github&#34;
+  url: &#34;https://www.github.com/Cyb3rWulfengrav&#34;
+- name: LinkedIn
+  icon: &#34;fab fa-linkedin&#34;
+  url: &#34;https://www.linkedin.com/in/crystalmercier/&#34;
+- name: Twitter
+  icon: &#34;fab fa-twitter&#34;
+  url: &#34;https://twitter.com/CM3rc13r&#34;
+
+# your soft skills
+# give the percentage between 50 to 100 with 5 intervals.
+# currently supported colors: blue, yellow, pink, green, sky, orange
+badges:
+- type: certification
+  name: CompTIA Security+
+  url: &#34;https://www.credly.com/org/comptia/badge/comptia-security-ce-certification&#34;
+  badge: &#34;https://images.credly.com/size/340x340/images/74790a75-8451-400a-8536-92d792c5184a/CompTIA_Security_2Bce.png&#34;
+
+- type: soft-skill-indicator
+  name: Critical Thinking
+  percentage: 100
+  color: yellow
+
+- type: soft-skill-indicator
+  name: Communication
+  percentage: 100
+  color: pink
+
+- type: soft-skill-indicator
+  name: Problem Solving
+  percentage: 100
+  color: orange
+
+- type: soft-skill-indicator
+  name: Adaptability
+  percentage: 100
+  color: green
+
+- type: soft-skill-indicator
+  name: Team Work
+  percentage: 100
+  color: sky
+</code></pre><p>Again change the information before saving and exiting this file. Also the <code>resume.pdf</code> should be supplied in the <code>/static/files</code> directory of your repository.</p>
+<h5 id="skills">Skills</h5>
+<p>Next create the <code>skills.yaml</code> and copy the following:</p>
+<pre tabindex="0"><code># section information
+section:
+  name: Skills
+  id: skills
+  enable: true
+  weight: 2
+  showOnNavbar: true
+  # Can optionally hide the title in sections
+  # hideTitle: true
+# Your Skills.
+# Give a summary of you each skill in the summary section.
+skills:
+- name: Linux
+  logo: &#34;/images/sections/skills/linux.png&#34;
+  summary: &#34;Kali and Ubuntu in Virtual Environments, Basic Bash Commands, File System Hierarchy, User Account Management, Network Firewalls.&#34;
+
+- name: Windows
+  logo: &#34;/images/sections/skills/windows.png&#34;
+  summary: &#34;Hardware, Active Directory, Powershell, Supporting and Troubleshooting, Backup and Restore, Security and Networking.&#34;
+
+- name: Risk Analysis
+  logo: &#34;/images/sections/skills/riskanalysis.png&#34;
+  summary: &#34;Identifying network vulnerabilities and risks. Configuring Networks in a secure manner to protect against breaches, malware and insider threats.&#34;
+
+- name: Security Assessment Tools
+  logo: &#34;/images/sections/skills/tools.png&#34;
+  summary: &#34;Kali Linux, Nmap, Burp Suite, OWASP ZAP Proxy, SQLMap, Wireshark, Nessus, John the Ripper, Hydra..etc&#34;
+
+- name: Web Technologies
+  logo: &#34;/images/sections/skills/web.png&#34;
+  summary: &#34;HTTP protocol, HTTP status codes and headers, the basics of network security, basic understanding of web programming languages.&#34;
+
+- name: Web Hacking
+  logo: &#34;/images/sections/skills/webcode.png&#34;
+  summary: &#34;Knowledgeable in web application security vulnerabilities like XSS, CSRF, and RCE.&#34;
+</code></pre><p>Change what you need to and save before closing.</p>
+<h5 id="experiences">Experiences</h5>
+<p>Next create <code>experiences.yaml</code> and add the following:</p>
+<pre tabindex="0"><code># section information
+section:
+  name: Experiences
+  id: experiences
+  enable: false
+  weight: 3
+  showOnNavbar: true
+  # Can optionally hide the title in sections
+  # hideTitle: true
+
+# Your experiences
+experiences:
+- company:
+    name: Example Co.
+    url: &#34;https://www.example.com&#34;
+    location: Dhaka Branch
+    # company overview
+    overview: Example Co. is a widely recognized company for cloud-native development. It builds tools for Kubernetes.
+  positions:
+  - designation: Senior Software Engineer
+    start: Nov 2019
+    # don&#39;t provide end date if you are currently working there. It will be replaced by &#34;Present&#34;
+    # end: Dec 2020
+    # give some points about what was your responsibilities at the company.
+    responsibilities:
+    - Design and develop XYZ tool for ABC task
+    - Design, develop and manage disaster recovery tool [Xtool](https://www.example.com) that backup Kubernetes volumes, databases, and cluster&#39;s resource definition.
+    - Lead backend team.
+
+- company:
+    name: PreExample Co.
+    url: &#34;https://www.preexample.com&#34;
+    location: Nowhere
+    overview: PreExample Co. is a gateway company to enter into Example co. So, nothing special here.
+  positions:
+  - designation: Software Engineer
+    start: March 2016
+    end: May 2017
+    responsibilities:
+    - Write lots of example codes.
+    - Read lots of examples.
+    - See lots of example videos.
+</code></pre><p>Again Change what you need to and save before closing.</p>
+<h5 id="projects">Projects</h5>
+<p>Create <code>projects.yaml</code> and add the following to it:</p>
+<pre tabindex="0"><code># section information
+section:
+  name: Projects
+  id: projects
+  enable: true
+  weight: 6
+  showOnNavbar: true
+  # Can optionally hide the title in sections
+  # hideTitle: true
+
+# filter buttons
+#buttons:
+#- name: All
+#  filter: &#34;all&#34;
+#- name: Professional
+#  filter: &#34;professional&#34;
+#- name: Academic
+#  filter: &#34;academic&#34;
+#- name: Hobby
+#  filter: &#34;hobby&#34;
+
+# your projects
+projects:
+- name: TryHackMe Write-Ups
+  logo: /images/sections/projects/tryhackme.png
+  role: Owner
+  timeline: &#34;July 2021 - Present&#34;
+  repo: https://github.com/Cyb3rWulfengrav/THM_Write-Ups
+  #url: &#34;&#34;  # If your project is not a public repo but it has a website or any external details url then provide it here. don&#39;t provide &#34;repo&#34; and &#34;url&#34; simultaneously.
+  summary: Write-ups for various hacktivities on tryhackme.com.
+  tags: [&#34;Write-up&#34;, &#34;TryHackMe&#34;, &#34;Hacktivities&#34;]
+
+- name: HackTheBox
+  logo: /images/sections/projects/hackthebox.png
+  role: Owner
+  timeline: &#34;July 2021 - Present&#34;
+  repo: https://github.com/Cyb3rWulfengrav/HTB_Write-Ups
+  #url: &#34;&#34;
+  summary: My collection of write-ups for the site hackthebox.eu.
+  tags: [&#34;Write-up&#34;, &#34;HackTheBox&#34;,&#34;Hacktivities&#34;]
+
+#- name: Toha
+#  logo: /images/sections/projects/toha.png
+#  role: Owner
+#  timeline: &#34;Jun 2019 - Present&#34;
+#  repo: https://github.com/hossainemruz/toha
+#  summary: A Hugo theme for personal portfolio.
+#  tags: [&#34;hobby&#34;,&#34;hugo&#34;,&#34;theme&#34;,&#34;professional&#34;]
+</code></pre><p>Change what you need to and save before closing.</p>
+<h5 id="recent-posts">Recent Posts</h5>
+<p>Create the <code>recent-posts.yaml</code> file and add the following:</p>
+<pre tabindex="0"><code># section information
+section:
+  name: Recent Posts
+  id: recent-posts
+  enable: true
+  weight: 7
+  showOnNavbar: true
+</code></pre><p>The only things you might want to change here are the weight (decides what order it appears in relation to the other sections) and whether you want it on the Navbar or not.</p>
+<h5 id="achievements">Achievements</h5>
+<p>Create <code>achievements.yaml</code> file and add the following:</p>
+<pre tabindex="0"><code># section information
+section:
+  name: Achievements
+  id: achievements
+  enable: false
+  weight: 6
+  showOnNavbar: true
+  # Can optionally hide the title in sections
+  # hideTitle: true
+
+# Your achievements achievements
+achievements:
+- title: Best Presenter
+  image: /images/sections/achievements/presenter.jpg
+  summary: Best presenter in the 2020 XYZ conference.
+- title: Champion
+  image: /images/sections/achievements/sport.jpg
+  summary: Champion in cycling inter-city cycling championship 2020.
+- title: Graduation
+  image: /images/sections/achievements/graduation-cap.jpg
+  summary: Received Bachelor of Science (B.Sc.) in Computer Science and Engineer from XYZ University.
+- title: Award Winner
+  image: /images/sections/achievements/woman-winner.jpg
+  summary: Wined best paper award at IEE Conference 2020.
+</code></pre><p>Set enable to true and change the information if you wish to use this section.</p>
+<h3 id="deploy-site">Deploy site</h3>
+<p>In the root directory run the command <code>hugo</code>, this builds the site and adds the contents to the folder <code>public</code>. Move into this folder and use the following commands:</p>
+<pre tabindex="0"><code>git init
+git add .
+git remote add origin https://github.com/username/username.github.io.git
+git commit -m &#34;first commit&#34;
+git push origin master
+</code></pre><p>The <code>git push</code> step will ask for your username and password. Note that Github passwords do not seem to work for this anymore and the password is really asking for your Github personal access token. If you do not have a Github personal access token set you must do that now. When this successfully completes your new site will be up and running at <code>https://&lt;your username&gt;.github.io.</code></p>
+<h5 id="personal-access-token">Personal Access Token</h5>
+<p>Open Github and go to <code>settings</code> on the menu that appears when you click your icon. From there click on <code>Developer settings</code> and the <code>Personal access token</code> section. Click <code>Generate new token</code> and give it a descriptive name and expiration date then give it the permissions you require and click <code>Generate token</code>.</p>
+<p>Use this token as the password and your push request will complete.</p>
+<h3 id="add-posts">Add Posts</h3>
+<p>To start adding new posts to your site you have to go to <code>themes/toha/content</code> and <code>posts</code>, if <code>posts</code> directory does not exist already you must create it then <code>cd posts</code>. Now create a file named <code>_index.md</code> within <code>themes/toha/content/posts</code> and add the following:</p>
+<pre tabindex="0"><code>---
+title: Posts
+---
+</code></pre><p>Next create a directory for your first post and <code>cd</code> into this new directory. Now create a file named <code>index.md</code>, this is a Markdown file and follows the Markdown syntax. Here is a quick cheat sheet for reference <a href="https://www.markdownguide.org/cheat-sheet/" target="_blank" rel="noopener">https://www.markdownguide.org/cheat-sheet/</a>. Enter the following to the <code>index.md</code> file to get started:</p>
+<pre tabindex="0"><code>---
+title: &#34;How to build your own Hugo Website and host it for free on Github Pages&#34;
+date: 2021-09-12
+description: &#34;I walk through the steps required to get a website up and running fast and easy using Hugo and Github Pages&#34;
+menu:
+  sidebar:
+    name: Build your own Hugo website
+    identifier: Build your own Hugo website
+    weight: 1
+---
+</code></pre><p>Change the information to match your own post and begin writing your post below those <code>---</code> lines. Happy posting!</p>
+<h3 id="notes">Notes</h3>
+<p>To configure sections: <code>data/en/</code></p>
+<p>Image file location: <code>themes/toha/static/images</code></p>
+<p>Theme images location: <code>themes/toha/assets/images</code></p>
+<p>Posts location: <code>themes/toha/content/posts</code></p>
+
+        </div>
+
+        
+        <div class="row pl-3 pr-3">
+        
+          <div class="col-md-6 share-buttons">
+          
+          </div>
+
+        
+        
+          
+            
+          
+          <div class="col-md-6 btn-improve-page">
+             
+               <a href="https://cmmercier.github.io//edit/main/content/posts/Website-Guide/index.md" title="Improve this page" target="_blank" rel="noopener">
+            
+                <i class="fas fa-code-branch"></i>
+                Improve this page
+              </a>
+          </div>
+        
+        </div>
+
+
+
+      
+      <hr />
+        
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+    
+    
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+<div class="row next-prev-navigator">
+  
+  
+      
+      
+      <div class="col-md-12 next-article">
+        <a href="/posts/owasp-juice-shop-walkthrough/" title="OWASP Juice Shop Walkthrough" class="btn filled-button">
+          <div>Next <i class="fas fa-chevron-circle-right"></i></div>
+          <div class="next-prev-text">OWASP Juice Shop Walkthrough</div>
+        </a>
+      </div>
+    
+</div>
+
+      <hr />
+
+      
+      
+
+      
+      
+
+      </div>
+    </div>
+  </div>
+  
+  <a id="scroll-to-top" class="btn"  data-toggle="tooltip" data-placement="left" title="Scroll to top">
+    <i class="fas fa-chevron-circle-up"></i>
+  </a>
+</section>
+
+
+      
+      
+  <section class="toc-section" id="toc-section">
+    
+    <div class="toc-holder">
+      <h5 class="text-center pl-3">Table of Contents</h5>
+      <hr>
+      <div class="toc">
+        <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#create-a-repository">Create a Repository</a></li>
+        <li><a href="#create-the-hugo-site">Create the Hugo Site</a></li>
+        <li><a href="#pick-a-theme">Pick a Theme</a></li>
+        <li><a href="#run-the-site">Run the Site</a></li>
+        <li><a href="#configure-the-site">Configure the Site</a></li>
+        <li><a href="#add-data">Add Data</a>
+          <ul>
+            <li>
+              <ul>
+                <li><a href="#site">Site</a></li>
+                <li><a href="#author">Author</a></li>
+              </ul>
+            </li>
+            <li><a href="#sections">Sections</a>
+              <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experiences">Experiences</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#recent-posts">Recent Posts</a></li>
+                <li><a href="#achievements">Achievements</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#deploy-site">Deploy site</a>
+          <ul>
+            <li>
+              <ul>
+                <li><a href="#personal-access-token">Personal Access Token</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#add-posts">Add Posts</a></li>
+        <li><a href="#notes">Notes</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+      </div>
+    </div>
+    
+  </section>
+
+    </div>
+
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+
+  
+  
+    
+    
+      
+    
+  
+
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+    
+  
+  
+
+  
+  
+  
+
+  <footer id="footer" class="container-fluid text-center align-content-center footer pb-2">
+    <div class="container pt-5">
+      <div class="row text-left">
+        
+        <div class="col-md-4 col-sm-12">
+          <h5>Navigation</h5>
+          
+          <ul>
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="http://localhost:1313/#about">About</a>
+                </li>
+              
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="http://localhost:1313/#skills">Skills</a>
+                </li>
+              
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="http://localhost:1313/#experiences">Experiences</a>
+                </li>
+              
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="http://localhost:1313/#education">Education</a>
+                </li>
+              
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="http://localhost:1313/#recent-posts">Recent Posts</a>
+                </li>
+              
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="http://localhost:1313/#projects">Projects</a>
+                </li>
+              
+              
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="http://localhost:1313/#accomplishments">Accomplishments</a>
+                </li>
+              
+            
+              
+            
+          </ul>
+          
+        </div>
+        
+        
+        <div class="col-md-4 col-sm-12">
+          <h5>Contact me:</h5>
+          <ul>
+            
+              
+                <li><a href=mailto:cmmercier86@gmail.com target="_blank" rel="noopener">
+                  <span><i class="fas fa-envelope"></i></span> <span>cmmercier86@gmail.com</span>
+                </a></li>
+              
+            
+              
+                <li><a href=https://github.com/CMMercier target="_blank" rel="noopener">
+                  <span><i class="fab fa-github"></i></span> <span>CMMercier</span>
+                </a></li>
+              
+            
+              
+                <li><a href=https://www.linkedin.com/in/crystalmercier target="_blank" rel="noopener">
+                  <span><i class="fab fa-linkedin"></i></span> <span>Crystal Mercier</span>
+                </a></li>
+              
+            
+          </ul>
+        </div>
+        
+        
+        
+          
+          <div class="col-md-4 col-sm-12">
+            <p>Stay up to date with email notification</p>
+            
+              <form method='post' action='https://blogtrottr.com'>
+              <div class="form-group">
+              <input type='email' class="form-control" name='btr_email' placeholder="Enter email"/><br />
+              <input type='hidden' name='btr_url' value='http://localhost:1313//index.xml' />
+              <input type='hidden' name='schedule_type' value='1' />
+              <small id="emailHelp" class="form-text text-muted">By entering your email address, you agree to receive the newsletter of this website.</small>
+              <button type="submit" class="btn btn-info"> Submit </button>
+              </div>
+              </form>
+            
+          </div>
+        
+      </div>
+    </div>
+    
+    
+    <hr />
+    <div class="container">
+      <div class="row text-left">
+        <div class="col-md-4">
+          <a id="theme" href="https://github.com/hugo-toha/toha" target="_blank" rel="noopener">
+            <img src="/images/theme-logo_hu8376fd15465fef26ffe66b6bcf0ca686_13669_32x0_resize_box_3.png" alt="Toha Theme Logo">
+            Toha
+          </a>
+        </div>
+        <div class="col-md-4 text-center">© 2024 Copyright.</div>
+        <div class="col-md-4 text-right">
+          <a id="hugo" href="https://gohugo.io/" target="_blank" rel="noopener">Powered by
+          <img
+            src="/images/hugo-logo.svg"
+            alt="Hugo Logo"
+            height="18"
+          />
+          </a>
+        </div>
+      </div>
+    </div>
+    
+  </footer>
+
+
+    <script src="/application.ac9c1d3df10afed9a95d6693295d9eefd1d1a96c5705ee8c29e06118be98ed82.js" integrity="sha256-rJwdPfEK/tmpXWaTKV2e79HRqWxXBe6MKeBhGL6Y7YI=" defer></script>
+
+
+    
+     
+
+    
+    
+
+</body>
+</html>

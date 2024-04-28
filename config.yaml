@@ -1,0 +1,50 @@
+background: "images/default-background.jpg"
+
+# The inverted logo will be used in the initial transparent navbar and
+# the main logo will be used in the non-transparent navbar.
+logo:
+  main: images/main-logo.png
+  inverted: images/inverted-logo.png
+  favicon: images/favicon.png
+
+# Site parameters
+params:
+  # GitHub repo URL of your site
+  gitRepo: https://cmmercier.github.io/
+  features:
+    # Enable portfolio section
+    portfolio:
+      enable: true
+    darkMode:
+      enable: true
+      default: system
+    # Enable blog posts
+    blog:
+      enable: true
+
+    # Enable Table of contents in reading page
+    toc:
+      enable: true
+
+markup:
+  tableOfContents:
+    startLevel: 2
+    endLevel: 6
+    ordered: false
+
+analytics:
+  enable: true
+  services:
+    # GoatCounter
+    goatCounter:
+      code: lsoaw  # Not self-hosted
+      instance: https://lsoaw.goatcounter.com/  # For self-hosted you should use only one of the two methods
+
+support:
+  enable: true
+  services:
+    kofi:
+      user: lostsoulofawolf
+      text: Gib Coffee
+      textColor: '#f9fafc'
+      backgroundColor: '#248aaa'
