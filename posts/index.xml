@@ -6,7 +6,17 @@
     <description>Recent content in Posts on Crystal&#39;s Portfolio Page</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 28 Apr 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://example.org/posts/index.xml" rel="self" type="application/rss+xml" /><item>
+    <lastBuildDate>Fri, 03 May 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://example.org/posts/index.xml" rel="self" type="application/rss+xml" /><item>
+      <title>Assessing Large Language Model (LLM) Vulnerabilities</title>
+      <link>https://example.org/posts/llmvulns/</link>
+      <pubDate>Fri, 03 May 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.org/posts/llmvulns/</guid>
+      <description>In the landscape of technology advancement, Large Language Models (LLMs) stand as pivotal players, transforming our digital interactions. However, alongside their remarkable capabilities, there exists a critical need to acknowledge and address their vulnerabilities to ensure robust security measures. In this discourse, we embark on an exploration of the top vulnerabilities inherent in LLMs, providing actionable insights for detection and mitigation strategies.
+Mapping LLM API Attack Surface Understanding the API access of an LLM serves as a fundamental step in identifying potential vulnerabilities.</description>
+    </item>
+    
+    <item>
       <title>Installing and running llama3 locally</title>
       <link>https://example.org/posts/ollama3installation/</link>
       <pubDate>Sun, 28 Apr 2024 00:00:00 +0000</pubDate>
